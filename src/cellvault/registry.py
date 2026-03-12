@@ -2,8 +2,6 @@
 
 from typing import Optional
 
-from ._debug import logger
-
 
 # Canonical name table: (operation, integration) -> canonical_key
 _CANONICAL_TABLE = {
@@ -17,6 +15,14 @@ _CANONICAL_TABLE = {
     ("neighbors", None): "neighbors",
     ("neighbors", "harmony"): "neighbors_harmony",
     ("neighbors", "scanorama"): "neighbors_scanorama",
+    # Connectivities (output of neighbors)
+    ("connectivities", None): "connectivities",
+    ("connectivities", "harmony"): "connectivities_harmony",
+    ("connectivities", "scanorama"): "connectivities_scanorama",
+    # Distances (output of neighbors)
+    ("distances", None): "distances",
+    ("distances", "harmony"): "distances_harmony",
+    ("distances", "scanorama"): "distances_scanorama",
     # UMAP
     ("umap", None): "X_umap",
     ("umap", "harmony"): "X_umap_harmony",
@@ -61,7 +67,6 @@ class NameRegistry:
                 f"integration='{integration}'. "
                 f"Available operations: {sorted(set(k[0] for k in _CANONICAL_TABLE))}"
             )
-        logger.debug("NameRegistry.get: operation=%s, integration=%s → %s", operation, integration, result)
         return result
 
     @staticmethod
@@ -70,7 +75,6 @@ class NameRegistry:
         result = _REVERSE_TABLE.get(canonical_key)
         if result is None:
             raise KeyError(f"Key '{canonical_key}' is not a registered canonical name.")
-        logger.debug("NameRegistry.lookup: %s → %s", canonical_key, result)
         return result
 
     def register(self, operation: str, integration: Optional[str], canonical_key: str):

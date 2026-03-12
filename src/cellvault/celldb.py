@@ -2,9 +2,9 @@
 
 import os
 import shutil
-import time
+import warnings
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Set
 
 import anndata as ad
 import numpy as np
@@ -14,7 +14,14 @@ from scipy import sparse
 from .backend import DuckDBZarrBackend
 from .registry import NameRegistry
 from .validator import PipelineStateValidator
-from ._debug import logger
+
+
+def _convert_categoricals(df: pd.DataFrame) -> pd.DataFrame:
+    """Convert categorical columns to strings for DuckDB compatibility."""
+    for col in df.columns:
+        if isinstance(df[col].dtype, pd.CategoricalDtype):
+            df[col] = df[col].astype(str)
+    return df
 
 
 class _ObsmAccessor:
@@ -30,6 +37,11 @@ class _ObsmAccessor:
         return data
 
     def __setitem__(self, key: str, value: np.ndarray):
+        if not NameRegistry.is_canonical(key):
+            raise ValueError(
+                f"obsm key '{key}' is not a registered canonical name. "
+                f"Use CellVault tools (pca, umap, ...) or NameRegistry.register() first."
+            )
         self._backend.write_obsm(key, value)
 
     def __contains__(self, key: str) -> bool:
@@ -55,6 +67,11 @@ class _ObspAccessor:
         return data
 
     def __setitem__(self, key: str, value):
+        if not NameRegistry.is_canonical(key):
+            raise ValueError(
+                f"obsp key '{key}' is not a registered canonical name. "
+                f"Use CellVault tools (neighbors, ...) or NameRegistry.register() first."
+            )
         self._backend.write_obsp(key, value)
 
     def __contains__(self, key: str) -> bool:
@@ -96,19 +113,12 @@ class CellDB:
     @classmethod
     def from_h5ad(cls, h5ad_path: str, cvdb_path: str) -> "CellDB":
         """Convert an h5ad file to CellVault format."""
-        t0 = time.perf_counter()
         adata = ad.read_h5ad(h5ad_path)
-        result = cls.from_anndata(adata, cvdb_path)
-        logger.debug(
-            "from_h5ad: path=%s, n_obs=%d, n_vars=%d, elapsed=%.3fs",
-            h5ad_path, result.n_obs, result.n_vars, time.perf_counter() - t0,
-        )
-        return result
+        return cls.from_anndata(adata, cvdb_path)
 
     @classmethod
     def from_anndata(cls, adata: ad.AnnData, cvdb_path: str) -> "CellDB":
         """Convert an AnnData object to CellVault format."""
-        t0 = time.perf_counter()
         if os.path.exists(cvdb_path):
             shutil.rmtree(cvdb_path)
 
@@ -117,17 +127,12 @@ class CellDB:
         # obs: store index as _index column
         obs_df = adata.obs.copy()
         obs_df["_index"] = obs_df.index
-        # Convert categoricals to strings for DuckDB
-        for col in obs_df.columns:
-            if isinstance(obs_df[col].dtype, pd.CategoricalDtype):
-                obs_df[col] = obs_df[col].astype(str)
+        obs_df = _convert_categoricals(obs_df)
         backend.write_obs(obs_df)
 
         # var
         var_df = adata.var.copy()
-        for col in var_df.columns:
-            if isinstance(var_df[col].dtype, pd.CategoricalDtype):
-                var_df[col] = var_df[col].astype(str)
+        var_df = _convert_categoricals(var_df)
         backend.write_var(var_df)
 
         # X
@@ -142,40 +147,88 @@ class CellDB:
         for key in adata.obsp.keys():
             backend.write_obsp(key, adata.obsp[key])
 
-        # uns (best effort - skip non-serializable)
-        try:
-            backend.write_uns(dict(adata.uns))
-        except (TypeError, ValueError):
-            backend.write_uns({})
+        # uns: serialize what we can, warn on failures (never silently discard)
+        import warnings
+        uns_raw = dict(adata.uns)
+        uns_safe = {}
+        uns_dropped = []
+        for k, v in uns_raw.items():
+            try:
+                from .backend import _serialize_uns
+                serialized = _serialize_uns(v)
+                # Verify round-trip via JSON
+                import json
+                json.dumps(serialized)
+                uns_safe[k] = serialized
+            except (TypeError, ValueError, OverflowError) as e:
+                uns_dropped.append((k, type(v).__name__, str(e)))
+        if uns_dropped:
+            dropped_keys = [f"'{k}' ({t})" for k, t, _ in uns_dropped]
+            warnings.warn(
+                f"CellVault: {len(uns_dropped)} uns key(s) could not be serialized "
+                f"and were skipped: {', '.join(dropped_keys)}. "
+                f"Use JSON-compatible types to preserve all metadata.",
+                UserWarning,
+                stacklevel=2,
+            )
+        backend.write_uns(uns_safe)
 
         db = cls(backend)
-        logger.debug(
-            "from_anndata: path=%s, n_obs=%d, n_vars=%d, elapsed=%.3fs",
-            cvdb_path, db.n_obs, db.n_vars, time.perf_counter() - t0,
-        )
         return db
 
-    def to_anndata(self) -> ad.AnnData:
-        """Convert CellVault database to AnnData object."""
-        t0 = time.perf_counter()
-        obs = self.obs
-        var = self.var
-        X = self.X
+    def to_anndata(
+        self,
+        slots: Optional[Set[str]] = None,
+        obsm_keys: Optional[list[str]] = None,
+        obsp_keys: Optional[list[str]] = None,
+    ) -> ad.AnnData:
+        """Convert CellVault database to AnnData object.
+
+        Selective materialization: only load the data slots you need.
+
+        Args:
+            slots: Set of slots to load. Default: all.
+                   Valid: {'X', 'obs', 'var', 'obsm', 'obsp', 'uns'}
+            obsm_keys: If given, only load these obsm keys (instead of all).
+            obsp_keys: If given, only load these obsp keys (instead of all).
+
+        Examples:
+            # Full load (backward-compatible)
+            adata = cdb.to_anndata()
+
+            # PCA only needs X + obs + var
+            adata = cdb.to_anndata(slots={'X', 'obs', 'var'})
+
+            # UMAP only needs specific obsp keys + uns
+            adata = cdb.to_anndata(
+                slots={'obs', 'obsp', 'uns'},
+                obsp_keys=['connectivities', 'distances'],
+            )
+        """
+        load_all = slots is None
+        if slots is None:
+            slots = {'X', 'obs', 'var', 'obsm', 'obsp', 'uns'}
+
+        # obs/var: always need at least a stub for AnnData shape
+        obs = self.obs if 'obs' in slots else pd.DataFrame(index=range(self.n_obs))
+        var = self.var if 'var' in slots else pd.DataFrame(index=range(self.n_vars))
+        X = self.X if 'X' in slots else None
 
         adata = ad.AnnData(X=X, obs=obs, var=var)
 
-        for key in self.obsm.keys():
-            adata.obsm[key] = self.obsm[key]
+        if 'obsm' in slots:
+            keys_to_load = obsm_keys if obsm_keys is not None else self.obsm.keys()
+            for key in keys_to_load:
+                adata.obsm[key] = self.obsm[key]
 
-        for key in self.obsp.keys():
-            adata.obsp[key] = self.obsp[key]
+        if 'obsp' in slots:
+            keys_to_load = obsp_keys if obsp_keys is not None else self.obsp.keys()
+            for key in keys_to_load:
+                adata.obsp[key] = self.obsp[key]
 
-        adata.uns = self.uns
+        if 'uns' in slots:
+            adata.uns = self.uns
 
-        logger.debug(
-            "to_anndata: n_obs=%d, n_vars=%d, elapsed=%.3fs",
-            adata.n_obs, adata.n_vars, time.perf_counter() - t0,
-        )
         return adata
 
     def to_h5ad(self, path: str):
@@ -193,9 +246,7 @@ class CellDB:
     def obs(self, df: pd.DataFrame):
         obs_df = df.copy()
         obs_df["_index"] = obs_df.index
-        for col in obs_df.columns:
-            if isinstance(obs_df[col].dtype, pd.CategoricalDtype):
-                obs_df[col] = obs_df[col].astype(str)
+        obs_df = _convert_categoricals(obs_df)
         self._backend.write_obs(obs_df)
 
     @property
@@ -224,13 +275,11 @@ class CellDB:
 
     @property
     def n_obs(self) -> int:
-        obs = self.obs
-        return len(obs)
+        return self._backend.count_obs()
 
     @property
     def n_vars(self) -> int:
-        var = self.var
-        return len(var)
+        return self._backend.count_vars()
 
     @property
     def shape(self) -> tuple:

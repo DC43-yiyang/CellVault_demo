@@ -24,19 +24,12 @@ cdb = CellDB.from_anndata(adata, "my_data.cvdb")
 # Round-trip back to AnnData
 adata2 = cdb.to_anndata()
 
-# Enable debug mode
-import cellvault
-cellvault.set_debug(True)
-
 cdb.close()
 ```
 
-## Debug Mode
+## Interface Guide
 
-```python
-import cellvault
-cellvault.set_debug(True)  # or set CELLVAULT_DEBUG=1 env var
-```
+See [`INTERFACE.md`](INTERFACE.md) for a full API and usage guide.
 
 ## License
 

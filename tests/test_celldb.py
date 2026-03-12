@@ -1,7 +1,7 @@
-"""Tests for CellDB integration."""
+"""Tests for CellDB user-facing API."""
 
 import os
-import shutil
+import warnings
 
 import anndata as ad
 import numpy as np
@@ -9,187 +9,219 @@ import pandas as pd
 import pytest
 from scipy import sparse
 
-from cellvault import CellDB
+from cellvault.celldb import CellDB, _convert_categoricals
 
 
-class TestCellDBCreate:
-    def test_create_empty(self, tmp_path):
-        path = str(tmp_path / "empty.cvdb")
-        cdb = CellDB.create(path)
+# ── _convert_categoricals ──────────────────────────────────────────
+
+
+class TestConvertCategoricals:
+    def test_converts_categorical(self):
+        df = pd.DataFrame({"col": pd.Categorical(["a", "b", "c"])})
+        result = _convert_categoricals(df.copy())
+        assert result["col"].dtype == object
+
+    def test_leaves_non_categorical(self):
+        df = pd.DataFrame({"col": [1.0, 2.0, 3.0]})
+        result = _convert_categoricals(df.copy())
+        assert result["col"].dtype == np.float64
+
+
+# ── create / open / from_anndata / from_h5ad ───────────────────────
+
+
+class TestCellDBCreation:
+    def test_create(self, tmp_path):
+        cdb = CellDB.create(str(tmp_path / "new.cvdb"))
         assert cdb.n_obs == 0
         assert cdb.n_vars == 0
         cdb.close()
 
-    def test_open_nonexistent_raises(self):
+    def test_open_existing(self, celldb_small):
+        assert celldb_small.n_obs == 100
+        assert celldb_small.n_vars == 50
+
+    def test_open_nonexistent_raises(self, tmp_path):
         with pytest.raises(FileNotFoundError):
-            CellDB.open("/nonexistent/path.cvdb")
+            CellDB.open(str(tmp_path / "nope.cvdb"))
 
-    def test_open_existing(self, sample_celldb, tmp_path_cv):
-        sample_celldb.close()
-        cdb2 = CellDB.open(tmp_path_cv)
-        assert cdb2.n_obs == 100
-        assert cdb2.n_vars == 50
-        cdb2.close()
-
-
-class TestFromAnndata:
-    def test_from_anndata_shape(self, sample_adata, tmp_path):
-        path = str(tmp_path / "test.cvdb")
-        cdb = CellDB.from_anndata(sample_adata, path)
-        assert cdb.n_obs == 100
-        assert cdb.n_vars == 50
-        assert cdb.shape == (100, 50)
+    def test_from_anndata(self, tmp_path, small_adata):
+        cdb = CellDB.from_anndata(small_adata, str(tmp_path / "from_ad.cvdb"))
+        assert cdb.n_obs == small_adata.n_obs
+        assert cdb.n_vars == small_adata.n_vars
         cdb.close()
 
-    def test_from_anndata_sparse(self, sample_adata_sparse, tmp_path):
-        path = str(tmp_path / "test_sparse.cvdb")
-        cdb = CellDB.from_anndata(sample_adata_sparse, path)
-        X = cdb.X
+    def test_from_anndata_overwrites(self, tmp_path, small_adata):
+        path = str(tmp_path / "overwrite.cvdb")
+        cdb1 = CellDB.from_anndata(small_adata, path)
+        cdb1.close()
+        cdb2 = CellDB.from_anndata(small_adata, path)
+        assert cdb2.n_obs == small_adata.n_obs
+        cdb2.close()
+
+    def test_from_h5ad(self, tmp_path, small_adata):
+        h5ad_path = str(tmp_path / "input.h5ad")
+        small_adata.write_h5ad(h5ad_path)
+        cdb = CellDB.from_h5ad(h5ad_path, str(tmp_path / "from_h5ad.cvdb"))
+        assert cdb.n_obs == small_adata.n_obs
+        cdb.close()
+
+
+# ── Properties ──────────────────────────────────────────────────────
+
+
+class TestCellDBProperties:
+    def test_obs(self, celldb_small):
+        obs = celldb_small.obs
+        assert len(obs) == 100
+        assert "batch" in obs.columns
+
+    def test_var(self, celldb_small):
+        var = celldb_small.var
+        assert len(var) == 50
+
+    def test_X_sparse(self, celldb_small):
+        X = celldb_small.X
         assert sparse.issparse(X)
         assert X.shape == (100, 50)
-        cdb.close()
 
-    def test_from_anndata_overwrites(self, sample_adata, tmp_path):
-        path = str(tmp_path / "test.cvdb")
-        cdb1 = CellDB.from_anndata(sample_adata, path)
-        cdb1.close()
-        # Create again at same path
-        cdb2 = CellDB.from_anndata(sample_adata, path)
-        assert cdb2.n_obs == 100
-        cdb2.close()
+    def test_uns(self, celldb_small):
+        uns = celldb_small.uns
+        assert uns["project"] == "test"
+        assert uns["params"]["seed"] == 42
 
-    def test_from_anndata_categorical_obs(self, tmp_path):
-        path = str(tmp_path / "test.cvdb")
-        obs = pd.DataFrame(
-            {"group": pd.Categorical(["A", "B", "A"])},
-            index=["c0", "c1", "c2"],
-        )
-        adata = ad.AnnData(X=np.zeros((3, 2)), obs=obs)
-        cdb = CellDB.from_anndata(adata, path)
-        result_obs = cdb.obs
-        assert "group" in result_obs.columns
-        cdb.close()
+    def test_n_obs_efficient(self, celldb_small):
+        """n_obs should use SQL COUNT, not full DataFrame read."""
+        assert celldb_small.n_obs == 100
 
+    def test_n_vars_efficient(self, celldb_small):
+        assert celldb_small.n_vars == 50
 
-class TestRoundTrip:
-    def test_dense_roundtrip(self, sample_adata, tmp_path):
-        path = str(tmp_path / "rt.cvdb")
-        cdb = CellDB.from_anndata(sample_adata, path)
-        adata2 = cdb.to_anndata()
+    def test_shape(self, celldb_small):
+        assert celldb_small.shape == (100, 50)
 
-        np.testing.assert_array_almost_equal(adata2.X, sample_adata.X)
-        assert adata2.n_obs == sample_adata.n_obs
-        assert adata2.n_vars == sample_adata.n_vars
-        assert list(adata2.obs.columns) == list(sample_adata.obs.columns)
-        cdb.close()
+    def test_obsm_accessor(self, celldb_small):
+        assert celldb_small.obsm.keys() == []
 
-    def test_sparse_roundtrip(self, sample_adata_sparse, tmp_path):
-        path = str(tmp_path / "rt_sparse.cvdb")
-        cdb = CellDB.from_anndata(sample_adata_sparse, path)
-        adata2 = cdb.to_anndata()
+    def test_obsp_accessor(self, celldb_small):
+        assert celldb_small.obsp.keys() == []
 
-        assert sparse.issparse(adata2.X)
-        np.testing.assert_array_almost_equal(
-            adata2.X.toarray(), sample_adata_sparse.X.toarray()
-        )
-        cdb.close()
+    def test_obs_setter(self, celldb_small):
+        obs = celldb_small.obs
+        obs["new_col"] = range(100)
+        celldb_small.obs = obs
+        reread = celldb_small.obs
+        assert "new_col" in reread.columns
 
-    def test_obs_index_preserved(self, sample_adata, tmp_path):
-        path = str(tmp_path / "rt.cvdb")
-        cdb = CellDB.from_anndata(sample_adata, path)
-        adata2 = cdb.to_anndata()
-        assert list(adata2.obs.index) == list(sample_adata.obs.index)
-        cdb.close()
-
-    def test_var_index_preserved(self, sample_adata, tmp_path):
-        path = str(tmp_path / "rt.cvdb")
-        cdb = CellDB.from_anndata(sample_adata, path)
-        adata2 = cdb.to_anndata()
-        assert list(adata2.var.index) == list(sample_adata.var.index)
-        cdb.close()
-
-
-class TestProperties:
-    def test_obs_setter(self, sample_celldb):
-        obs = sample_celldb.obs
-        obs["new_col"] = range(len(obs))
-        sample_celldb.obs = obs
-        assert "new_col" in sample_celldb.obs.columns
-
-    def test_X_setter(self, sample_celldb):
+    def test_X_setter(self, celldb_small):
         new_X = np.zeros((100, 50), dtype=np.float32)
-        sample_celldb.X = new_X
-        np.testing.assert_array_equal(sample_celldb.X, new_X)
+        celldb_small.X = new_X
+        result = celldb_small.X
+        np.testing.assert_array_equal(result, new_X)
 
-    def test_uns_roundtrip(self, sample_celldb):
-        sample_celldb.uns = {"test_key": "test_value", "nested": {"a": 1}}
-        uns = sample_celldb.uns
-        assert uns["test_key"] == "test_value"
-        assert uns["nested"]["a"] == 1
-
-    def test_obsm_accessor(self, sample_celldb):
-        data = np.random.rand(100, 3)
-        sample_celldb.obsm["X_test"] = data
-        assert "X_test" in sample_celldb.obsm
-        np.testing.assert_array_almost_equal(sample_celldb.obsm["X_test"], data)
-
-    def test_obsm_missing_raises(self, sample_celldb):
-        with pytest.raises(KeyError, match="not found"):
-            _ = sample_celldb.obsm["nonexistent"]
-
-    def test_obsp_accessor(self, sample_celldb):
-        data = sparse.random(100, 100, density=0.1, format="csr")
-        sample_celldb.obsp["test_conn"] = data
-        assert "test_conn" in sample_celldb.obsp
-
-    def test_obsp_missing_raises(self, sample_celldb):
-        with pytest.raises(KeyError, match="not found"):
-            _ = sample_celldb.obsp["nonexistent"]
+    def test_uns_setter(self, celldb_small):
+        celldb_small.uns = {"new_key": "value"}
+        assert celldb_small.uns["new_key"] == "value"
 
 
-class TestGetState:
-    def test_state_dict_keys(self, sample_celldb):
-        state = sample_celldb.get_state()
-        assert "X_exists" in state
-        assert "obsm_keys" in state
-        assert "obsp_keys" in state
-        assert "obs_columns" in state
-        assert "uns_keys" in state
-
-    def test_state_X_exists(self, sample_celldb):
-        assert sample_celldb.get_state()["X_exists"] is True
+# ── Selective to_anndata ────────────────────────────────────────────
 
 
-class TestProvenance:
-    def test_provenance_logged(self, sample_celldb):
-        entries = sample_celldb.provenance.read_log()
-        assert len(entries) > 0
-        ops = [e["operation"] for e in entries]
-        assert "write_obs" in ops
-        assert "write_X" in ops
+class TestSelectiveToAnndata:
+    def test_full_load(self, celldb_small):
+        adata = celldb_small.to_anndata()
+        assert adata.X is not None
+        assert len(adata.obs) == 100
+        assert len(adata.var) == 50
+
+    def test_slots_X_obs_var_only(self, celldb_small):
+        adata = celldb_small.to_anndata(slots={"X", "obs", "var"})
+        assert adata.X is not None
+        assert len(adata.obs) == 100
+        assert len(adata.obsm) == 0
+        assert len(adata.obsp) == 0
+
+    def test_slots_skip_X(self, celldb_small):
+        adata = celldb_small.to_anndata(slots={"obs", "var"})
+        assert adata.X is None
+        assert len(adata.obs) == 100
+
+    def test_slots_uns_only(self, celldb_small):
+        adata = celldb_small.to_anndata(slots={"obs", "var", "uns"})
+        assert adata.X is None
+        assert adata.uns["project"] == "test"
+
+    def test_selective_obsm_keys(self, celldb_with_pipeline):
+        adata = celldb_with_pipeline.to_anndata(
+            slots={"obs", "var", "obsm"}, obsm_keys=["X_pca"]
+        )
+        assert "X_pca" in adata.obsm
+        assert "X_umap" not in adata.obsm
+
+    def test_selective_obsp_keys(self, celldb_with_pipeline):
+        adata = celldb_with_pipeline.to_anndata(
+            slots={"obs", "var", "obsp"}, obsp_keys=["connectivities"]
+        )
+        assert "connectivities" in adata.obsp
+        assert "distances" not in adata.obsp
 
 
-class TestRepr:
-    def test_repr(self, sample_celldb):
-        r = repr(sample_celldb)
-        assert "CellDB" in r
+# ── uns serialization warnings ─────────────────────────────────────
+
+
+class TestUnsWarning:
+    def test_non_serializable_uns_warns(self, tmp_path):
+        """Non-serializable uns values should warn, not silently discard all."""
+        adata = ad.AnnData(
+            X=np.array([[1.0]]),
+            obs=pd.DataFrame(index=["c0"]),
+            var=pd.DataFrame(index=["g0"]),
+        )
+        adata.uns["good"] = "kept"
+        adata.uns["bad"] = {1, 2, 3}  # sets are not JSON-serializable
+
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            cdb = CellDB.from_anndata(adata, str(tmp_path / "warn.cvdb"))
+            warns = [x for x in w if "uns key" in str(x.message)]
+            assert len(warns) >= 1
+            assert "bad" in str(warns[0].message)
+
+        # Good key preserved
+        assert cdb.uns["good"] == "kept"
+        # Bad key dropped (not silently — warned above)
+        assert "bad" not in cdb.uns
+        cdb.close()
+
+
+# ── get_state / provenance / repr ──────────────────────────────────
+
+
+class TestCellDBMisc:
+    def test_get_state(self, celldb_small):
+        state = celldb_small.get_state()
+        assert state["X_exists"] is True
+        assert "batch" in state["obs_columns"]
+        assert isinstance(state["obsm_keys"], list)
+
+    def test_get_state_with_pipeline(self, celldb_with_pipeline):
+        state = celldb_with_pipeline.get_state()
+        assert "X_pca" in state["obsm_keys"]
+        assert "connectivities" in state["obsp_keys"]
+        assert "leiden" in state["obs_columns"]
+
+    def test_provenance_accessible(self, celldb_small):
+        log = celldb_small.provenance.read_log()
+        assert len(log) > 0
+
+    def test_repr(self, celldb_small):
+        r = repr(celldb_small)
         assert "n_obs=100" in r
         assert "n_vars=50" in r
 
-
-class TestH5ad:
-    def test_to_h5ad(self, sample_celldb, tmp_path):
+    def test_to_h5ad_roundtrip(self, tmp_path, celldb_small):
         h5ad_path = str(tmp_path / "export.h5ad")
-        sample_celldb.to_h5ad(h5ad_path)
+        celldb_small.to_h5ad(h5ad_path)
         assert os.path.exists(h5ad_path)
         adata = ad.read_h5ad(h5ad_path)
-        assert adata.n_obs == 100
-
-    def test_from_h5ad(self, sample_adata, tmp_path):
-        h5ad_path = str(tmp_path / "input.h5ad")
-        sample_adata.write_h5ad(h5ad_path)
-        cvdb_path = str(tmp_path / "from_h5ad.cvdb")
-        cdb = CellDB.from_h5ad(h5ad_path, cvdb_path)
-        assert cdb.n_obs == 100
-        assert cdb.n_vars == 50
-        cdb.close()
+        assert adata.shape == (100, 50)

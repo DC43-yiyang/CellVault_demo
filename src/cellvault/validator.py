@@ -3,8 +3,6 @@
 import re
 from typing import Optional
 
-from ._debug import logger
-
 
 # Precondition rules: operation -> required state
 _PRECONDITIONS = {
@@ -15,22 +13,22 @@ _PRECONDITIONS = {
         "obsm": [r"X_pca.*"],  # any PCA embedding required
     },
     "umap": {
-        "obsp": [r"(connectivities|distances)"],  # neighbors graph required
+        "obsp": [r"(connectivities|distances).*"],  # neighbors graph required (namespaced)
     },
     "tsne": {
         "obsm": [r"X_pca.*"],
     },
     "leiden": {
-        "obsp": [r"(connectivities|distances)"],
+        "obsp": [r"(connectivities|distances).*"],
     },
     "louvain": {
-        "obsp": [r"(connectivities|distances)"],
+        "obsp": [r"(connectivities|distances).*"],
     },
     "rank_genes_groups": {
         "obs_columns": [r"(leiden.*|louvain.*)"],  # clustering result needed
     },
     "diffmap": {
-        "obsp": [r"(connectivities|distances)"],
+        "obsp": [r"(connectivities|distances).*"],
     },
 }
 
@@ -64,7 +62,6 @@ class PipelineStateValidator:
         """
         rules = _PRECONDITIONS.get(operation.lower())
         if rules is None:
-            logger.debug("validate(%s): no preconditions registered", operation)
             return  # no preconditions registered
 
         if rules.get("X") and not state.get("X_exists", False):
@@ -85,8 +82,6 @@ class PipelineStateValidator:
                 continue
             if not any(re.match(pattern, c) for c in available):
                 raise CellVaultStateError(operation, f"obs column matching '{pattern}'", available)
-
-        logger.debug("validate(%s): all preconditions met ✓", operation)
 
     @staticmethod
     def get_preconditions(operation: str) -> dict:

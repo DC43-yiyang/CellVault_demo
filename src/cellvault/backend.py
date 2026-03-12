@@ -3,7 +3,6 @@
 import os
 import json
 import shutil
-import time
 from pathlib import Path
 from typing import Optional
 
@@ -14,7 +13,6 @@ import zarr
 from scipy import sparse
 
 from .provenance import ProvenanceLogger, _hash_data
-from ._debug import logger
 
 
 class DuckDBZarrBackend:
@@ -51,16 +49,10 @@ class DuckDBZarrBackend:
 
     def write_obs(self, df: pd.DataFrame):
         """Write full obs dataframe to DuckDB."""
-        t0 = time.perf_counter()
         old_hash = _hash_data(self.read_obs()) if self._has_obs() else None
         self._conn.execute("DROP TABLE IF EXISTS obs")
         self._conn.execute("CREATE TABLE obs AS SELECT * FROM df")
-        new_hash = _hash_data(df)
-        self.provenance.log("write_obs", "obs", old_hash=old_hash, new_hash=new_hash)
-        logger.debug(
-            "write_obs: %d rows, hash=%s→%s, elapsed=%.3fs",
-            len(df), old_hash, new_hash, time.perf_counter() - t0,
-        )
+        self.provenance.log("write_obs", "obs", old_hash=old_hash, new_hash=_hash_data(df))
 
     def read_obs(self) -> pd.DataFrame:
         """Read full obs dataframe from DuckDB."""
@@ -97,13 +89,34 @@ class DuckDBZarrBackend:
         )
 
     def add_obs_column(self, column: str, values):
-        """Add a new column to obs."""
+        """Add a new column to obs with automatic type inference.
+
+        Supports DOUBLE, VARCHAR, INTEGER, BOOLEAN — inferred from the data.
+        """
         if not self._has_obs():
             raise ValueError("No obs table exists.")
-        df = pd.DataFrame({column: values})
-        self._conn.execute(f'ALTER TABLE obs ADD COLUMN "{column}" DOUBLE')
-        # Update values
-        temp_df = pd.DataFrame({"_val": values, "_rowid": range(len(values))})
+
+        # Infer DuckDB type from actual data
+        series = pd.Series(values)
+        if hasattr(series, "cat"):
+            # Categorical → VARCHAR
+            series = series.astype(str)
+            duck_type = "VARCHAR"
+        elif pd.api.types.is_bool_dtype(series):
+            duck_type = "BOOLEAN"
+        elif pd.api.types.is_integer_dtype(series):
+            duck_type = "BIGINT"
+        elif pd.api.types.is_float_dtype(series):
+            duck_type = "DOUBLE"
+        elif pd.api.types.is_string_dtype(series) or series.dtype == object:
+            series = series.astype(str)
+            duck_type = "VARCHAR"
+        else:
+            duck_type = "VARCHAR"
+            series = series.astype(str)
+
+        self._conn.execute(f'ALTER TABLE obs ADD COLUMN "{column}" {duck_type}')
+        temp_df = pd.DataFrame({"_val": series, "_rowid": range(len(series))})
         self._conn.execute(f"""
             UPDATE obs SET "{column}" = t._val
             FROM (SELECT _val, _rowid FROM temp_df) t
@@ -125,12 +138,30 @@ class DuckDBZarrBackend:
         cols = self._conn.execute("SELECT column_name FROM information_schema.columns WHERE table_name='obs'").fetchall()
         return [c[0] for c in cols if c[0] != "_index"]
 
+    def count_obs(self) -> int:
+        """Return row count without materializing the full DataFrame."""
+        if not self._has_obs():
+            return 0
+        return self._conn.execute("SELECT count(*) FROM obs").fetchone()[0]
+
+    def count_vars(self) -> int:
+        """Return var row count from parquet metadata without full read."""
+        if not self._var_path.exists():
+            return 0
+        # Use DuckDB to read parquet metadata — no full deserialization
+        result = self._conn.execute(
+            f"SELECT count(*) FROM read_parquet('{self._var_path}')"
+        ).fetchone()
+        return result[0]
+
     # ── var (Parquet) ────────────────────────────────────────────
 
     def write_var(self, df: pd.DataFrame):
+        old_hash = _hash_data(self.read_var()) if self._var_path.exists() else None
         df_with_idx = df.copy()
         df_with_idx["_index"] = df.index
         df_with_idx.to_parquet(str(self._var_path))
+        self.provenance.log("write_var", "var", old_hash=old_hash, new_hash=_hash_data(df))
 
     def read_var(self) -> pd.DataFrame:
         if not self._var_path.exists():
@@ -144,12 +175,15 @@ class DuckDBZarrBackend:
     # ── X (Zarr) ─────────────────────────────────────────────────
 
     def write_X(self, X):
-        """Write expression matrix to Zarr. Supports dense and sparse."""
-        t0 = time.perf_counter()
-        if self._x_path.exists():
-            shutil.rmtree(self._x_path)
+        """Write expression matrix to Zarr. Supports dense and sparse.
 
-        store = zarr.storage.LocalStore(str(self._x_path))
+        Uses atomic write-to-temp-then-rename to prevent data loss on crash.
+        """
+        tmp_path = self._x_path.with_suffix(".zarr.tmp")
+        if tmp_path.exists():
+            shutil.rmtree(tmp_path)
+
+        store = zarr.storage.LocalStore(str(tmp_path))
         root = zarr.open_group(store, mode="w")
 
         if sparse.issparse(X):
@@ -159,19 +193,15 @@ class DuckDBZarrBackend:
             root.create_array("indptr", data=np.asarray(csr.indptr))
             root.attrs["encoding_type"] = "csr_matrix"
             root.attrs["shape"] = list(csr.shape)
-            density = csr.nnz / (csr.shape[0] * csr.shape[1]) * 100
-            logger.debug(
-                "write_X: sparse csr %s, %.1f%% density, elapsed=%.3fs",
-                csr.shape, density, time.perf_counter() - t0,
-            )
         else:
             root.create_array("X", data=np.asarray(X))
             root.attrs["encoding_type"] = "dense"
             root.attrs["shape"] = list(X.shape)
-            logger.debug(
-                "write_X: dense %s, %.1f MB, elapsed=%.3fs",
-                X.shape, np.asarray(X).nbytes / 1e6, time.perf_counter() - t0,
-            )
+
+        # Atomic swap: write to tmp, then rename over old
+        if self._x_path.exists():
+            shutil.rmtree(self._x_path)
+        tmp_path.rename(self._x_path)
 
         self.provenance.log("write_X", "X", new_hash=_hash_data(X))
 
@@ -199,19 +229,19 @@ class DuckDBZarrBackend:
     # ── obsm (Zarr per key) ──────────────────────────────────────
 
     def write_obsm(self, key: str, data: np.ndarray):
-        t0 = time.perf_counter()
         key_path = self._obsm_path / f"{key}.zarr"
-        if key_path.exists():
-            shutil.rmtree(key_path)
-        store = zarr.storage.LocalStore(str(key_path))
+        tmp_path = self._obsm_path / f"{key}.zarr.tmp"
+        if tmp_path.exists():
+            shutil.rmtree(tmp_path)
+        store = zarr.storage.LocalStore(str(tmp_path))
         root = zarr.open_group(store, mode="w")
         root.create_array("data", data=np.asarray(data))
         root.attrs["shape"] = list(data.shape)
+        # Atomic swap
+        if key_path.exists():
+            shutil.rmtree(key_path)
+        tmp_path.rename(key_path)
         self.provenance.log("write_obsm", "obsm", key=key, new_hash=_hash_data(data))
-        logger.debug(
-            "write_obsm: key=%s, shape=%s, elapsed=%.3fs",
-            key, data.shape, time.perf_counter() - t0,
-        )
 
     def read_obsm(self, key: str) -> Optional[np.ndarray]:
         key_path = self._obsm_path / f"{key}.zarr"
@@ -228,11 +258,11 @@ class DuckDBZarrBackend:
     # ── obsp (Zarr per key, sparse) ──────────────────────────────
 
     def write_obsp(self, key: str, data):
-        t0 = time.perf_counter()
         key_path = self._obsp_path / f"{key}.zarr"
-        if key_path.exists():
-            shutil.rmtree(key_path)
-        store = zarr.storage.LocalStore(str(key_path))
+        tmp_path = self._obsp_path / f"{key}.zarr.tmp"
+        if tmp_path.exists():
+            shutil.rmtree(tmp_path)
+        store = zarr.storage.LocalStore(str(tmp_path))
         root = zarr.open_group(store, mode="w")
 
         if sparse.issparse(data):
@@ -247,11 +277,12 @@ class DuckDBZarrBackend:
             root.attrs["encoding_type"] = "dense"
             root.attrs["shape"] = list(data.shape)
 
+        # Atomic swap
+        if key_path.exists():
+            shutil.rmtree(key_path)
+        tmp_path.rename(key_path)
+
         self.provenance.log("write_obsp", "obsp", key=key, new_hash=_hash_data(data))
-        logger.debug(
-            "write_obsp: key=%s, elapsed=%.3fs",
-            key, time.perf_counter() - t0,
-        )
 
     def read_obsp(self, key: str):
         key_path = self._obsp_path / f"{key}.zarr"
@@ -277,8 +308,10 @@ class DuckDBZarrBackend:
     # ── uns (JSON) ───────────────────────────────────────────────
 
     def write_uns(self, uns: dict):
+        old_hash = _hash_data(str(self.read_uns())) if self._uns_path.exists() else None
         with open(self._uns_path, "w") as f:
             json.dump(_serialize_uns(uns), f, indent=2)
+        self.provenance.log("write_uns", "uns", old_hash=old_hash, new_hash=_hash_data(str(uns)))
 
     def read_uns(self) -> dict:
         if not self._uns_path.exists():

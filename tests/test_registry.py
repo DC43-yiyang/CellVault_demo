@@ -1,4 +1,4 @@
-"""Tests for NameRegistry."""
+"""Tests for NameRegistry canonical name resolution."""
 
 import pytest
 
@@ -21,47 +21,63 @@ class TestNameRegistryGet:
     def test_neighbors_default(self):
         assert NameRegistry.get("neighbors") == "neighbors"
 
+    def test_connectivities(self):
+        assert NameRegistry.get("connectivities") == "connectivities"
+
+    def test_distances(self):
+        assert NameRegistry.get("distances") == "distances"
+
     def test_case_insensitive(self):
         assert NameRegistry.get("PCA") == "X_pca"
-        assert NameRegistry.get("pca", "Harmony") == "X_pca_harmony"
+        assert NameRegistry.get("UMAP", "Harmony") == "X_umap_harmony"
 
     def test_unknown_operation_raises(self):
         with pytest.raises(KeyError, match="No canonical name"):
-            NameRegistry.get("unknown_op")
+            NameRegistry.get("nonexistent_operation")
 
     def test_unknown_integration_raises(self):
         with pytest.raises(KeyError, match="No canonical name"):
-            NameRegistry.get("pca", "unknown_integration")
+            NameRegistry.get("pca", "nonexistent_integration")
 
 
 class TestNameRegistryLookup:
-    def test_lookup_x_pca(self):
-        op, integ = NameRegistry.lookup("X_pca")
+    def test_reverse_lookup(self):
+        op, integration = NameRegistry.lookup("X_pca")
         assert op == "pca"
-        assert integ is None
+        assert integration is None
 
-    def test_lookup_x_pca_harmony(self):
-        op, integ = NameRegistry.lookup("X_pca_harmony")
+    def test_reverse_lookup_with_integration(self):
+        op, integration = NameRegistry.lookup("X_pca_harmony")
         assert op == "pca"
-        assert integ == "harmony"
+        assert integration == "harmony"
 
-    def test_lookup_unknown_raises(self):
-        with pytest.raises(KeyError, match="not a registered"):
-            NameRegistry.lookup("not_a_key")
+    def test_reverse_unknown_raises(self):
+        with pytest.raises(KeyError, match="not a registered canonical name"):
+            NameRegistry.lookup("some_random_key")
+
+
+class TestNameRegistryIsCanonical:
+    def test_canonical_key(self):
+        assert NameRegistry.is_canonical("X_pca") is True
+        assert NameRegistry.is_canonical("X_umap") is True
+        assert NameRegistry.is_canonical("leiden") is True
+
+    def test_non_canonical_key(self):
+        assert NameRegistry.is_canonical("my_custom_pca") is False
+        assert NameRegistry.is_canonical("pca_v2") is False
 
 
 class TestNameRegistryRegister:
     def test_register_custom(self):
         reg = NameRegistry()
-        reg.register("custom_op", None, "X_custom")
-        assert NameRegistry.get("custom_op") == "X_custom"
-        assert NameRegistry.lookup("X_custom") == ("custom_op", None)
+        reg.register("pca", "custom_method", "X_pca_custom")
+        assert NameRegistry.get("pca", "custom_method") == "X_pca_custom"
+        assert NameRegistry.is_canonical("X_pca_custom") is True
 
-    def test_is_canonical(self):
-        assert NameRegistry.is_canonical("X_pca")
-        assert not NameRegistry.is_canonical("not_canonical")
 
-    def test_list_all_returns_dict(self):
-        result = NameRegistry.list_all()
-        assert isinstance(result, dict)
-        assert ("pca", None) in result
+class TestNameRegistryListAll:
+    def test_list_all_not_empty(self):
+        all_names = NameRegistry.list_all()
+        assert len(all_names) > 20
+        assert ("pca", None) in all_names
+        assert all_names[("pca", None)] == "X_pca"

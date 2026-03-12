@@ -1,78 +1,99 @@
-"""Tests for PipelineStateValidator."""
+"""Tests for PipelineStateValidator precondition checks."""
 
 import pytest
 
 from cellvault.validator import PipelineStateValidator, CellVaultStateError
 
 
-class TestValidatePCA:
-    def test_pca_passes_with_X(self):
-        state = {"X_exists": True, "obsm_keys": [], "obsp_keys": [], "obs_columns": []}
-        PipelineStateValidator.validate("pca", state)  # should not raise
+def _make_state(**overrides):
+    """Helper to build a state dict with defaults."""
+    state = {
+        "X_exists": False,
+        "obsm_keys": [],
+        "obsp_keys": [],
+        "obs_columns": [],
+        "uns_keys": [],
+    }
+    state.update(overrides)
+    return state
 
-    def test_pca_fails_without_X(self):
-        state = {"X_exists": False, "obsm_keys": [], "obsp_keys": [], "obs_columns": []}
+
+class TestPCAValidation:
+    def test_pca_requires_X(self):
         with pytest.raises(CellVaultStateError, match="expression matrix"):
-            PipelineStateValidator.validate("pca", state)
+            PipelineStateValidator.validate("pca", _make_state(X_exists=False))
+
+    def test_pca_passes_with_X(self):
+        PipelineStateValidator.validate("pca", _make_state(X_exists=True))
 
 
-class TestValidateNeighbors:
-    def test_neighbors_passes_with_pca(self):
-        state = {"X_exists": True, "obsm_keys": ["X_pca"], "obsp_keys": [], "obs_columns": []}
-        PipelineStateValidator.validate("neighbors", state)
-
-    def test_neighbors_fails_without_pca(self):
-        state = {"X_exists": True, "obsm_keys": [], "obsp_keys": [], "obs_columns": []}
+class TestNeighborsValidation:
+    def test_neighbors_requires_pca(self):
         with pytest.raises(CellVaultStateError, match="obsm"):
-            PipelineStateValidator.validate("neighbors", state)
+            PipelineStateValidator.validate(
+                "neighbors", _make_state(X_exists=True, obsm_keys=[])
+            )
+
+    def test_neighbors_passes_with_pca(self):
+        PipelineStateValidator.validate(
+            "neighbors", _make_state(X_exists=True, obsm_keys=["X_pca"])
+        )
+
+    def test_neighbors_passes_with_integration_pca(self):
+        PipelineStateValidator.validate(
+            "neighbors", _make_state(X_exists=True, obsm_keys=["X_pca_harmony"])
+        )
 
 
-class TestValidateUMAP:
-    def test_umap_passes_with_neighbors(self):
-        state = {"X_exists": True, "obsm_keys": ["X_pca"], "obsp_keys": ["connectivities", "distances"], "obs_columns": []}
-        PipelineStateValidator.validate("umap", state)
+class TestUMAPValidation:
+    def test_umap_requires_neighbors(self):
+        with pytest.raises(CellVaultStateError, match="obsp"):
+            PipelineStateValidator.validate(
+                "umap", _make_state(obsm_keys=["X_pca"], obsp_keys=[])
+            )
 
-    def test_umap_fails_without_neighbors(self):
-        state = {"X_exists": True, "obsm_keys": ["X_pca"], "obsp_keys": [], "obs_columns": []}
-        with pytest.raises(CellVaultStateError):
-            PipelineStateValidator.validate("umap", state)
-
-
-class TestValidateLeiden:
-    def test_leiden_passes_with_neighbors(self):
-        state = {"X_exists": True, "obsm_keys": [], "obsp_keys": ["connectivities"], "obs_columns": []}
-        PipelineStateValidator.validate("leiden", state)
-
-    def test_leiden_fails_without_neighbors(self):
-        state = {"X_exists": True, "obsm_keys": [], "obsp_keys": [], "obs_columns": []}
-        with pytest.raises(CellVaultStateError):
-            PipelineStateValidator.validate("leiden", state)
+    def test_umap_passes_with_graph(self):
+        PipelineStateValidator.validate(
+            "umap",
+            _make_state(obsp_keys=["connectivities", "distances"]),
+        )
 
 
-class TestValidateUnknownOp:
-    def test_unknown_op_passes(self):
-        state = {"X_exists": False}
-        PipelineStateValidator.validate("unknown_op", state)  # no preconditions
+class TestLeidenValidation:
+    def test_leiden_requires_neighbors(self):
+        with pytest.raises(CellVaultStateError, match="obsp"):
+            PipelineStateValidator.validate("leiden", _make_state(obsp_keys=[]))
+
+    def test_leiden_passes_with_graph(self):
+        PipelineStateValidator.validate(
+            "leiden",
+            _make_state(obsp_keys=["connectivities", "distances"]),
+        )
 
 
-class TestStateErrorAttributes:
-    def test_error_has_attributes(self):
-        err = CellVaultStateError("pca", "X", ["a", "b"])
-        assert err.operation == "pca"
-        assert err.missing == "X"
-        assert err.available == ["a", "b"]
+class TestUnknownOperation:
+    def test_unknown_operation_passes(self):
+        """Operations without preconditions should pass silently."""
+        PipelineStateValidator.validate("unknown_op", _make_state())
 
 
-class TestHelperMethods:
-    def test_get_preconditions(self):
-        prec = PipelineStateValidator.get_preconditions("pca")
-        assert prec.get("X") is True
-
-    def test_get_preconditions_unknown(self):
-        assert PipelineStateValidator.get_preconditions("unknown") == {}
-
+class TestListOperations:
     def test_list_operations(self):
         ops = PipelineStateValidator.list_operations()
         assert "pca" in ops
+        assert "neighbors" in ops
         assert "umap" in ops
         assert "leiden" in ops
+
+    def test_get_preconditions(self):
+        rules = PipelineStateValidator.get_preconditions("pca")
+        assert rules == {"X": True}
+
+
+class TestCellVaultStateError:
+    def test_error_attributes(self):
+        err = CellVaultStateError("umap", "obsp connectivities", ["X_pca"])
+        assert err.operation == "umap"
+        assert err.missing == "obsp connectivities"
+        assert err.available == ["X_pca"]
+        assert "umap" in str(err)

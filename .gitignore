@@ -18,3 +18,7 @@ env/
 *.duckdb
 *.zarr/
 .DS_Store
+.mplconfig/
+benchmark_outputs/
+data/cache_busters/
+data/integrated.h5ad
