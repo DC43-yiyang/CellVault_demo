@@ -1,0 +1,802 @@
+{
+  "workflow": "MIBI-TOF predefined spatial summaries and local analyses",
+  "dataset": {
+    "title": "Squidpy MIBI-TOF example from Hartmann et al.",
+    "publication_doi": "10.1101/2020.01.17.909796",
+    "url": "https://exampledata.scverse.org/squidpy/mibitof.h5ad",
+    "sha256": "3f125c51695d78ed1c36d5485dc390ab400154d021f0c7715b89f8ee83978690",
+    "shape": [
+      3309,
+      36
+    ]
+  },
+  "preparation_seconds": null,
+  "scope_design": {
+    "source": "author-provided library_id nested in donor",
+    "selected_local_scopes": [
+      "point23",
+      "point8"
+    ],
+    "membership_edges": 6618,
+    "unique_cells": 3309
+  },
+  "sequential": {
+    "seconds": 0.23608190566301346,
+    "report": {
+      "source_scan_count": 3,
+      "matrix_batch_reads": 13,
+      "matrix_bytes_read": 1633792,
+      "peak_buffer_bytes": 724768,
+      "execution_waves": 2
+    }
+  },
+  "budgeted_joint": {
+    "seconds": 0.19164683017879725,
+    "report": {
+      "run_id": "054fcfc6434343ac96d38390c1f89875",
+      "task_count": 3,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 10,
+      "requested_rows": 5595,
+      "unique_rows": 4354,
+      "matrix_bytes_read": 1271408,
+      "reuse_ratio": 1.2850252641249427,
+      "elapsed_seconds": 0.19156941026449203,
+      "result_bytes": {
+        "predefined_spatial_scopes": 42618,
+        "local_point23": 1887,
+        "local_point8": 1879
+      },
+      "total_result_bytes": 46384,
+      "task_rows": {
+        "predefined_spatial_scopes": 3309,
+        "local_point23": 1241,
+        "local_point8": 1045
+      },
+      "task_memberships": {
+        "predefined_spatial_scopes": 6618,
+        "local_point23": 1241,
+        "local_point8": 1045
+      },
+      "overlap_rows": 1241,
+      "redundant_rows": 1045,
+      "memory_budget_bytes": 943718,
+      "peak_buffer_bytes": 747808,
+      "execution_waves": 2,
+      "scan_plan": [
+        {
+          "wave": 1,
+          "source": "X",
+          "features": null,
+          "n_features": 36,
+          "rows": 3309,
+          "repeated_rows": 0,
+          "batch_count": 7,
+          "aggregate_tasks": [
+            "predefined_spatial_scopes"
+          ],
+          "materialize_tasks": [
+            "local_point23"
+          ],
+          "peak_batch_bytes": 149508,
+          "peak_accumulator_bytes": 23040,
+          "peak_consumer_bytes": 724768,
+          "peak_buffer_bytes": 747808,
+          "estimated_peak_buffer_bytes": 752752
+        },
+        {
+          "wave": 2,
+          "source": "X",
+          "features": null,
+          "n_features": 36,
+          "rows": 1045,
+          "repeated_rows": 1045,
+          "batch_count": 3,
+          "aggregate_tasks": [],
+          "materialize_tasks": [
+            "local_point8"
+          ],
+          "peak_batch_bytes": 149508,
+          "peak_accumulator_bytes": 34560,
+          "peak_consumer_bytes": 612191,
+          "peak_buffer_bytes": 635231,
+          "estimated_peak_buffer_bytes": 637504
+        }
+      ],
+      "degradation_reasons": [
+        "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+      ]
+    }
+  },
+  "regional_abundance_and_expression": [
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Endothelial",
+      "n_cells": 39,
+      "fraction": 0.031426269137792104,
+      "top_mean_marker": "CD31",
+      "top_mean_value": 0.3375770520203962
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Epithelial",
+      "n_cells": 126,
+      "fraction": 0.10153102336825141,
+      "top_mean_marker": "CK",
+      "top_mean_value": 0.16618942370867387
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Fibroblast",
+      "n_cells": 16,
+      "fraction": 0.0128928283642224,
+      "top_mean_marker": "SMA",
+      "top_mean_value": 0.26423733215779066
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Imm_other",
+      "n_cells": 258,
+      "fraction": 0.20789685737308622,
+      "top_mean_marker": "CD45",
+      "top_mean_value": 0.06148255566024951
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Myeloid_CD11c",
+      "n_cells": 112,
+      "fraction": 0.09024979854955681,
+      "top_mean_marker": "vimentin",
+      "top_mean_value": 0.09875863005852027
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Myeloid_CD68",
+      "n_cells": 45,
+      "fraction": 0.0362610797743755,
+      "top_mean_marker": "CD68",
+      "top_mean_value": 0.3370788730060061
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Tcell_CD4",
+      "n_cells": 492,
+      "fraction": 0.3964544721998388,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.12901542658605983
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point23",
+      "cell_type": "Tcell_CD8",
+      "n_cells": 153,
+      "fraction": 0.1232876712328767,
+      "top_mean_marker": "CD8",
+      "top_mean_value": 0.24667128282629586
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Endothelial",
+      "n_cells": 44,
+      "fraction": 0.042105263157894736,
+      "top_mean_marker": "CD31",
+      "top_mean_value": 0.4464282992888581
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Epithelial",
+      "n_cells": 409,
+      "fraction": 0.39138755980861245,
+      "top_mean_marker": "CK",
+      "top_mean_value": 0.14167222013563394
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Fibroblast",
+      "n_cells": 118,
+      "fraction": 0.11291866028708133,
+      "top_mean_marker": "SMA",
+      "top_mean_value": 0.24315206700209843
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Imm_other",
+      "n_cells": 107,
+      "fraction": 0.10239234449760766,
+      "top_mean_marker": "CD8",
+      "top_mean_value": 0.11476546323153182
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Myeloid_CD11c",
+      "n_cells": 16,
+      "fraction": 0.015311004784688996,
+      "top_mean_marker": "CD11c",
+      "top_mean_value": 0.41241568606346846
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Myeloid_CD68",
+      "n_cells": 185,
+      "fraction": 0.17703349282296652,
+      "top_mean_marker": "CD68",
+      "top_mean_value": 0.28922615102114707
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Tcell_CD4",
+      "n_cells": 82,
+      "fraction": 0.0784688995215311,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.29517371871894815
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point8",
+      "cell_type": "Tcell_CD8",
+      "n_cells": 84,
+      "fraction": 0.08038277511961722,
+      "top_mean_marker": "CD8",
+      "top_mean_value": 0.3255114395537281
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Endothelial",
+      "n_cells": 32,
+      "fraction": 0.03128054740957967,
+      "top_mean_marker": "CD31",
+      "top_mean_value": 0.48322529601864517
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Epithelial",
+      "n_cells": 211,
+      "fraction": 0.20625610948191594,
+      "top_mean_marker": "CK",
+      "top_mean_value": 0.17598912974386985
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Fibroblast",
+      "n_cells": 136,
+      "fraction": 0.13294232649071358,
+      "top_mean_marker": "SMA",
+      "top_mean_value": 0.19911987100289585
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Imm_other",
+      "n_cells": 123,
+      "fraction": 0.12023460410557185,
+      "top_mean_marker": "CD45",
+      "top_mean_value": 0.07969319347123714
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Myeloid_CD11c",
+      "n_cells": 40,
+      "fraction": 0.039100684261974585,
+      "top_mean_marker": "CD11c",
+      "top_mean_value": 0.26778185917064545
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Myeloid_CD68",
+      "n_cells": 29,
+      "fraction": 0.028347996089931573,
+      "top_mean_marker": "CD68",
+      "top_mean_value": 0.3695824449432307
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Tcell_CD4",
+      "n_cells": 225,
+      "fraction": 0.21994134897360704,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.17230885742335683
+    },
+    {
+      "scope_level": "field_of_view",
+      "roi_id": "fov:point16",
+      "cell_type": "Tcell_CD8",
+      "n_cells": 227,
+      "fraction": 0.22189638318670576,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.27276632177134735
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Endothelial",
+      "n_cells": 39,
+      "fraction": 0.031426269137792104,
+      "top_mean_marker": "CD31",
+      "top_mean_value": 0.3375770520203962
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Epithelial",
+      "n_cells": 126,
+      "fraction": 0.10153102336825141,
+      "top_mean_marker": "CK",
+      "top_mean_value": 0.16618942370867387
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Fibroblast",
+      "n_cells": 16,
+      "fraction": 0.0128928283642224,
+      "top_mean_marker": "SMA",
+      "top_mean_value": 0.26423733215779066
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Imm_other",
+      "n_cells": 258,
+      "fraction": 0.20789685737308622,
+      "top_mean_marker": "CD45",
+      "top_mean_value": 0.06148255566024951
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Myeloid_CD11c",
+      "n_cells": 112,
+      "fraction": 0.09024979854955681,
+      "top_mean_marker": "vimentin",
+      "top_mean_value": 0.09875863005852027
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Myeloid_CD68",
+      "n_cells": 45,
+      "fraction": 0.0362610797743755,
+      "top_mean_marker": "CD68",
+      "top_mean_value": 0.3370788730060061
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Tcell_CD4",
+      "n_cells": 492,
+      "fraction": 0.3964544721998388,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.12901542658605983
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:21d7",
+      "cell_type": "Tcell_CD8",
+      "n_cells": 153,
+      "fraction": 0.1232876712328767,
+      "top_mean_marker": "CD8",
+      "top_mean_value": 0.24667128282629586
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Endothelial",
+      "n_cells": 76,
+      "fraction": 0.0367504835589942,
+      "top_mean_marker": "CD31",
+      "top_mean_value": 0.46192177159613684
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Epithelial",
+      "n_cells": 620,
+      "fraction": 0.29980657640232106,
+      "top_mean_marker": "CK",
+      "top_mean_value": 0.1533510393732755
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Fibroblast",
+      "n_cells": 254,
+      "fraction": 0.12282398452611218,
+      "top_mean_marker": "SMA",
+      "top_mean_value": 0.21957577308126558
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Imm_other",
+      "n_cells": 230,
+      "fraction": 0.11121856866537717,
+      "top_mean_marker": "CD45",
+      "top_mean_value": 0.09352382016140441
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Myeloid_CD11c",
+      "n_cells": 56,
+      "fraction": 0.027079303675048357,
+      "top_mean_marker": "CD11c",
+      "top_mean_value": 0.309105809711452
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Myeloid_CD68",
+      "n_cells": 214,
+      "fraction": 0.10348162475822051,
+      "top_mean_marker": "CD68",
+      "top_mean_value": 0.30011555533769113
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Tcell_CD4",
+      "n_cells": 307,
+      "fraction": 0.14845261121856868,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.20512618193879165
+    },
+    {
+      "scope_level": "donor_specimen",
+      "roi_id": "donor:90de",
+      "cell_type": "Tcell_CD8",
+      "n_cells": 311,
+      "fraction": 0.15038684719535783,
+      "top_mean_marker": "CD3",
+      "top_mean_value": 0.28695311212621727
+    }
+  ],
+  "local_analyses": {
+    "local_point23": {
+      "scope_id": "point23",
+      "donor": "21d7",
+      "n_cells": 1241,
+      "n_features": 36,
+      "matrix_sha256": "44644167525bc97b37a451b6c8e32dab8384f5a51ab5eaf6d78190a6ae16d51b",
+      "pca_variance_ratio": [
+        0.35947355677668846,
+        0.16638206850608311,
+        0.07373982567652893,
+        0.07031589778603801,
+        0.04976232805752278
+      ],
+      "cluster_profiles": {
+        "Endothelial": {
+          "n_cells": 39,
+          "top_markers": [
+            {
+              "marker": "CD31",
+              "mean": 0.33757707476615906
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.13859225809574127
+            },
+            {
+              "marker": "SMA",
+              "mean": 0.11964815109968185
+            }
+          ]
+        },
+        "Epithelial": {
+          "n_cells": 126,
+          "top_markers": [
+            {
+              "marker": "CK",
+              "mean": 0.16618940234184265
+            },
+            {
+              "marker": "ATP5A",
+              "mean": 0.09999949485063553
+            },
+            {
+              "marker": "NaKATPase",
+              "mean": 0.08930910378694534
+            }
+          ]
+        },
+        "Fibroblast": {
+          "n_cells": 16,
+          "top_markers": [
+            {
+              "marker": "SMA",
+              "mean": 0.26423734426498413
+            },
+            {
+              "marker": "XBP1",
+              "mean": 0.11637208610773087
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.018342426046729088
+            }
+          ]
+        },
+        "Imm_other": {
+          "n_cells": 258,
+          "top_markers": [
+            {
+              "marker": "CD45",
+              "mean": 0.06148255988955498
+            },
+            {
+              "marker": "S6p",
+              "mean": 0.0472274012863636
+            },
+            {
+              "marker": "SMA",
+              "mean": 0.04645621031522751
+            }
+          ]
+        },
+        "Myeloid_CD11c": {
+          "n_cells": 112,
+          "top_markers": [
+            {
+              "marker": "vimentin",
+              "mean": 0.09875860065221786
+            },
+            {
+              "marker": "CD11c",
+              "mean": 0.09316986799240112
+            },
+            {
+              "marker": "PKM2",
+              "mean": 0.09008101373910904
+            }
+          ]
+        },
+        "Myeloid_CD68": {
+          "n_cells": 45,
+          "top_markers": [
+            {
+              "marker": "CD68",
+              "mean": 0.33707886934280396
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.1443713754415512
+            },
+            {
+              "marker": "CD14",
+              "mean": 0.1441810429096222
+            }
+          ]
+        },
+        "Tcell_CD4": {
+          "n_cells": 492,
+          "top_markers": [
+            {
+              "marker": "CD3",
+              "mean": 0.12901537120342255
+            },
+            {
+              "marker": "CD45",
+              "mean": 0.1272438019514084
+            },
+            {
+              "marker": "HK1",
+              "mean": 0.1103484034538269
+            }
+          ]
+        },
+        "Tcell_CD8": {
+          "n_cells": 153,
+          "top_markers": [
+            {
+              "marker": "CD8",
+              "mean": 0.24667124450206757
+            },
+            {
+              "marker": "CD3",
+              "mean": 0.2357615828514099
+            },
+            {
+              "marker": "CD45",
+              "mean": 0.16670815646648407
+            }
+          ]
+        }
+      }
+    },
+    "local_point8": {
+      "scope_id": "point8",
+      "donor": "90de",
+      "n_cells": 1045,
+      "n_features": 36,
+      "matrix_sha256": "9d69902a067ed95a20534a31362714366fa636fdaf20775abe4da83140d2ca2e",
+      "pca_variance_ratio": [
+        0.2490019741653645,
+        0.1667877082576342,
+        0.07747639237823468,
+        0.05952357362261932,
+        0.05710532980346943
+      ],
+      "cluster_profiles": {
+        "Endothelial": {
+          "n_cells": 44,
+          "top_markers": [
+            {
+              "marker": "CD31",
+              "mean": 0.4464282691478729
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.1758713275194168
+            },
+            {
+              "marker": "SMA",
+              "mean": 0.10467711091041565
+            }
+          ]
+        },
+        "Epithelial": {
+          "n_cells": 409,
+          "top_markers": [
+            {
+              "marker": "CK",
+              "mean": 0.14167222380638123
+            },
+            {
+              "marker": "NaKATPase",
+              "mean": 0.11495448648929596
+            },
+            {
+              "marker": "ASCT2",
+              "mean": 0.10268618166446686
+            }
+          ]
+        },
+        "Fibroblast": {
+          "n_cells": 118,
+          "top_markers": [
+            {
+              "marker": "SMA",
+              "mean": 0.24315208196640015
+            },
+            {
+              "marker": "XBP1",
+              "mean": 0.10209406167268753
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.03584737703204155
+            }
+          ]
+        },
+        "Imm_other": {
+          "n_cells": 107,
+          "top_markers": [
+            {
+              "marker": "CD8",
+              "mean": 0.1147654727101326
+            },
+            {
+              "marker": "CD45",
+              "mean": 0.10942259430885315
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.07663300633430481
+            }
+          ]
+        },
+        "Myeloid_CD11c": {
+          "n_cells": 16,
+          "top_markers": [
+            {
+              "marker": "CD11c",
+              "mean": 0.4124157130718231
+            },
+            {
+              "marker": "HIF1A",
+              "mean": 0.27764296531677246
+            },
+            {
+              "marker": "PKM2",
+              "mean": 0.220819890499115
+            }
+          ]
+        },
+        "Myeloid_CD68": {
+          "n_cells": 185,
+          "top_markers": [
+            {
+              "marker": "CD68",
+              "mean": 0.2892261743545532
+            },
+            {
+              "marker": "CD14",
+              "mean": 0.13910798728466034
+            },
+            {
+              "marker": "vimentin",
+              "mean": 0.13353446125984192
+            }
+          ]
+        },
+        "Tcell_CD4": {
+          "n_cells": 82,
+          "top_markers": [
+            {
+              "marker": "CD3",
+              "mean": 0.295173704624176
+            },
+            {
+              "marker": "CD45",
+              "mean": 0.19336891174316406
+            },
+            {
+              "marker": "CD4",
+              "mean": 0.16439341008663177
+            }
+          ]
+        },
+        "Tcell_CD8": {
+          "n_cells": 84,
+          "top_markers": [
+            {
+              "marker": "CD8",
+              "mean": 0.32551148533821106
+            },
+            {
+              "marker": "CD3",
+              "mean": 0.325291246175766
+            },
+            {
+              "marker": "CD45",
+              "mean": 0.20292390882968903
+            }
+          ]
+        }
+      }
+    }
+  },
+  "fingerprint": {
+    "groups": 40,
+    "features": 36,
+    "group_keys_sha256": "ed8a8257ecdc283138f4488f80f2938373498eda94cbd68aa72fefffac058688",
+    "n_cells_sha256": "a816530a302e371eba2296e0a98a0e8ae9a1ef4545d5239c75257bc87027e51c",
+    "metrics": {
+      "sum": "e676429dc1441e8ada446076d9d71fb66035c636a330919daf59b14465372ebf",
+      "mean": "a0ce2a1c2df94835bcfa2153c2e61569a0aca4e9958a6a8dcf6d7bde2bc8484e",
+      "count_nonzero": "3860cdce307bac289ddaa4cd597975f55f2fdcd2f3c1bef574fc62cdd874f69a"
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "aggregate_exact": true,
+    "local_analysis_exact": true,
+    "scope_context_preserved": true,
+    "each_cell_contributes_to_fov_and_donor": true
+  },
+  "notes": [
+    "The primary scopes are author-provided fields of view and donor specimens, not synthetic rectangles.",
+    "Local PCA variance and cluster marker profiles are descriptive outputs within each selected FOV.",
+    "The memory budget covers CellVault-managed buffers rather than total process RSS."
+  ]
+}

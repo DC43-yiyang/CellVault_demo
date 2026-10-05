@@ -1,0 +1,386 @@
+{
+  "benchmark": "matched shared-control aggregation",
+  "input_h5ad": "/rsrch8/home/bcb/yniu2/yiyangNiu_working/CellVault_demo/benchmark_data/mcfarland_2020.h5ad",
+  "cellvault_path": "/rsrch8/home/bcb/yniu2/yiyangNiu_working/CellVault_demo/benchmark_outputs/mcfarland_2020/mcfarland.cvdb",
+  "dataset": {
+    "title": "McFarland et al. 2020 MIX-Seq perturbation response",
+    "doi": "10.1038/s41467-020-17440-w",
+    "url": "https://exampledata.scverse.org/pertpy/mcfarland_2020.h5ad",
+    "expected_sha256": "94a7240047b9ce6822dc2aa1e7a66c1fd8b00be842e5a95fc72cbeb6f2834d2c",
+    "observed_sha256": "94a7240047b9ce6822dc2aa1e7a66c1fd8b00be842e5a95fc72cbeb6f2834d2c",
+    "file_bytes": 1459410830
+  },
+  "preparation": null,
+  "control": "control",
+  "quality": "normal",
+  "matching_columns": [
+    "cell_line",
+    "time"
+  ],
+  "features": 512,
+  "batch_size": 4096,
+  "repeats": 5,
+  "task_audit": [
+    {
+      "treatment": "BRD3379",
+      "matched_pairs": 194,
+      "treatment_cells": 18133,
+      "control_cells": 17393
+    },
+    {
+      "treatment": "Dabrafenib",
+      "matched_pairs": 97,
+      "treatment_cells": 10867,
+      "control_cells": 7793
+    },
+    {
+      "treatment": "Navitoclax",
+      "matched_pairs": 97,
+      "treatment_cells": 8432,
+      "control_cells": 7793
+    },
+    {
+      "treatment": "AZD5591",
+      "matched_pairs": 93,
+      "treatment_cells": 6074,
+      "control_cells": 8243
+    },
+    {
+      "treatment": "JQ1",
+      "matched_pairs": 93,
+      "treatment_cells": 4658,
+      "control_cells": 8243
+    }
+  ],
+  "summary": {
+    "independent": {
+      "seconds": {
+        "median": 6.200918882153928,
+        "min": 5.996327977627516,
+        "max": 7.591570200398564
+      },
+      "matrix_batch_reads": {
+        "median": 26.0,
+        "min": 26.0,
+        "max": 26.0
+      },
+      "matrix_bytes_read": {
+        "median": 54732388.0,
+        "min": 54732388.0,
+        "max": 54732388.0
+      }
+    },
+    "joint": {
+      "seconds": {
+        "median": 4.096760894171894,
+        "min": 3.713359105400741,
+        "max": 4.241628123447299
+      },
+      "matrix_batch_reads": {
+        "median": 18.0,
+        "min": 18.0,
+        "max": 18.0
+      },
+      "matrix_bytes_read": {
+        "median": 37861640.0,
+        "min": 37861640.0,
+        "max": 37861640.0
+      }
+    },
+    "speedup": 1.513615034496018
+  },
+  "runs": [
+    {
+      "method": "independent",
+      "seconds": 7.591570200398564,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "requested_rows": 97629,
+        "unique_rows": 97629,
+        "matrix_bytes_read": 54732388
+      },
+      "repeat": 1
+    },
+    {
+      "method": "joint",
+      "seconds": 4.241628123447299,
+      "report": {
+        "run_id": "94e20e737ac54405adbf128337744bec",
+        "task_count": 5,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "requested_rows": 97629,
+        "unique_rows": 70914,
+        "matrix_bytes_read": 37861640,
+        "reuse_ratio": 1.376723919113292,
+        "elapsed_seconds": 4.22789721749723,
+        "result_bytes": {
+          "BRD3379": 3239383,
+          "Dabrafenib": 1639568,
+          "Navitoclax": 1639568,
+          "AZD5591": 1572874,
+          "JQ1": 1572114
+        },
+        "total_result_bytes": 9663507,
+        "task_rows": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "task_memberships": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "overlap_rows": 26715,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 1
+    },
+    {
+      "method": "joint",
+      "seconds": 4.182373887859285,
+      "report": {
+        "run_id": "095ec6fea22c407eb7ac68b143e60b21",
+        "task_count": 5,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "requested_rows": 97629,
+        "unique_rows": 70914,
+        "matrix_bytes_read": 37861640,
+        "reuse_ratio": 1.376723919113292,
+        "elapsed_seconds": 4.168713292106986,
+        "result_bytes": {
+          "BRD3379": 3239383,
+          "Dabrafenib": 1639568,
+          "Navitoclax": 1639568,
+          "AZD5591": 1572874,
+          "JQ1": 1572114
+        },
+        "total_result_bytes": 9663507,
+        "task_rows": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "task_memberships": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "overlap_rows": 26715,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 2
+    },
+    {
+      "method": "independent",
+      "seconds": 6.278464675880969,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "requested_rows": 97629,
+        "unique_rows": 97629,
+        "matrix_bytes_read": 54732388
+      },
+      "repeat": 2
+    },
+    {
+      "method": "independent",
+      "seconds": 6.200918882153928,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "requested_rows": 97629,
+        "unique_rows": 97629,
+        "matrix_bytes_read": 54732388
+      },
+      "repeat": 3
+    },
+    {
+      "method": "joint",
+      "seconds": 4.096760894171894,
+      "report": {
+        "run_id": "a5e2f697f54e4aafbeb10919a8db7d8d",
+        "task_count": 5,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "requested_rows": 97629,
+        "unique_rows": 70914,
+        "matrix_bytes_read": 37861640,
+        "reuse_ratio": 1.376723919113292,
+        "elapsed_seconds": 4.082367645576596,
+        "result_bytes": {
+          "BRD3379": 3239383,
+          "Dabrafenib": 1639568,
+          "Navitoclax": 1639568,
+          "AZD5591": 1572874,
+          "JQ1": 1572114
+        },
+        "total_result_bytes": 9663507,
+        "task_rows": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "task_memberships": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "overlap_rows": 26715,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 3
+    },
+    {
+      "method": "independent",
+      "seconds": 6.106481547467411,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "requested_rows": 97629,
+        "unique_rows": 97629,
+        "matrix_bytes_read": 54732388
+      },
+      "repeat": 4
+    },
+    {
+      "method": "joint",
+      "seconds": 3.713359105400741,
+      "report": {
+        "run_id": "c687fbcea7eb455caea80a40ffb943da",
+        "task_count": 5,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "requested_rows": 97629,
+        "unique_rows": 70914,
+        "matrix_bytes_read": 37861640,
+        "reuse_ratio": 1.376723919113292,
+        "elapsed_seconds": 3.699624869041145,
+        "result_bytes": {
+          "BRD3379": 3239383,
+          "Dabrafenib": 1639568,
+          "Navitoclax": 1639568,
+          "AZD5591": 1572874,
+          "JQ1": 1572114
+        },
+        "total_result_bytes": 9663507,
+        "task_rows": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "task_memberships": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "overlap_rows": 26715,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 4
+    },
+    {
+      "method": "joint",
+      "seconds": 3.8201910005882382,
+      "report": {
+        "run_id": "665f836f121442ffb252cd9cb30b1172",
+        "task_count": 5,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "requested_rows": 97629,
+        "unique_rows": 70914,
+        "matrix_bytes_read": 37861640,
+        "reuse_ratio": 1.376723919113292,
+        "elapsed_seconds": 3.805953403003514,
+        "result_bytes": {
+          "BRD3379": 3239383,
+          "Dabrafenib": 1639568,
+          "Navitoclax": 1639568,
+          "AZD5591": 1572874,
+          "JQ1": 1572114
+        },
+        "total_result_bytes": 9663507,
+        "task_rows": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "task_memberships": {
+          "BRD3379": 35526,
+          "Dabrafenib": 18660,
+          "Navitoclax": 16225,
+          "AZD5591": 14317,
+          "JQ1": 12901
+        },
+        "overlap_rows": 26715,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 5
+    },
+    {
+      "method": "independent",
+      "seconds": 5.996327977627516,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "requested_rows": 97629,
+        "unique_rows": 97629,
+        "matrix_bytes_read": 54732388
+      },
+      "repeat": 5
+    }
+  ],
+  "notes": [
+    "Controls are matched by cell_line and time before task creation.",
+    "The channel field is not a valid universal batch key here: it is missing for several drug arms and disjoint for others.",
+    "CRISPR negative controls are not merged with the drug control label.",
+    "matrix_bytes_read is decoded backend output, not physical disk I/O.",
+    "Methods are randomized within one process; this is an application check, not a cold-cache benchmark."
+  ]
+}

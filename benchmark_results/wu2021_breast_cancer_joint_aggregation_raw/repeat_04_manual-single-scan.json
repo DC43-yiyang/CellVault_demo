@@ -1,0 +1,9380 @@
+{
+  "method": "manual-single-scan",
+  "source_shape": [
+    100064,
+    28468
+  ],
+  "source": "X",
+  "matrix_dtype": "float32",
+  "integral_input": false,
+  "phase_seconds": {
+    "import": 0.8869543550536036,
+    "open": 0.36383987218141556,
+    "grouping": 0.08542671799659729,
+    "scan": 8.551898113451898,
+    "finalize": 0.08410265203565359,
+    "validation": 0.5116478288546205,
+    "close": 0.037788781337440014
+  },
+  "aggregation_seconds": 8.721427483484149,
+  "data_workflow_seconds": 9.085267355665565,
+  "total_seconds": 10.522547264583409,
+  "peak_rss_mb": 1405.8359375,
+  "access": {
+    "requested_rows": 300192,
+    "unique_rows": 100064,
+    "row_reuse_factor": 3.0,
+    "row_reuse_fraction": 0.6666666666666667,
+    "source_scans": 1,
+    "logical_matrix_batch_reads": 25,
+    "matrix_bytes_returned": 1419432908
+  },
+  "intermediate_artifact_bytes": 0,
+  "final_artifact_bytes": 570505400,
+  "tasks": {
+    "donor_major": {
+      "name": "donor_major",
+      "groupby": [
+        "donor_id",
+        "celltype_major"
+      ],
+      "n_groups": 197,
+      "n_vars": 28468,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ]
+      ],
+      "group_keys_sha256": "0f3e92f004768c6ceb8f45631289eadb3a0cf33a46f3524a97b358573e737a0c",
+      "n_cells": [
+        321,
+        185,
+        157,
+        200,
+        698,
+        21,
+        4596,
+        47,
+        203,
+        99,
+        444,
+        158,
+        51,
+        1351,
+        162,
+        106,
+        441,
+        210,
+        385,
+        72,
+        175,
+        1473,
+        55,
+        8,
+        196,
+        44,
+        37,
+        25,
+        266,
+        167,
+        110,
+        157,
+        248,
+        92,
+        85,
+        15,
+        261,
+        85,
+        122,
+        62,
+        232,
+        1465,
+        23,
+        222,
+        102,
+        479,
+        1,
+        28,
+        2672,
+        105,
+        129,
+        218,
+        50,
+        443,
+        74,
+        1512,
+        38,
+        923,
+        521,
+        535,
+        221,
+        270,
+        630,
+        2171,
+        53,
+        135,
+        2352,
+        186,
+        266,
+        83,
+        689,
+        117,
+        280,
+        4053,
+        298,
+        341,
+        18,
+        140,
+        542,
+        36,
+        178,
+        101,
+        225,
+        87,
+        91,
+        3733,
+        176,
+        681,
+        148,
+        105,
+        151,
+        128,
+        742,
+        41,
+        207,
+        182,
+        53,
+        48,
+        32,
+        68,
+        25,
+        659,
+        79,
+        101,
+        26,
+        31,
+        217,
+        33,
+        379,
+        124,
+        294,
+        181,
+        10,
+        317,
+        110,
+        116,
+        99,
+        1292,
+        212,
+        2778,
+        285,
+        1966,
+        1285,
+        51,
+        641,
+        773,
+        232,
+        1184,
+        184,
+        897,
+        191,
+        1020,
+        3504,
+        369,
+        582,
+        894,
+        217,
+        684,
+        735,
+        91,
+        48,
+        4366,
+        88,
+        245,
+        4018,
+        41,
+        206,
+        24,
+        46,
+        1453,
+        902,
+        43,
+        13,
+        1058,
+        162,
+        2795,
+        82,
+        1466,
+        494,
+        187,
+        2169,
+        122,
+        563,
+        36,
+        123,
+        36,
+        419,
+        56,
+        32,
+        813,
+        15,
+        172,
+        13,
+        1346,
+        42,
+        1167,
+        3,
+        355,
+        10,
+        177,
+        368,
+        1715,
+        1016,
+        96,
+        398,
+        469,
+        55,
+        292,
+        56,
+        102,
+        2223,
+        219,
+        255,
+        22,
+        592,
+        96,
+        396
+      ],
+      "n_cells_sha256": "8ff33a39b4d1ddf6010832756c413960106a82b536c81eff004e74245f6346ec",
+      "var_names_sha256": "810b8d9ba2b2f38c78035a7f7fe2d3b1666a4ebe7f0fd98c99bded7984e4eb56",
+      "metrics": {
+        "sum": {
+          "shape": [
+            197,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 2561623,
+          "sum": 226228878.17282173,
+          "sha256": "d9a91fa98c0cfb88d9278cdc2a4399385a27fd00530bc4a0b96fa8511d6c4dca",
+          "array_key": "task_000_sum"
+        },
+        "mean": {
+          "shape": [
+            197,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 2561623,
+          "sum": 418160.22954756924,
+          "sha256": "f78002931c63cc58ad48c9822cd4e4d8837581a3d720ab69b74a00d6f370cd63",
+          "array_key": "task_000_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            197,
+            28468
+          ],
+          "dtype": "int64",
+          "nnz": 2561623,
+          "sum": 177379069.0,
+          "sha256": "3035e8867ee2a080faa3d38faab439864ac5aa06e19b2a06871846ef08534b4a",
+          "array_key": "task_000_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 134598280
+    },
+    "donor_minor": {
+      "name": "donor_minor",
+      "groupby": [
+        "donor_id",
+        "celltype_minor"
+      ],
+      "n_groups": 611,
+      "n_vars": 28468,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3586"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3838"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3921"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3941"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3946"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3948"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID3963"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4040"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4066"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4067"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4290A"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4398"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44041"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4461"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4463"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4465"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4471"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4495"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44971"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID44991"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4513"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "B cells Naive"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4515"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID45171"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4523"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumA SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4530N"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "B cells Memory"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "CAFs MSC iCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "CAFs myCAF-like"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Basal SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Cycling"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Her2 SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cancer LumB SC"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cycling PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cycling T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Cycling_Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "DCs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial ACKR1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial CXCL12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial Lymphatic LYVE1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial RGS5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Luminal Progenitors"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Macrophage"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Mature Luminal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Monocyte"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Myoepithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "NK cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "NKT cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "PVL Differentiated"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "PVL Immature"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD4+"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "CID4535"
+          },
+          {
+            "type": "string",
+            "value": "T cells CD8+"
+          }
+        ]
+      ],
+      "group_keys_sha256": "c5fb26103fb5fe2bf9fdd349014efccb8d912738061243abadefc57d79c9385a",
+      "n_cells": [
+        289,
+        32,
+        146,
+        39,
+        56,
+        11,
+        56,
+        80,
+        38,
+        10,
+        29,
+        471,
+        95,
+        91,
+        38,
+        136,
+        130,
+        95,
+        10,
+        11,
+        2908,
+        1407,
+        45,
+        2,
+        49,
+        154,
+        4,
+        42,
+        21,
+        32,
+        48,
+        24,
+        4,
+        23,
+        319,
+        72,
+        75,
+        28,
+        82,
+        72,
+        51,
+        915,
+        291,
+        159,
+        3,
+        44,
+        62,
+        64,
+        377,
+        34,
+        18,
+        52,
+        121,
+        44,
+        10,
+        35,
+        232,
+        83,
+        60,
+        17,
+        46,
+        26,
+        175,
+        975,
+        387,
+        55,
+        5,
+        3,
+        7,
+        187,
+        2,
+        1,
+        5,
+        1,
+        24,
+        11,
+        1,
+        8,
+        28,
+        8,
+        18,
+        9,
+        12,
+        12,
+        108,
+        126,
+        24,
+        143,
+        1,
+        3,
+        2,
+        65,
+        28,
+        17,
+        108,
+        44,
+        1,
+        4,
+        175,
+        73,
+        50,
+        36,
+        84,
+        1,
+        4,
+        11,
+        13,
+        194,
+        54,
+        24,
+        4,
+        15,
+        43,
+        22,
+        6,
+        14,
+        76,
+        27,
+        58,
+        40,
+        28,
+        34,
+        232,
+        845,
+        498,
+        8,
+        15,
+        182,
+        29,
+        2,
+        8,
+        1,
+        1,
+        73,
+        24,
+        28,
+        59,
+        25,
+        18,
+        1,
+        356,
+        71,
+        273,
+        94,
+        12,
+        15,
+        1065,
+        1167,
+        102,
+        3,
+        47,
+        82,
+        4,
+        25,
+        3,
+        5,
+        98,
+        67,
+        13,
+        40,
+        31,
+        11,
+        107,
+        22,
+        271,
+        168,
+        74,
+        830,
+        528,
+        38,
+        323,
+        600,
+        2,
+        112,
+        393,
+        8,
+        6,
+        6,
+        38,
+        10,
+        31,
+        299,
+        142,
+        7,
+        87,
+        106,
+        133,
+        61,
+        47,
+        103,
+        101,
+        39,
+        402,
+        222,
+        1108,
+        885,
+        53,
+        37,
+        98,
+        1,
+        117,
+        6,
+        1827,
+        401,
+        2,
+        6,
+        3,
+        32,
+        111,
+        34,
+        2,
+        39,
+        189,
+        42,
+        48,
+        39,
+        43,
+        38,
+        353,
+        243,
+        117,
+        87,
+        193,
+        46,
+        120,
+        280,
+        3553,
+        54,
+        1,
+        8,
+        13,
+        28,
+        158,
+        72,
+        5,
+        63,
+        10,
+        249,
+        4,
+        51,
+        4,
+        50,
+        24,
+        79,
+        60,
+        345,
+        115,
+        36,
+        105,
+        73,
+        2,
+        77,
+        11,
+        80,
+        57,
+        34,
+        5,
+        5,
+        78,
+        56,
+        288,
+        129,
+        61,
+        24,
+        91,
+        2313,
+        926,
+        176,
+        376,
+        305,
+        5,
+        2,
+        19,
+        84,
+        32,
+        6,
+        26,
+        57,
+        66,
+        85,
+        18,
+        9,
+        21,
+        6,
+        66,
+        62,
+        432,
+        278,
+        17,
+        24,
+        33,
+        174,
+        8,
+        5,
+        6,
+        106,
+        42,
+        3,
+        31,
+        36,
+        6,
+        2,
+        3,
+        38,
+        10,
+        32,
+        44,
+        11,
+        6,
+        19,
+        3,
+        47,
+        2,
+        582,
+        25,
+        5,
+        10,
+        6,
+        43,
+        23,
+        2,
+        11,
+        12,
+        67,
+        10,
+        18,
+        4,
+        3,
+        19,
+        26,
+        5,
+        115,
+        75,
+        33,
+        130,
+        249,
+        22,
+        97,
+        5,
+        7,
+        10,
+        21,
+        12,
+        192,
+        52,
+        14,
+        36,
+        4,
+        112,
+        6,
+        36,
+        2,
+        5,
+        187,
+        123,
+        110,
+        64,
+        35,
+        99,
+        761,
+        531,
+        10,
+        28,
+        5,
+        169,
+        8,
+        12,
+        35,
+        2065,
+        359,
+        46,
+        308,
+        655,
+        186,
+        654,
+        52,
+        657,
+        30,
+        32,
+        868,
+        417,
+        51,
+        412,
+        159,
+        526,
+        247,
+        120,
+        112,
+        711,
+        459,
+        2,
+        12,
+        2,
+        430,
+        42,
+        99,
+        58,
+        64,
+        28,
+        34,
+        547,
+        209,
+        52,
+        31,
+        112,
+        77,
+        1020,
+        1741,
+        1250,
+        273,
+        96,
+        421,
+        161,
+        646,
+        246,
+        1,
+        1,
+        271,
+        46,
+        167,
+        106,
+        47,
+        12,
+        52,
+        442,
+        316,
+        169,
+        155,
+        124,
+        94,
+        43,
+        29,
+        62,
+        48,
+        2247,
+        1711,
+        83,
+        5,
+        66,
+        179,
+        369,
+        1583,
+        1912,
+        51,
+        103,
+        6,
+        149,
+        3,
+        23,
+        15,
+        13,
+        1,
+        12,
+        11,
+        145,
+        9,
+        35,
+        4,
+        20,
+        47,
+        20,
+        20,
+        1453,
+        470,
+        216,
+        43,
+        6,
+        7,
+        502,
+        500,
+        31,
+        14,
+        11,
+        2,
+        181,
+        147,
+        62,
+        74,
+        44,
+        44,
+        1894,
+        692,
+        205,
+        45,
+        49,
+        31,
+        597,
+        438,
+        258,
+        236,
+        91,
+        96,
+        1200,
+        927,
+        30,
+        12,
+        2,
+        20,
+        30,
+        63,
+        77,
+        27,
+        3,
+        15,
+        9,
+        276,
+        18,
+        194,
+        9,
+        41,
+        73,
+        86,
+        35,
+        36,
+        164,
+        121,
+        56,
+        17,
+        15,
+        1,
+        236,
+        567,
+        9,
+        18,
+        2,
+        21,
+        10,
+        3,
+        2,
+        17,
+        132,
+        87,
+        206,
+        10,
+        3,
+        704,
+        331,
+        26,
+        16,
+        545,
+        531,
+        67,
+        2,
+        22,
+        14,
+        11,
+        7,
+        1,
+        1,
+        1,
+        207,
+        130,
+        44,
+        12,
+        5,
+        5,
+        60,
+        47,
+        179,
+        189,
+        71,
+        15,
+        33,
+        1145,
+        451,
+        1,
+        3,
+        17,
+        573,
+        268,
+        20,
+        155,
+        207,
+        47,
+        145,
+        29,
+        46,
+        11,
+        45,
+        340,
+        129,
+        55,
+        127,
+        108,
+        56,
+        58,
+        44,
+        1,
+        195,
+        2,
+        2025,
+        10,
+        19,
+        8,
+        56,
+        44,
+        128,
+        5,
+        42,
+        7,
+        119,
+        13,
+        72,
+        2,
+        25,
+        15,
+        430,
+        152,
+        96,
+        239,
+        98
+      ],
+      "n_cells_sha256": "642658ba6576416722d4502a5653303dcb0432223f6006ecbb254311e5d96c4b",
+      "var_names_sha256": "810b8d9ba2b2f38c78035a7f7fe2d3b1666a4ebe7f0fd98c99bded7984e4eb56",
+      "metrics": {
+        "sum": {
+          "shape": [
+            611,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 5865951,
+          "sum": 226228878.17282173,
+          "sha256": "9817de089ccd013e1e21c8f5edf6cf4e8fd9bdd0535adaf15f1559861ddd37c9",
+          "array_key": "task_001_sum"
+        },
+        "mean": {
+          "shape": [
+            611,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 5865951,
+          "sum": 1351076.6966995776,
+          "sha256": "6484d2efcf6d6ff2d55ab5a26db1e450666af02e9132f8fda94eead461bd0b37",
+          "array_key": "task_001_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            611,
+            28468
+          ],
+          "dtype": "int64",
+          "nnz": 5865951,
+          "sum": 177379069.0,
+          "sha256": "c5f4860ae8b87dc5904cd711494d3791869670969a4fe5caa07cbd9d3c0930c2",
+          "array_key": "task_001_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 417459640
+    },
+    "subtype_major": {
+      "name": "subtype_major",
+      "groupby": [
+        "subtype",
+        "celltype_major"
+      ],
+      "n_groups": 27,
+      "n_vars": 28468,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "ER+"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "HER2+"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "B-cells"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "CAFs"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "Cancer Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "Endothelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "Myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "Normal Epithelial"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "PVL"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "Plasmablasts"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "TNBC"
+          },
+          {
+            "type": "string",
+            "value": "T-cells"
+          }
+        ]
+      ],
+      "group_keys_sha256": "532820ccdc4dfd3952ab588ce7e15e95df3e34496ed5be94744fa6e37a5751cc",
+      "n_cells": [
+        606,
+        2573,
+        11878,
+        5206,
+        1831,
+        2430,
+        3265,
+        631,
+        9821,
+        624,
+        1449,
+        1775,
+        1016,
+        1422,
+        968,
+        894,
+        226,
+        10937,
+        1976,
+        2551,
+        10836,
+        1383,
+        6422,
+        957,
+        1264,
+        2667,
+        14456
+      ],
+      "n_cells_sha256": "0d5b61f921af9f3a96b2f08e7465d4fb8d5450f597571a3eed8ce642b8bf04e7",
+      "var_names_sha256": "810b8d9ba2b2f38c78035a7f7fe2d3b1666a4ebe7f0fd98c99bded7984e4eb56",
+      "metrics": {
+        "sum": {
+          "shape": [
+            27,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 521684,
+          "sum": 226228878.17282173,
+          "sha256": "1a7096a0363424b6325a06b95a5d431531e9fa17456d6b9578b405c391ff4f6e",
+          "array_key": "task_002_sum"
+        },
+        "mean": {
+          "shape": [
+            27,
+            28468
+          ],
+          "dtype": "float64",
+          "nnz": 521684,
+          "sum": 58851.88324266752,
+          "sha256": "0e039c0482c8b5ca4531378f10181961825d42ffa4087a34912bb5bf84935336",
+          "array_key": "task_002_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            27,
+            28468
+          ],
+          "dtype": "int64",
+          "nnz": 521684,
+          "sum": 177379069.0,
+          "sha256": "879559fc4b7ac8804c9b80cd04013c62b2c0863c044f6b4369775ccdd50e2ba3",
+          "array_key": "task_002_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 18447480
+    }
+  },
+  "validation_array_path": "/rsrch8/home/bcb/yniu2/yiyangNiu_working/CellVault_demo/benchmark_results/wu2021_breast_cancer_joint_aggregation_raw/repeat_04_manual-single-scan.npz",
+  "process_wall_seconds": 11.825465720146894,
+  "repeat": 4
+}

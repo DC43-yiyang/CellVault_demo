@@ -1,0 +1,400 @@
+{
+  "benchmark": "same cohort across separate CITE-seq modalities",
+  "dataset": {
+    "title": "10x 5k PBMCs from a healthy donor with cell-surface proteins",
+    "url": "https://cf.10xgenomics.com/samples/cell-exp/3.1.0/5k_pbmc_protein_v3/5k_pbmc_protein_v3_filtered_feature_bc_matrix.h5",
+    "sha256": "3b290ad9605b96974c9c16e5ae3427e5e5c496a66e55223df135b388b6d61417",
+    "file_bytes": 17113138,
+    "n_obs": 5247,
+    "rna_features": 33538,
+    "adt_features": 32
+  },
+  "cohort": {
+    "definition": "tertiles of per-cell RNA library size",
+    "thresholds": [
+      4365.0,
+      6679.999999999999
+    ],
+    "cell_counts": {
+      "lower_rna_library": 1750,
+      "middle_rna_library": 1748,
+      "upper_rna_library": 1749
+    }
+  },
+  "configuration": {
+    "batch_size": 1024,
+    "repeats": 5,
+    "metrics": [
+      "sum",
+      "mean",
+      "count_nonzero"
+    ]
+  },
+  "preparation_seconds": {
+    "rna": 0.7446179809048772,
+    "adt": 0.20618061162531376
+  },
+  "summary": {
+    "seconds": {
+      "median": 0.3323002252727747,
+      "min": 0.327384851872921,
+      "max": 0.42295851558446884
+    },
+    "source_scan_count": 2,
+    "matrix_batch_reads": 12
+  },
+  "validation": {
+    "status": "passed",
+    "same_cell_ids": true,
+    "separate_feature_axes": true,
+    "direct_reference_rtol": 1e-06,
+    "direct_reference_atol": 1e-08
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "seconds": 0.42295851558446884,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 12,
+      "reports": {
+        "rna": {
+          "run_id": "53d70364700540e381f32ddce94ca57c",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 74025540,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.3414599010720849,
+          "result_bytes": {
+            "rna": 5742874
+          },
+          "total_result_bytes": 5742874,
+          "task_rows": {
+            "rna": 5247
+          },
+          "task_memberships": {
+            "rna": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        },
+        "adt": {
+          "run_id": "7a49ca9b861749fbad02eca7a842cc00",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 1264444,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.08129887469112873,
+          "result_bytes": {
+            "adt": 7090
+          },
+          "total_result_bytes": 7090,
+          "task_rows": {
+            "adt": 5247
+          },
+          "task_memberships": {
+            "adt": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        }
+      },
+      "fingerprints": {
+        "rna": "c8906912b93c5f6ccafa65ed3ea9f07fe6f80491e3315721b814519e74b3773d",
+        "adt": "7d353293aa41fa0cb6d212b967eb47a10720c49b4007e2e44c984eb982c43e44"
+      }
+    },
+    {
+      "repeat": 2,
+      "seconds": 0.3336398620158434,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 12,
+      "reports": {
+        "rna": {
+          "run_id": "92977e4f83e748e6a76f298ef8d53de0",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 74025540,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.2756900507956743,
+          "result_bytes": {
+            "rna": 5742874
+          },
+          "total_result_bytes": 5742874,
+          "task_rows": {
+            "rna": 5247
+          },
+          "task_memberships": {
+            "rna": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        },
+        "adt": {
+          "run_id": "65d42df7f54c42a3896feba58d895042",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 1264444,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.05776897165924311,
+          "result_bytes": {
+            "adt": 7090
+          },
+          "total_result_bytes": 7090,
+          "task_rows": {
+            "adt": 5247
+          },
+          "task_memberships": {
+            "adt": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        }
+      },
+      "fingerprints": {
+        "rna": "c8906912b93c5f6ccafa65ed3ea9f07fe6f80491e3315721b814519e74b3773d",
+        "adt": "7d353293aa41fa0cb6d212b967eb47a10720c49b4007e2e44c984eb982c43e44"
+      }
+    },
+    {
+      "repeat": 3,
+      "seconds": 0.32985345367342234,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 12,
+      "reports": {
+        "rna": {
+          "run_id": "7ed055f24b1749cfa65f37f6d1141c84",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 74025540,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.27168646082282066,
+          "result_bytes": {
+            "rna": 5742874
+          },
+          "total_result_bytes": 5742874,
+          "task_rows": {
+            "rna": 5247
+          },
+          "task_memberships": {
+            "rna": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        },
+        "adt": {
+          "run_id": "ed2aaa4decb44d6dacf20aac74625539",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 1264444,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.05799217242747545,
+          "result_bytes": {
+            "adt": 7090
+          },
+          "total_result_bytes": 7090,
+          "task_rows": {
+            "adt": 5247
+          },
+          "task_memberships": {
+            "adt": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        }
+      },
+      "fingerprints": {
+        "rna": "c8906912b93c5f6ccafa65ed3ea9f07fe6f80491e3315721b814519e74b3773d",
+        "adt": "7d353293aa41fa0cb6d212b967eb47a10720c49b4007e2e44c984eb982c43e44"
+      }
+    },
+    {
+      "repeat": 4,
+      "seconds": 0.3323002252727747,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 12,
+      "reports": {
+        "rna": {
+          "run_id": "9a82be6cbec74958bd871034a49d3970",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 74025540,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.27462665643543005,
+          "result_bytes": {
+            "rna": 5742874
+          },
+          "total_result_bytes": 5742874,
+          "task_rows": {
+            "rna": 5247
+          },
+          "task_memberships": {
+            "rna": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        },
+        "adt": {
+          "run_id": "5cbd24e86cd84b7ca66a957758ce200d",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 1264444,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.05749671068042517,
+          "result_bytes": {
+            "adt": 7090
+          },
+          "total_result_bytes": 7090,
+          "task_rows": {
+            "adt": 5247
+          },
+          "task_memberships": {
+            "adt": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        }
+      },
+      "fingerprints": {
+        "rna": "c8906912b93c5f6ccafa65ed3ea9f07fe6f80491e3315721b814519e74b3773d",
+        "adt": "7d353293aa41fa0cb6d212b967eb47a10720c49b4007e2e44c984eb982c43e44"
+      }
+    },
+    {
+      "repeat": 5,
+      "seconds": 0.327384851872921,
+      "source_scan_count": 2,
+      "matrix_batch_reads": 12,
+      "reports": {
+        "rna": {
+          "run_id": "6e3b39d98d5b4848a19c3d5534b85a57",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 74025540,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.2695368016138673,
+          "result_bytes": {
+            "rna": 5742874
+          },
+          "total_result_bytes": 5742874,
+          "task_rows": {
+            "rna": 5247
+          },
+          "task_memberships": {
+            "rna": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        },
+        "adt": {
+          "run_id": "23d629816bcf41c3b64e02378fb27997",
+          "task_count": 1,
+          "source_scan_count": 1,
+          "matrix_batch_reads": 6,
+          "requested_rows": 5247,
+          "unique_rows": 5247,
+          "matrix_bytes_read": 1264444,
+          "reuse_ratio": 1.0,
+          "elapsed_seconds": 0.05767417140305042,
+          "result_bytes": {
+            "adt": 7090
+          },
+          "total_result_bytes": 7090,
+          "task_rows": {
+            "adt": 5247
+          },
+          "task_memberships": {
+            "adt": 5247
+          },
+          "overlap_rows": 0,
+          "redundant_rows": 0,
+          "memory_budget_bytes": null,
+          "peak_buffer_bytes": 0,
+          "execution_waves": 0,
+          "scan_plan": [],
+          "degradation_reasons": []
+        }
+      },
+      "fingerprints": {
+        "rna": "c8906912b93c5f6ccafa65ed3ea9f07fe6f80491e3315721b814519e74b3773d",
+        "adt": "7d353293aa41fa0cb6d212b967eb47a10720c49b4007e2e44c984eb982c43e44"
+      }
+    }
+  ],
+  "notes": [
+    "RNA and ADT remain separate matrices and are each read once per run.",
+    "Only the cohort declaration is reused; no cross-modality fusion is implied.",
+    "QC tertiles are a controlled execution validation, not a biological grouping claim."
+  ]
+}

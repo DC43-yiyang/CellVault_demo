@@ -1,0 +1,1485 @@
+{
+  "benchmark": "overlapping spatial ROI aggregation and mixed execution",
+  "dataset": {
+    "title": "Squidpy IMC example: Jackson et al. breast cancer subset",
+    "publication_doi": "10.1038/s41586-019-1876-x",
+    "url": "https://exampledata.scverse.org/squidpy/imc.h5ad",
+    "sha256": "950c44c785ea86c4262140b0229e0b4f77110a765c3b6874cdb5e0e52973c6fe",
+    "file_bytes": 1574836,
+    "shape": [
+      4668,
+      34
+    ]
+  },
+  "roi_design": {
+    "kind": "controlled fixed rectangles on normalized public coordinates",
+    "biological_claim": "none; these are not curated tissue annotations",
+    "definitions": {
+      "left_wide": {
+        "x_max": 0.65
+      },
+      "right_wide": {
+        "x_min": 0.35
+      },
+      "central_rectangle": {
+        "x_min": 0.2,
+        "x_max": 0.8,
+        "y_min": 0.2,
+        "y_max": 0.8
+      },
+      "upper_band": {
+        "y_min": 0.4
+      }
+    },
+    "cell_counts": {
+      "left_wide": 2999,
+      "right_wide": 3032,
+      "central_rectangle": 1615,
+      "upper_band": 2730
+    },
+    "membership_edges": 10376,
+    "unique_cells": 4668,
+    "overlap_edges": 5708
+  },
+  "configuration": {
+    "batch_size": 512,
+    "memory_budget_bytes": 943718,
+    "local_rois": [
+      "left_wide",
+      "central_rectangle"
+    ],
+    "repeats": 5,
+    "seed": 20260923,
+    "method_order_randomized": true,
+    "filesystem_cache_cleared": false
+  },
+  "preparation": null,
+  "aggregation_summary": {
+    "independent": {
+      "seconds": {
+        "median": 0.14801892545074224,
+        "min": 0.14710910059511662,
+        "max": 0.21567050088196993
+      },
+      "matrix_batch_reads": 22,
+      "matrix_bytes_read": 1411136
+    },
+    "joint": {
+      "seconds": {
+        "median": 0.06487345322966576,
+        "min": 0.06390305887907743,
+        "max": 0.06756537687033415
+      },
+      "matrix_batch_reads": 10,
+      "matrix_bytes_read": 634848
+    },
+    "speedup": 2.2816563337043876
+  },
+  "mixed_summary": {
+    "sequential": {
+      "seconds": {
+        "median": 0.19242670852690935,
+        "min": 0.19034307915717363,
+        "max": 0.20067962910979986
+      },
+      "matrix_batch_reads": 20,
+      "matrix_bytes_read": 1262352,
+      "peak_buffer_bytes": 815728,
+      "execution_waves": 2
+    },
+    "all-materialized": {
+      "seconds": {
+        "median": 0.15677018649876118,
+        "min": 0.1560792038217187,
+        "max": 0.15849687531590462
+      },
+      "matrix_batch_reads": 10,
+      "matrix_bytes_read": 634848,
+      "peak_buffer_bytes": 1389899,
+      "execution_waves": 1
+    },
+    "mixed": {
+      "seconds": {
+        "median": 0.20948004070669413,
+        "min": 0.2049503093585372,
+        "max": 0.21176301315426826
+      },
+      "matrix_batch_reads": 14,
+      "matrix_bytes_read": 854488,
+      "peak_buffer_bytes": 839664,
+      "execution_waves": 2
+    },
+    "speedup": 0.9185920905769625
+  },
+  "validation": {
+    "status": "passed",
+    "aggregate_rtol": 1e-06,
+    "aggregate_atol": 1e-08,
+    "local_analysis_exact": true
+  },
+  "aggregation_runs": [
+    {
+      "method": "independent",
+      "seconds": 0.21567050088196993,
+      "report": {
+        "source_scan_count": 4,
+        "matrix_batch_reads": 22,
+        "requested_rows": 10376,
+        "unique_rows": 10376,
+        "matrix_bytes_read": 1411136
+      },
+      "repeat": 1,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "joint",
+      "seconds": 0.06597411818802357,
+      "report": {
+        "run_id": "96aaa5cbe60e496384834651d95f257c",
+        "task_count": 1,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 4668,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.0,
+        "elapsed_seconds": 0.06339867599308491,
+        "result_bytes": {
+          "roi_summary": 41141
+        },
+        "total_result_bytes": 41141,
+        "task_rows": {
+          "roi_summary": 4668
+        },
+        "task_memberships": {
+          "roi_summary": 10376
+        },
+        "overlap_rows": 0,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 1,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "independent",
+      "seconds": 0.1478227535262704,
+      "report": {
+        "source_scan_count": 4,
+        "matrix_batch_reads": 22,
+        "requested_rows": 10376,
+        "unique_rows": 10376,
+        "matrix_bytes_read": 1411136
+      },
+      "repeat": 2,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "joint",
+      "seconds": 0.06435048952698708,
+      "report": {
+        "run_id": "2f44cc3754274663bd1e6c41b38d9242",
+        "task_count": 1,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 4668,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.0,
+        "elapsed_seconds": 0.061983779072761536,
+        "result_bytes": {
+          "roi_summary": 41141
+        },
+        "total_result_bytes": 41141,
+        "task_rows": {
+          "roi_summary": 4668
+        },
+        "task_memberships": {
+          "roi_summary": 10376
+        },
+        "overlap_rows": 0,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 2,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "independent",
+      "seconds": 0.14710910059511662,
+      "report": {
+        "source_scan_count": 4,
+        "matrix_batch_reads": 22,
+        "requested_rows": 10376,
+        "unique_rows": 10376,
+        "matrix_bytes_read": 1411136
+      },
+      "repeat": 3,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "joint",
+      "seconds": 0.06390305887907743,
+      "report": {
+        "run_id": "1e5fd888ebab49c8b377a0b7733aabf4",
+        "task_count": 1,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 4668,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.0,
+        "elapsed_seconds": 0.061567666940391064,
+        "result_bytes": {
+          "roi_summary": 41141
+        },
+        "total_result_bytes": 41141,
+        "task_rows": {
+          "roi_summary": 4668
+        },
+        "task_memberships": {
+          "roi_summary": 10376
+        },
+        "overlap_rows": 0,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 3,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "joint",
+      "seconds": 0.06756537687033415,
+      "report": {
+        "run_id": "c668288f436b4b38bcc1fdb39007d839",
+        "task_count": 1,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 4668,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.0,
+        "elapsed_seconds": 0.06463710218667984,
+        "result_bytes": {
+          "roi_summary": 41141
+        },
+        "total_result_bytes": 41141,
+        "task_rows": {
+          "roi_summary": 4668
+        },
+        "task_memberships": {
+          "roi_summary": 10376
+        },
+        "overlap_rows": 0,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 4,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "independent",
+      "seconds": 0.14823028538376093,
+      "report": {
+        "source_scan_count": 4,
+        "matrix_batch_reads": 22,
+        "requested_rows": 10376,
+        "unique_rows": 10376,
+        "matrix_bytes_read": 1411136
+      },
+      "repeat": 4,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "joint",
+      "seconds": 0.06487345322966576,
+      "report": {
+        "run_id": "8f1787e2028c47c78824cc27e0530950",
+        "task_count": 1,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 4668,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.0,
+        "elapsed_seconds": 0.06249130144715309,
+        "result_bytes": {
+          "roi_summary": 41141
+        },
+        "total_result_bytes": 41141,
+        "task_rows": {
+          "roi_summary": 4668
+        },
+        "task_memberships": {
+          "roi_summary": 10376
+        },
+        "overlap_rows": 0,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 0,
+        "execution_waves": 0,
+        "scan_plan": [],
+        "degradation_reasons": []
+      },
+      "repeat": 5,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "independent",
+      "seconds": 0.14801892545074224,
+      "report": {
+        "source_scan_count": 4,
+        "matrix_batch_reads": 22,
+        "requested_rows": 10376,
+        "unique_rows": 10376,
+        "matrix_bytes_read": 1411136
+      },
+      "repeat": 5,
+      "fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    }
+  ],
+  "mixed_runs": [
+    {
+      "method": "mixed",
+      "seconds": 0.21011858526617289,
+      "report": {
+        "run_id": "c0e4ee05dbef4bbaae0af7d685b7ad1f",
+        "task_count": 3,
+        "source_scan_count": 2,
+        "matrix_batch_reads": 14,
+        "requested_rows": 9282,
+        "unique_rows": 6283,
+        "matrix_bytes_read": 854488,
+        "reuse_ratio": 1.4773197517109662,
+        "elapsed_seconds": 0.20405370462685823,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 196,
+          "local_central_rectangle": 196
+        },
+        "total_result_bytes": 41533,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 2999,
+        "redundant_rows": 1615,
+        "memory_budget_bytes": 943718,
+        "peak_buffer_bytes": 839664,
+        "execution_waves": 2,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 23936,
+            "peak_consumer_bytes": 815728,
+            "peak_buffer_bytes": 839664,
+            "estimated_peak_buffer_bytes": 839664
+          },
+          {
+            "wave": 2,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 1615,
+            "repeated_rows": 1615,
+            "batch_count": 4,
+            "aggregate_tasks": [],
+            "materialize_tasks": [
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 439476,
+            "peak_buffer_bytes": 463412,
+            "estimated_peak_buffer_bytes": 463216
+          }
+        ],
+        "degradation_reasons": [
+          "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+        ]
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 1,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "all-materialized",
+      "seconds": 0.15719088912010193,
+      "report": {
+        "run_id": "9a5d9278ba8d40aab9466d5b0d24356f",
+        "task_count": 3,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 9282,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.9884318766066837,
+        "elapsed_seconds": 0.14258428942412138,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 878743,
+          "local_central_rectangle": 475252
+        },
+        "total_result_bytes": 1395136,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 4614,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 1389899,
+        "execution_waves": 1,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide",
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 1353995,
+            "peak_buffer_bytes": 1389899,
+            "estimated_peak_buffer_bytes": 1059304
+          }
+        ],
+        "degradation_reasons": []
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 1,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "sequential",
+      "seconds": 0.19242407009005547,
+      "report": {
+        "source_scan_count": 3,
+        "matrix_batch_reads": 20,
+        "requested_rows": 9282,
+        "unique_rows": 9282,
+        "matrix_bytes_read": 1262352,
+        "peak_buffer_bytes": 815728,
+        "execution_waves": 2
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 1,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "mixed",
+      "seconds": 0.21176301315426826,
+      "report": {
+        "run_id": "c486e2fc2a2d4a5c86e6c79e87509dd3",
+        "task_count": 3,
+        "source_scan_count": 2,
+        "matrix_batch_reads": 14,
+        "requested_rows": 9282,
+        "unique_rows": 6283,
+        "matrix_bytes_read": 854488,
+        "reuse_ratio": 1.4773197517109662,
+        "elapsed_seconds": 0.2057618135586381,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 196,
+          "local_central_rectangle": 196
+        },
+        "total_result_bytes": 41533,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 2999,
+        "redundant_rows": 1615,
+        "memory_budget_bytes": 943718,
+        "peak_buffer_bytes": 839664,
+        "execution_waves": 2,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 23936,
+            "peak_consumer_bytes": 815728,
+            "peak_buffer_bytes": 839664,
+            "estimated_peak_buffer_bytes": 839664
+          },
+          {
+            "wave": 2,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 1615,
+            "repeated_rows": 1615,
+            "batch_count": 4,
+            "aggregate_tasks": [],
+            "materialize_tasks": [
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 439476,
+            "peak_buffer_bytes": 463412,
+            "estimated_peak_buffer_bytes": 463216
+          }
+        ],
+        "degradation_reasons": [
+          "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+        ]
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 2,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "all-materialized",
+      "seconds": 0.15849687531590462,
+      "report": {
+        "run_id": "8e532bdf391147fb9a0f38aa7520b926",
+        "task_count": 3,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 9282,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.9884318766066837,
+        "elapsed_seconds": 0.14407298620790243,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 878743,
+          "local_central_rectangle": 475252
+        },
+        "total_result_bytes": 1395136,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 4614,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 1389899,
+        "execution_waves": 1,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide",
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 1353995,
+            "peak_buffer_bytes": 1389899,
+            "estimated_peak_buffer_bytes": 1059304
+          }
+        ],
+        "degradation_reasons": []
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 2,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "sequential",
+      "seconds": 0.20067962910979986,
+      "report": {
+        "source_scan_count": 3,
+        "matrix_batch_reads": 20,
+        "requested_rows": 9282,
+        "unique_rows": 9282,
+        "matrix_bytes_read": 1262352,
+        "peak_buffer_bytes": 815728,
+        "execution_waves": 2
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 2,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "all-materialized",
+      "seconds": 0.1560792038217187,
+      "report": {
+        "run_id": "ea81ea5e22404e44b18e8bf1bc0fc3aa",
+        "task_count": 3,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 9282,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.9884318766066837,
+        "elapsed_seconds": 0.14162491355091333,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 878743,
+          "local_central_rectangle": 475252
+        },
+        "total_result_bytes": 1395136,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 4614,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 1389899,
+        "execution_waves": 1,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide",
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 1353995,
+            "peak_buffer_bytes": 1389899,
+            "estimated_peak_buffer_bytes": 1059304
+          }
+        ],
+        "degradation_reasons": []
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 3,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "mixed",
+      "seconds": 0.2049503093585372,
+      "report": {
+        "run_id": "a61fb396470a47da81964eda118c8ca4",
+        "task_count": 3,
+        "source_scan_count": 2,
+        "matrix_batch_reads": 14,
+        "requested_rows": 9282,
+        "unique_rows": 6283,
+        "matrix_bytes_read": 854488,
+        "reuse_ratio": 1.4773197517109662,
+        "elapsed_seconds": 0.1989425914362073,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 196,
+          "local_central_rectangle": 196
+        },
+        "total_result_bytes": 41533,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 2999,
+        "redundant_rows": 1615,
+        "memory_budget_bytes": 943718,
+        "peak_buffer_bytes": 839664,
+        "execution_waves": 2,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 23936,
+            "peak_consumer_bytes": 815728,
+            "peak_buffer_bytes": 839664,
+            "estimated_peak_buffer_bytes": 839664
+          },
+          {
+            "wave": 2,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 1615,
+            "repeated_rows": 1615,
+            "batch_count": 4,
+            "aggregate_tasks": [],
+            "materialize_tasks": [
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 439476,
+            "peak_buffer_bytes": 463412,
+            "estimated_peak_buffer_bytes": 463216
+          }
+        ],
+        "degradation_reasons": [
+          "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+        ]
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 3,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "sequential",
+      "seconds": 0.19747947435826063,
+      "report": {
+        "source_scan_count": 3,
+        "matrix_batch_reads": 20,
+        "requested_rows": 9282,
+        "unique_rows": 9282,
+        "matrix_bytes_read": 1262352,
+        "peak_buffer_bytes": 815728,
+        "execution_waves": 2
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 3,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "all-materialized",
+      "seconds": 0.15677018649876118,
+      "report": {
+        "run_id": "6f509f4b703d4ea2aeb1cf93de63351c",
+        "task_count": 3,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 9282,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.9884318766066837,
+        "elapsed_seconds": 0.14221855532377958,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 878743,
+          "local_central_rectangle": 475252
+        },
+        "total_result_bytes": 1395136,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 4614,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 1389899,
+        "execution_waves": 1,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide",
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 1353995,
+            "peak_buffer_bytes": 1389899,
+            "estimated_peak_buffer_bytes": 1059304
+          }
+        ],
+        "degradation_reasons": []
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 4,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "sequential",
+      "seconds": 0.19034307915717363,
+      "report": {
+        "source_scan_count": 3,
+        "matrix_batch_reads": 20,
+        "requested_rows": 9282,
+        "unique_rows": 9282,
+        "matrix_bytes_read": 1262352,
+        "peak_buffer_bytes": 815728,
+        "execution_waves": 2
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 4,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "mixed",
+      "seconds": 0.2058297237381339,
+      "report": {
+        "run_id": "a5f255ec6c0f4d19ab0292ae211563d1",
+        "task_count": 3,
+        "source_scan_count": 2,
+        "matrix_batch_reads": 14,
+        "requested_rows": 9282,
+        "unique_rows": 6283,
+        "matrix_bytes_read": 854488,
+        "reuse_ratio": 1.4773197517109662,
+        "elapsed_seconds": 0.1998476553708315,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 196,
+          "local_central_rectangle": 196
+        },
+        "total_result_bytes": 41533,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 2999,
+        "redundant_rows": 1615,
+        "memory_budget_bytes": 943718,
+        "peak_buffer_bytes": 839664,
+        "execution_waves": 2,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 23936,
+            "peak_consumer_bytes": 815728,
+            "peak_buffer_bytes": 839664,
+            "estimated_peak_buffer_bytes": 839664
+          },
+          {
+            "wave": 2,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 1615,
+            "repeated_rows": 1615,
+            "batch_count": 4,
+            "aggregate_tasks": [],
+            "materialize_tasks": [
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 439476,
+            "peak_buffer_bytes": 463412,
+            "estimated_peak_buffer_bytes": 463216
+          }
+        ],
+        "degradation_reasons": [
+          "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+        ]
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 4,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "mixed",
+      "seconds": 0.20948004070669413,
+      "report": {
+        "run_id": "949082eac3ee44719f712fb1ee63b1e3",
+        "task_count": 3,
+        "source_scan_count": 2,
+        "matrix_batch_reads": 14,
+        "requested_rows": 9282,
+        "unique_rows": 6283,
+        "matrix_bytes_read": 854488,
+        "reuse_ratio": 1.4773197517109662,
+        "elapsed_seconds": 0.203572953119874,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 196,
+          "local_central_rectangle": 196
+        },
+        "total_result_bytes": 41533,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 2999,
+        "redundant_rows": 1615,
+        "memory_budget_bytes": 943718,
+        "peak_buffer_bytes": 839664,
+        "execution_waves": 2,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 23936,
+            "peak_consumer_bytes": 815728,
+            "peak_buffer_bytes": 839664,
+            "estimated_peak_buffer_bytes": 839664
+          },
+          {
+            "wave": 2,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 1615,
+            "repeated_rows": 1615,
+            "batch_count": 4,
+            "aggregate_tasks": [],
+            "materialize_tasks": [
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 439476,
+            "peak_buffer_bytes": 463412,
+            "estimated_peak_buffer_bytes": 463216
+          }
+        ],
+        "degradation_reasons": [
+          "memory_budget_bytes split 2 compatible materialization tasks for source 'X' (all features) across 2 waves"
+        ]
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 5,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "sequential",
+      "seconds": 0.19242670852690935,
+      "report": {
+        "source_scan_count": 3,
+        "matrix_batch_reads": 20,
+        "requested_rows": 9282,
+        "unique_rows": 9282,
+        "matrix_bytes_read": 1262352,
+        "peak_buffer_bytes": 815728,
+        "execution_waves": 2
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 5,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    },
+    {
+      "method": "all-materialized",
+      "seconds": 0.1560820946469903,
+      "report": {
+        "run_id": "c9e0ceb583d24362ae0afb76ae7569d6",
+        "task_count": 3,
+        "source_scan_count": 1,
+        "matrix_batch_reads": 10,
+        "requested_rows": 9282,
+        "unique_rows": 4668,
+        "matrix_bytes_read": 634848,
+        "reuse_ratio": 1.9884318766066837,
+        "elapsed_seconds": 0.14144266303628683,
+        "result_bytes": {
+          "roi_summary": 41141,
+          "local_left_wide": 878743,
+          "local_central_rectangle": 475252
+        },
+        "total_result_bytes": 1395136,
+        "task_rows": {
+          "roi_summary": 4668,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "task_memberships": {
+          "roi_summary": 10376,
+          "local_left_wide": 2999,
+          "local_central_rectangle": 1615
+        },
+        "overlap_rows": 4614,
+        "redundant_rows": 0,
+        "memory_budget_bytes": null,
+        "peak_buffer_bytes": 1389899,
+        "execution_waves": 1,
+        "scan_plan": [
+          {
+            "wave": 1,
+            "source": "X",
+            "features": null,
+            "n_features": 34,
+            "rows": 4668,
+            "repeated_rows": 0,
+            "batch_count": 10,
+            "aggregate_tasks": [
+              "roi_summary"
+            ],
+            "materialize_tasks": [
+              "local_left_wide",
+              "local_central_rectangle"
+            ],
+            "peak_batch_bytes": 69632,
+            "peak_accumulator_bytes": 35904,
+            "peak_consumer_bytes": 1353995,
+            "peak_buffer_bytes": 1389899,
+            "estimated_peak_buffer_bytes": 1059304
+          }
+        ],
+        "degradation_reasons": []
+      },
+      "local_results": {
+        "local_left_wide": {
+          "n_obs": 2999,
+          "n_vars": 34,
+          "top_singular_values": [
+            3173.1409342770403,
+            1934.8882200270434,
+            333.4599183359533
+          ],
+          "fingerprint": "df2b961e80edb6f3d14ae368f1828b960b102b31f6e9f8fd23921fe1f558c496"
+        },
+        "local_central_rectangle": {
+          "n_obs": 1615,
+          "n_vars": 34,
+          "top_singular_values": [
+            2354.017601033654,
+            1249.6014667877917,
+            251.78766983302177
+          ],
+          "fingerprint": "550b37b0d32c0a7a50f1aaab1704b26e41218c700a41052f1f7d26649c1c0961"
+        }
+      },
+      "repeat": 5,
+      "aggregate_fingerprint": "850d29c95a33c9720c434c180ea2e0e51f7c7f7372804ed52e8fa4713530ddf4"
+    }
+  ],
+  "notes": [
+    "The source measurements and coordinates are real public IMC data.",
+    "ROI rectangles are fixed controlled geometries, not author-curated biological regions.",
+    "Logical decoded reads are reported; they are not physical storage I/O.",
+    "Warm-cache timings on this small dataset validate behavior, not scale claims."
+  ]
+}

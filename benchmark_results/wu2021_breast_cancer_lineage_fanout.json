@@ -1,0 +1,128 @@
+{
+  "benchmark": "multi-lineage annotation fan-out",
+  "recorded_at": "2026-09-22",
+  "dataset": {
+    "title": "A single-cell and spatially resolved atlas of human breast cancers",
+    "doi": "10.1038/s41588-021-00911-1",
+    "geo_accession": "GSE176078",
+    "cellxgene_dataset_id": "9fddb063-056d-4202-8b8a-4b0ee531d3ce",
+    "cellxgene_dataset_version_id": "22a27631-aecf-463b-86c6-a8334a2f2cf2",
+    "download_url": "https://datasets.cellxgene.cziscience.com/22a27631-aecf-463b-86c6-a8334a2f2cf2.h5ad",
+    "sha256": "ef9e792e3e25a811af7778e38913fe0758fb887284899b47bdd54c8af0e91281",
+    "file_bytes": 843892052,
+    "n_obs": 100064,
+    "n_vars": 28468
+  },
+  "selection": {
+    "column": "celltype_major",
+    "lineages": {
+      "T/NK": {
+        "values": ["T-cells"],
+        "n_obs": 35214
+      },
+      "B": {
+        "values": ["B-cells", "Plasmablasts"],
+        "n_obs": 6730
+      },
+      "Stromal": {
+        "values": ["CAFs", "Endothelial", "PVL"],
+        "n_obs": 19601
+      },
+      "Epithelial": {
+        "values": ["Cancer Epithelial", "Normal Epithelial"],
+        "n_obs": 28844
+      },
+      "Myeloid": {
+        "values": ["Myeloid"],
+        "n_obs": 9675
+      }
+    }
+  },
+  "configuration": {
+    "repeats": 5,
+    "threads": 1,
+    "method_order_randomized": true,
+    "filesystem_cache_cleared": false,
+    "payload_slots": ["X", "obs", "var"],
+    "intermediate_h5ad_compression": "lzf",
+    "downstream_analysis_run": false
+  },
+  "preparation": {
+    "h5ad_to_cellvault_seconds": 22.101260929368436,
+    "peak_rss_mb": 643.046875
+  },
+  "results": {
+    "anndata-direct": {
+      "fanout_seconds": {
+        "median": 76.67271446250379,
+        "iqr": 65.27776906453073,
+        "min": 8.740803186781704,
+        "max": 145.2330222669989
+      },
+      "including_open_seconds": {
+        "median": 117.82229122985154,
+        "iqr": 38.24899831786752
+      },
+      "peak_rss_mb_median": 5593.1015625,
+      "intermediate_bytes": 0
+    },
+    "anndata-saved": {
+      "fanout_seconds": {
+        "median": 96.49339898210019,
+        "iqr": 26.6228461349383,
+        "min": 59.80393719300628,
+        "max": 125.89985438995063
+      },
+      "including_open_seconds": {
+        "median": 139.88504624087363,
+        "iqr": 102.28660945408046
+      },
+      "save_seconds_median": 8.176150064915419,
+      "reload_seconds_median": 4.727345244027674,
+      "peak_rss_mb_median": 5602.234375,
+      "intermediate_bytes": 898209889
+    },
+    "cellvault-sql": {
+      "fanout_seconds": {
+        "median": 9.138857648707926,
+        "iqr": 9.35056380648166,
+        "min": 5.854826834052801,
+        "max": 17.634757172316313
+      },
+      "including_open_seconds": {
+        "median": 9.16335254535079,
+        "iqr": 9.354401624761522
+      },
+      "peak_rss_mb_median": 2237.06640625,
+      "intermediate_bytes": 0
+    }
+  },
+  "derived": {
+    "saved_vs_cellvault_fanout_speedup": 10.558584310123559,
+    "saved_vs_cellvault_including_open_speedup": 15.26570603374276,
+    "cellvault_conversion_break_even_including_open_batches": 0.16907110292532412
+  },
+  "environment": {
+    "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.6",
+    "logical_cpus": 256,
+    "packages": {
+      "anndata": "0.13.4",
+      "duckdb": "1.5.5",
+      "zarr": "3.4.0",
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1"
+    }
+  },
+  "validation": {
+    "all_lineages_cover_all_cells": true,
+    "ordered_cell_ids_match_across_methods": true,
+    "matrix_sha256_matches_across_methods": true
+  },
+  "limitations": [
+    "The shared filesystem and compute node showed substantial run-to-run variance; use medians and IQRs together.",
+    "The common benchmark payload is X, obs, and var. This historical benchmark store omitted the downloaded H5AD's raw matrix and layer; current CellVault supports both.",
+    "The benchmark covers lineage acquisition, intermediate persistence, and reload. It does not persist downstream fine-annotation results."
+  ]
+}

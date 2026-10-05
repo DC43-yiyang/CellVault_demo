@@ -3,7 +3,7 @@
 
 Measures two workflows:
 1) Pipeline: from_h5ad -> pca/neighbors/umap/leiden -> export h5ad
-2) Cluster edit flow: open -> read obs -> subset ids -> update metadata/cell type -> close
+2) Cluster edit flow: open -> SQL select -> SQL metadata updates -> close
 """
 
 from __future__ import annotations
@@ -75,11 +75,15 @@ def write_json(path: Path, data: dict[str, Any]) -> None:
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
+def quote_identifier(identifier: str) -> str:
+    return f'"{identifier.replace(chr(34), chr(34) * 2)}"'
+
+
 def ensure_obs_column(cdb: CellDB, column: str, default_value: str) -> None:
-    if column in cdb._backend.obs_columns:
+    if column in cdb.obs_columns:
         return
     fill = [default_value] * cdb.n_obs
-    cdb._backend.add_obs_column(column, fill)
+    cdb.add_obs_column(column, fill)
 
 
 def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
@@ -114,7 +118,7 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
 
     # Workflow A: build db + run pipeline
     with StageTimer(timings, "a1_from_h5ad_to_cvdb"):
-        cdb = CellDB.from_h5ad(str(input_path), str(cvdb_path))
+        cdb = CellDB.from_h5ad(str(input_path), str(cvdb_path), overwrite=True)
 
     results["dataset"] = {
         "n_obs": int(cdb.n_obs),
@@ -139,24 +143,27 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
     with StageTimer(timings, "a7_close_after_pipeline"):
         cdb.close()
 
-    # Workflow B: read -> subset -> modify -> save (db persistence via close)
+    # Workflow B: SQL subset -> modify in place (db persistence via close)
     with StageTimer(timings, "b1_open_cvdb_for_edit"):
         cdb_edit = CellDB.open(str(cvdb_path))
 
-    with StageTimer(timings, "b2_read_obs"):
-        obs = cdb_edit.obs
+    if args.cluster_col not in cdb_edit.obs_columns:
+        cdb_edit.close()
+        raise KeyError(
+            f"Cluster column '{args.cluster_col}' not found in obs. "
+            f"Available columns: {cdb_edit.obs_columns}"
+        )
+    predicate = f"CAST({quote_identifier(args.cluster_col)} AS VARCHAR) = ?"
+    predicate_params = [str(args.cluster_value)]
 
-    with StageTimer(timings, "b3_subset_cluster_indices"):
-        if args.cluster_col not in obs.columns:
-            cdb_edit.close()
-            raise KeyError(
-                f"Cluster column '{args.cluster_col}' not found in obs. "
-                f"Available columns: {list(obs.columns)}"
-            )
-        mask = obs[args.cluster_col].astype(str) == str(args.cluster_value)
-        cluster_ids = obs.index[mask].tolist()
+    with StageTimer(timings, "b2_query_cluster"):
+        cluster_view = cdb_edit.query_obs(
+            predicate,
+            predicate_params,
+            columns=[],
+        )
+        subset_n_obs = cluster_view.n_obs
 
-    subset_n_obs = len(cluster_ids)
     if subset_n_obs == 0:
         cdb_edit.close()
         raise ValueError(
@@ -164,27 +171,37 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
             "Please check cluster value."
         )
 
-    with StageTimer(timings, "b4_ensure_metadata_column"):
+    with StageTimer(timings, "b3_ensure_metadata_column"):
         ensure_obs_column(cdb_edit, args.metadata_col, args.default_col_value)
 
-    with StageTimer(timings, "b5_update_metadata_cluster"):
-        cdb_edit.update_obs(
+    with StageTimer(timings, "b4_update_metadata_cluster"):
+        updated_metadata = cdb_edit.update_obs_where(
             args.metadata_col,
-            cluster_ids,
-            [args.metadata_value] * subset_n_obs,
+            args.metadata_value,
+            predicate,
+            predicate_params,
         )
 
-    with StageTimer(timings, "b6_ensure_cell_type_column"):
+    with StageTimer(timings, "b5_ensure_cell_type_column"):
         ensure_obs_column(cdb_edit, args.cell_type_col, args.default_col_value)
 
-    with StageTimer(timings, "b7_update_cell_type_cluster"):
-        cdb_edit.update_obs(
+    with StageTimer(timings, "b6_update_cell_type_cluster"):
+        updated_cell_type = cdb_edit.update_obs_where(
             args.cell_type_col,
-            cluster_ids,
-            [args.new_cell_type] * subset_n_obs,
+            args.new_cell_type,
+            predicate,
+            predicate_params,
         )
 
-    with StageTimer(timings, "b8_close_after_edit"):
+    if updated_metadata != subset_n_obs or updated_cell_type != subset_n_obs:
+        cdb_edit.close()
+        raise RuntimeError(
+            "SQL update count changed after selection: "
+            f"selected={subset_n_obs}, metadata={updated_metadata}, "
+            f"cell_type={updated_cell_type}"
+        )
+
+    with StageTimer(timings, "b7_close_after_edit"):
         cdb_edit.close()
 
     total = sum(timings.values())

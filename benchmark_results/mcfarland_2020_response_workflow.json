@@ -1,0 +1,4300 @@
+{
+  "workflow": "McFarland matched treatment-control response summaries",
+  "dataset": {
+    "title": "McFarland et al. 2020 MIX-Seq perturbation response",
+    "doi": "10.1038/s41467-020-17440-w",
+    "url": "https://exampledata.scverse.org/pertpy/mcfarland_2020.h5ad",
+    "sha256": "94a7240047b9ce6822dc2aa1e7a66c1fd8b00be842e5a95fc72cbeb6f2834d2c",
+    "shape": [
+      182875,
+      32738
+    ]
+  },
+  "preparation_seconds": null,
+  "control": "control",
+  "quality": "normal",
+  "matching_columns": [
+    "cell_line",
+    "time"
+  ],
+  "features": [
+    "DUSP6",
+    "EGR1",
+    "FOS",
+    "JUN",
+    "SPRY2",
+    "ETV4",
+    "ETV5",
+    "BCL2",
+    "BCL2L1",
+    "MCL1",
+    "BAX",
+    "PMAIP1",
+    "MKI67",
+    "TOP2A",
+    "CDKN1A",
+    "ATF3",
+    "FOSL1",
+    "BRAF",
+    "MAP2K1",
+    "MDM2",
+    "GPX4",
+    "MTOR",
+    "BRD4"
+  ],
+  "missing_features": [],
+  "task_audit": [
+    {
+      "treatment": "BRD3379",
+      "matched_pairs": 194,
+      "treatment_cells": 18133,
+      "control_cells": 17393
+    },
+    {
+      "treatment": "Dabrafenib",
+      "matched_pairs": 97,
+      "treatment_cells": 10867,
+      "control_cells": 7793
+    },
+    {
+      "treatment": "Navitoclax",
+      "matched_pairs": 97,
+      "treatment_cells": 8432,
+      "control_cells": 7793
+    },
+    {
+      "treatment": "AZD5591",
+      "matched_pairs": 93,
+      "treatment_cells": 6074,
+      "control_cells": 8243
+    },
+    {
+      "treatment": "JQ1",
+      "matched_pairs": 93,
+      "treatment_cells": 4658,
+      "control_cells": 8243
+    }
+  ],
+  "summary": {
+    "independent": {
+      "access_seconds": {
+        "median": 5.716414655558765,
+        "min": 5.675697489641607,
+        "max": 7.015086983330548
+      },
+      "downstream_seconds": {
+        "median": 0.03544839099049568,
+        "min": 0.03540425002574921,
+        "max": 0.03590741287916899
+      },
+      "total_seconds": {
+        "median": 5.751863046549261,
+        "min": 5.711364651098847,
+        "max": 7.050994396209717
+      },
+      "source_scan_count": {
+        "median": 5.0,
+        "min": 5.0,
+        "max": 5.0
+      },
+      "matrix_batch_reads": {
+        "median": 26.0,
+        "min": 26.0,
+        "max": 26.0
+      },
+      "matrix_bytes_read": {
+        "median": 9086108.0,
+        "min": 9086108.0,
+        "max": 9086108.0
+      }
+    },
+    "joint": {
+      "access_seconds": {
+        "median": 3.72729414049536,
+        "min": 3.7012719763442874,
+        "max": 3.7828354481607676
+      },
+      "downstream_seconds": {
+        "median": 0.035858822986483574,
+        "min": 0.03539370000362396,
+        "max": 0.03613898437470198
+      },
+      "total_seconds": {
+        "median": 3.7632465744391084,
+        "min": 3.7366656763479114,
+        "max": 3.8189744325354695
+      },
+      "source_scan_count": {
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "matrix_batch_reads": {
+        "median": 18.0,
+        "min": 18.0,
+        "max": 18.0
+      },
+      "matrix_bytes_read": {
+        "median": 6392800.0,
+        "min": 6392800.0,
+        "max": 6392800.0
+      }
+    },
+    "access_speedup": 1.5336634137490017
+  },
+  "responses": {
+    "BRD3379": {
+      "treatment": "BRD3379",
+      "control": "control",
+      "matching_columns": [
+        "cell_line",
+        "time"
+      ],
+      "matched_pairs": [
+        {
+          "cell_line": "22RV1",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "22RV1",
+          "time": "6",
+          "control_cells": 101,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "42MGBA",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 152
+        },
+        {
+          "cell_line": "42MGBA",
+          "time": "6",
+          "control_cells": 112,
+          "treatment_cells": 113
+        },
+        {
+          "cell_line": "769P",
+          "time": "24",
+          "control_cells": 110,
+          "treatment_cells": 188
+        },
+        {
+          "cell_line": "769P",
+          "time": "6",
+          "control_cells": 140,
+          "treatment_cells": 141
+        },
+        {
+          "cell_line": "786O",
+          "time": "24",
+          "control_cells": 189,
+          "treatment_cells": 183
+        },
+        {
+          "cell_line": "786O",
+          "time": "6",
+          "control_cells": 135,
+          "treatment_cells": 147
+        },
+        {
+          "cell_line": "8505C",
+          "time": "24",
+          "control_cells": 158,
+          "treatment_cells": 107
+        },
+        {
+          "cell_line": "8505C",
+          "time": "6",
+          "control_cells": 104,
+          "treatment_cells": 117
+        },
+        {
+          "cell_line": "A2780",
+          "time": "24",
+          "control_cells": 182,
+          "treatment_cells": 193
+        },
+        {
+          "cell_line": "A2780",
+          "time": "6",
+          "control_cells": 118,
+          "treatment_cells": 117
+        },
+        {
+          "cell_line": "A375",
+          "time": "24",
+          "control_cells": 102,
+          "treatment_cells": 128
+        },
+        {
+          "cell_line": "A375",
+          "time": "6",
+          "control_cells": 75,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "ACCMESO1",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 168
+        },
+        {
+          "cell_line": "ACCMESO1",
+          "time": "6",
+          "control_cells": 129,
+          "treatment_cells": 124
+        },
+        {
+          "cell_line": "AGS",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 145
+        },
+        {
+          "cell_line": "AGS",
+          "time": "6",
+          "control_cells": 118,
+          "treatment_cells": 123
+        },
+        {
+          "cell_line": "BEN",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "BEN",
+          "time": "6",
+          "control_cells": 86,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "CAL120",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "CAL120",
+          "time": "6",
+          "control_cells": 87,
+          "treatment_cells": 92
+        },
+        {
+          "cell_line": "CAL62",
+          "time": "24",
+          "control_cells": 204,
+          "treatment_cells": 289
+        },
+        {
+          "cell_line": "CAL62",
+          "time": "6",
+          "control_cells": 186,
+          "treatment_cells": 205
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "24",
+          "control_cells": 167,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "6",
+          "control_cells": 246,
+          "treatment_cells": 78
+        },
+        {
+          "cell_line": "CJM",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "CJM",
+          "time": "6",
+          "control_cells": 67,
+          "treatment_cells": 74
+        },
+        {
+          "cell_line": "COLO668",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "COLO668",
+          "time": "6",
+          "control_cells": 53,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "24",
+          "control_cells": 267,
+          "treatment_cells": 95
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "6",
+          "control_cells": 248,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "COV434",
+          "time": "24",
+          "control_cells": 129,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "COV434",
+          "time": "6",
+          "control_cells": 152,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "DMS273",
+          "time": "24",
+          "control_cells": 124,
+          "treatment_cells": 189
+        },
+        {
+          "cell_line": "DMS273",
+          "time": "6",
+          "control_cells": 147,
+          "treatment_cells": 137
+        },
+        {
+          "cell_line": "EFM192A",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 78
+        },
+        {
+          "cell_line": "EFM192A",
+          "time": "6",
+          "control_cells": 73,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "G401",
+          "time": "24",
+          "control_cells": 78,
+          "treatment_cells": 140
+        },
+        {
+          "cell_line": "G401",
+          "time": "6",
+          "control_cells": 92,
+          "treatment_cells": 108
+        },
+        {
+          "cell_line": "GCIY",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 161
+        },
+        {
+          "cell_line": "GCIY",
+          "time": "6",
+          "control_cells": 124,
+          "treatment_cells": 111
+        },
+        {
+          "cell_line": "GP2D",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 142
+        },
+        {
+          "cell_line": "GP2D",
+          "time": "6",
+          "control_cells": 111,
+          "treatment_cells": 123
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "24",
+          "control_cells": 83,
+          "treatment_cells": 98
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "6",
+          "control_cells": 91,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "HCC1195",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "HCC1195",
+          "time": "6",
+          "control_cells": 45,
+          "treatment_cells": 53
+        },
+        {
+          "cell_line": "HCC1419",
+          "time": "24",
+          "control_cells": 41,
+          "treatment_cells": 58
+        },
+        {
+          "cell_line": "HCC1419",
+          "time": "6",
+          "control_cells": 86,
+          "treatment_cells": 95
+        },
+        {
+          "cell_line": "HEC1B",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 92
+        },
+        {
+          "cell_line": "HEC1B",
+          "time": "6",
+          "control_cells": 86,
+          "treatment_cells": 81
+        },
+        {
+          "cell_line": "HEP3B217",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 26
+        },
+        {
+          "cell_line": "HEP3B217",
+          "time": "6",
+          "control_cells": 35,
+          "treatment_cells": 42
+        },
+        {
+          "cell_line": "HS766T",
+          "time": "24",
+          "control_cells": 27,
+          "treatment_cells": 59
+        },
+        {
+          "cell_line": "HS766T",
+          "time": "6",
+          "control_cells": 72,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "HS852T",
+          "time": "24",
+          "control_cells": 32,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "HS852T",
+          "time": "6",
+          "control_cells": 57,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "HUCCT1",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "HUCCT1",
+          "time": "6",
+          "control_cells": 55,
+          "treatment_cells": 57
+        },
+        {
+          "cell_line": "IGR1",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 154
+        },
+        {
+          "cell_line": "IGR1",
+          "time": "6",
+          "control_cells": 128,
+          "treatment_cells": 129
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "24",
+          "control_cells": 188,
+          "treatment_cells": 196
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "6",
+          "control_cells": 130,
+          "treatment_cells": 142
+        },
+        {
+          "cell_line": "ISTMES1",
+          "time": "24",
+          "control_cells": 39,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "ISTMES1",
+          "time": "6",
+          "control_cells": 64,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "J82",
+          "time": "24",
+          "control_cells": 98,
+          "treatment_cells": 195
+        },
+        {
+          "cell_line": "J82",
+          "time": "6",
+          "control_cells": 155,
+          "treatment_cells": 165
+        },
+        {
+          "cell_line": "JHH5",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "JHH5",
+          "time": "6",
+          "control_cells": 94,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "JHOM1",
+          "time": "24",
+          "control_cells": 11,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "JHOM1",
+          "time": "6",
+          "control_cells": 31,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "KNS42",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 104
+        },
+        {
+          "cell_line": "KNS42",
+          "time": "6",
+          "control_cells": 89,
+          "treatment_cells": 114
+        },
+        {
+          "cell_line": "KNS60",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "KNS60",
+          "time": "6",
+          "control_cells": 48,
+          "treatment_cells": 43
+        },
+        {
+          "cell_line": "KNS81",
+          "time": "24",
+          "control_cells": 54,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "KNS81",
+          "time": "6",
+          "control_cells": 53,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "KYSE270",
+          "time": "24",
+          "control_cells": 75,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "KYSE270",
+          "time": "6",
+          "control_cells": 111,
+          "treatment_cells": 91
+        },
+        {
+          "cell_line": "LI7",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 55
+        },
+        {
+          "cell_line": "LI7",
+          "time": "6",
+          "control_cells": 48,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "LK2",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 110
+        },
+        {
+          "cell_line": "LK2",
+          "time": "6",
+          "control_cells": 105,
+          "treatment_cells": 113
+        },
+        {
+          "cell_line": "LMSU",
+          "time": "24",
+          "control_cells": 100,
+          "treatment_cells": 138
+        },
+        {
+          "cell_line": "LMSU",
+          "time": "6",
+          "control_cells": 102,
+          "treatment_cells": 106
+        },
+        {
+          "cell_line": "LN229",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "LN229",
+          "time": "6",
+          "control_cells": 83,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "24",
+          "control_cells": 207,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "6",
+          "control_cells": 318,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "24",
+          "control_cells": 116,
+          "treatment_cells": 88
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "6",
+          "control_cells": 113,
+          "treatment_cells": 113
+        },
+        {
+          "cell_line": "LUDLU1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "LUDLU1",
+          "time": "6",
+          "control_cells": 61,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "MALME3M",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "MALME3M",
+          "time": "6",
+          "control_cells": 83,
+          "treatment_cells": 94
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "24",
+          "control_cells": 125,
+          "treatment_cells": 134
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "6",
+          "control_cells": 80,
+          "treatment_cells": 106
+        },
+        {
+          "cell_line": "MDAMB468",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "MDAMB468",
+          "time": "6",
+          "control_cells": 78,
+          "treatment_cells": 98
+        },
+        {
+          "cell_line": "MIAPACA2",
+          "time": "24",
+          "control_cells": 112,
+          "treatment_cells": 88
+        },
+        {
+          "cell_line": "MIAPACA2",
+          "time": "6",
+          "control_cells": 99,
+          "treatment_cells": 113
+        },
+        {
+          "cell_line": "MSTO211H",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 85
+        },
+        {
+          "cell_line": "MSTO211H",
+          "time": "6",
+          "control_cells": 80,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "NCIH1048",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 78
+        },
+        {
+          "cell_line": "NCIH1048",
+          "time": "6",
+          "control_cells": 99,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "NCIH1299",
+          "time": "24",
+          "control_cells": 119,
+          "treatment_cells": 194
+        },
+        {
+          "cell_line": "NCIH1299",
+          "time": "6",
+          "control_cells": 161,
+          "treatment_cells": 145
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 91
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "6",
+          "control_cells": 103,
+          "treatment_cells": 108
+        },
+        {
+          "cell_line": "NCIH1573",
+          "time": "24",
+          "control_cells": 29,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "NCIH1573",
+          "time": "6",
+          "control_cells": 48,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "NCIH1581",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 170
+        },
+        {
+          "cell_line": "NCIH1581",
+          "time": "6",
+          "control_cells": 166,
+          "treatment_cells": 179
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "24",
+          "control_cells": 99,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "6",
+          "control_cells": 48,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "NCIH1693",
+          "time": "24",
+          "control_cells": 80,
+          "treatment_cells": 134
+        },
+        {
+          "cell_line": "NCIH1693",
+          "time": "6",
+          "control_cells": 129,
+          "treatment_cells": 149
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "6",
+          "control_cells": 65,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "NCIH1915",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 97
+        },
+        {
+          "cell_line": "NCIH1915",
+          "time": "6",
+          "control_cells": 93,
+          "treatment_cells": 110
+        },
+        {
+          "cell_line": "NCIH2126",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 92
+        },
+        {
+          "cell_line": "NCIH2126",
+          "time": "6",
+          "control_cells": 84,
+          "treatment_cells": 88
+        },
+        {
+          "cell_line": "NCIH23",
+          "time": "24",
+          "control_cells": 70,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "NCIH23",
+          "time": "6",
+          "control_cells": 103,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "24",
+          "control_cells": 143,
+          "treatment_cells": 31
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "6",
+          "control_cells": 181,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "NCIH2444",
+          "time": "24",
+          "control_cells": 46,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "NCIH2444",
+          "time": "6",
+          "control_cells": 60,
+          "treatment_cells": 81
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "6",
+          "control_cells": 60,
+          "treatment_cells": 55
+        },
+        {
+          "cell_line": "NCIH522",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "NCIH522",
+          "time": "6",
+          "control_cells": 63,
+          "treatment_cells": 79
+        },
+        {
+          "cell_line": "NCIH838",
+          "time": "24",
+          "control_cells": 117,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "NCIH838",
+          "time": "6",
+          "control_cells": 191,
+          "treatment_cells": 160
+        },
+        {
+          "cell_line": "NCIH841",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 174
+        },
+        {
+          "cell_line": "NCIH841",
+          "time": "6",
+          "control_cells": 125,
+          "treatment_cells": 131
+        },
+        {
+          "cell_line": "NUGC3",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 111
+        },
+        {
+          "cell_line": "NUGC3",
+          "time": "6",
+          "control_cells": 96,
+          "treatment_cells": 101
+        },
+        {
+          "cell_line": "OAW42",
+          "time": "24",
+          "control_cells": 148,
+          "treatment_cells": 261
+        },
+        {
+          "cell_line": "OAW42",
+          "time": "6",
+          "control_cells": 158,
+          "treatment_cells": 175
+        },
+        {
+          "cell_line": "OSRC2",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "OSRC2",
+          "time": "6",
+          "control_cells": 74,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "PANC0403",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 72
+        },
+        {
+          "cell_line": "PANC0403",
+          "time": "6",
+          "control_cells": 76,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "PATU8988S",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 98
+        },
+        {
+          "cell_line": "PATU8988S",
+          "time": "6",
+          "control_cells": 68,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "PC3",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "PC3",
+          "time": "6",
+          "control_cells": 99,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "QGP1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "QGP1",
+          "time": "6",
+          "control_cells": 31,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "24",
+          "control_cells": 247,
+          "treatment_cells": 84
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "6",
+          "control_cells": 282,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "RH30",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 102
+        },
+        {
+          "cell_line": "RH30",
+          "time": "6",
+          "control_cells": 112,
+          "treatment_cells": 83
+        },
+        {
+          "cell_line": "SKMEL24",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 85
+        },
+        {
+          "cell_line": "SKMEL24",
+          "time": "6",
+          "control_cells": 79,
+          "treatment_cells": 89
+        },
+        {
+          "cell_line": "SKUT1",
+          "time": "24",
+          "control_cells": 68,
+          "treatment_cells": 59
+        },
+        {
+          "cell_line": "SKUT1",
+          "time": "6",
+          "control_cells": 83,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "6",
+          "control_cells": 71,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "SNU1041",
+          "time": "24",
+          "control_cells": 52,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "SNU1041",
+          "time": "6",
+          "control_cells": 77,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 55
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "6",
+          "control_cells": 48,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "SNU1214",
+          "time": "24",
+          "control_cells": 21,
+          "treatment_cells": 43
+        },
+        {
+          "cell_line": "SNU1214",
+          "time": "6",
+          "control_cells": 46,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "SNU245",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "SNU245",
+          "time": "6",
+          "control_cells": 55,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "6",
+          "control_cells": 35,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "SNU61",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "SNU61",
+          "time": "6",
+          "control_cells": 32,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "SNU685",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "SNU685",
+          "time": "6",
+          "control_cells": 58,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "SW48",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "SW48",
+          "time": "6",
+          "control_cells": 61,
+          "treatment_cells": 81
+        },
+        {
+          "cell_line": "SW480",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "SW480",
+          "time": "6",
+          "control_cells": 59,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "SW579",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "SW579",
+          "time": "6",
+          "control_cells": 49,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "SW900",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "SW900",
+          "time": "6",
+          "control_cells": 61,
+          "treatment_cells": 57
+        },
+        {
+          "cell_line": "TE11",
+          "time": "24",
+          "control_cells": 84,
+          "treatment_cells": 127
+        },
+        {
+          "cell_line": "TE11",
+          "time": "6",
+          "control_cells": 102,
+          "treatment_cells": 116
+        },
+        {
+          "cell_line": "TE6",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "TE6",
+          "time": "6",
+          "control_cells": 62,
+          "treatment_cells": 64
+        },
+        {
+          "cell_line": "TEN",
+          "time": "24",
+          "control_cells": 230,
+          "treatment_cells": 58
+        },
+        {
+          "cell_line": "TEN",
+          "time": "6",
+          "control_cells": 279,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "TUHR4TKB",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "TUHR4TKB",
+          "time": "6",
+          "control_cells": 65,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "UACC257",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 84
+        },
+        {
+          "cell_line": "UACC257",
+          "time": "6",
+          "control_cells": 119,
+          "treatment_cells": 132
+        }
+      ],
+      "top_increased": [
+        {
+          "gene": "ATF3",
+          "mean_matched_difference": -0.014101475928185074,
+          "positive_pair_fraction": 0.38144329896907214
+        },
+        {
+          "gene": "BCL2",
+          "mean_matched_difference": -0.021981329398834435,
+          "positive_pair_fraction": 0.30927835051546393
+        },
+        {
+          "gene": "BRAF",
+          "mean_matched_difference": -0.07815987470140619,
+          "positive_pair_fraction": 0.29381443298969073
+        },
+        {
+          "gene": "CDKN1A",
+          "mean_matched_difference": -0.13240799725878738,
+          "positive_pair_fraction": 0.4896907216494845
+        },
+        {
+          "gene": "SPRY2",
+          "mean_matched_difference": -0.13701484571812964,
+          "positive_pair_fraction": 0.41237113402061853
+        },
+        {
+          "gene": "MTOR",
+          "mean_matched_difference": -0.16808363979841903,
+          "positive_pair_fraction": 0.2268041237113402
+        },
+        {
+          "gene": "EGR1",
+          "mean_matched_difference": -0.24388958878296946,
+          "positive_pair_fraction": 0.28350515463917525
+        },
+        {
+          "gene": "MDM2",
+          "mean_matched_difference": -0.26933733288743994,
+          "positive_pair_fraction": 0.20103092783505155
+        }
+      ],
+      "top_decreased": [
+        {
+          "gene": "GPX4",
+          "mean_matched_difference": -6.743757455689247,
+          "positive_pair_fraction": 0.29381443298969073
+        },
+        {
+          "gene": "FOSL1",
+          "mean_matched_difference": -2.2647263286815296,
+          "positive_pair_fraction": 0.12371134020618557
+        },
+        {
+          "gene": "BAX",
+          "mean_matched_difference": -1.946860632954494,
+          "positive_pair_fraction": 0.1958762886597938
+        },
+        {
+          "gene": "MKI67",
+          "mean_matched_difference": -1.7084711941729578,
+          "positive_pair_fraction": 0.10309278350515463
+        },
+        {
+          "gene": "TOP2A",
+          "mean_matched_difference": -1.4901444305364833,
+          "positive_pair_fraction": 0.13917525773195877
+        },
+        {
+          "gene": "MCL1",
+          "mean_matched_difference": -1.002833795798086,
+          "positive_pair_fraction": 0.18041237113402062
+        },
+        {
+          "gene": "BCL2L1",
+          "mean_matched_difference": -0.9790639987447818,
+          "positive_pair_fraction": 0.1958762886597938
+        },
+        {
+          "gene": "JUN",
+          "mean_matched_difference": -0.9474072964626096,
+          "positive_pair_fraction": 0.17525773195876287
+        }
+      ],
+      "effect_sha256": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+      "effect_sum": -21.62273875809417,
+      "interpretation": "Unweighted mean of cell-line/time-specific treated-minus-control mean raw-count expression; descriptive, not a fitted response model"
+    },
+    "Dabrafenib": {
+      "treatment": "Dabrafenib",
+      "control": "control",
+      "matching_columns": [
+        "cell_line",
+        "time"
+      ],
+      "matched_pairs": [
+        {
+          "cell_line": "22RV1",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "42MGBA",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 168
+        },
+        {
+          "cell_line": "769P",
+          "time": "24",
+          "control_cells": 110,
+          "treatment_cells": 172
+        },
+        {
+          "cell_line": "786O",
+          "time": "24",
+          "control_cells": 189,
+          "treatment_cells": 230
+        },
+        {
+          "cell_line": "8505C",
+          "time": "24",
+          "control_cells": 158,
+          "treatment_cells": 132
+        },
+        {
+          "cell_line": "A2780",
+          "time": "24",
+          "control_cells": 182,
+          "treatment_cells": 285
+        },
+        {
+          "cell_line": "A375",
+          "time": "24",
+          "control_cells": 102,
+          "treatment_cells": 115
+        },
+        {
+          "cell_line": "ACCMESO1",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 186
+        },
+        {
+          "cell_line": "AGS",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 133
+        },
+        {
+          "cell_line": "BEN",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 86
+        },
+        {
+          "cell_line": "CAL120",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "CAL62",
+          "time": "24",
+          "control_cells": 204,
+          "treatment_cells": 328
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "24",
+          "control_cells": 167,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "CJM",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "COLO668",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 33
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "24",
+          "control_cells": 267,
+          "treatment_cells": 131
+        },
+        {
+          "cell_line": "COV434",
+          "time": "24",
+          "control_cells": 129,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "DMS273",
+          "time": "24",
+          "control_cells": 124,
+          "treatment_cells": 248
+        },
+        {
+          "cell_line": "EFM192A",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "G401",
+          "time": "24",
+          "control_cells": 78,
+          "treatment_cells": 168
+        },
+        {
+          "cell_line": "GCIY",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 204
+        },
+        {
+          "cell_line": "GP2D",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 145
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "24",
+          "control_cells": 83,
+          "treatment_cells": 102
+        },
+        {
+          "cell_line": "HCC1195",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 46
+        },
+        {
+          "cell_line": "HCC1419",
+          "time": "24",
+          "control_cells": 41,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "HEC1B",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 133
+        },
+        {
+          "cell_line": "HEP3B217",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "HS766T",
+          "time": "24",
+          "control_cells": 27,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "HS852T",
+          "time": "24",
+          "control_cells": 32,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "HUCCT1",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 90
+        },
+        {
+          "cell_line": "IGR1",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 167
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "24",
+          "control_cells": 188,
+          "treatment_cells": 254
+        },
+        {
+          "cell_line": "ISTMES1",
+          "time": "24",
+          "control_cells": 39,
+          "treatment_cells": 96
+        },
+        {
+          "cell_line": "J82",
+          "time": "24",
+          "control_cells": 98,
+          "treatment_cells": 208
+        },
+        {
+          "cell_line": "JHH5",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "JHOM1",
+          "time": "24",
+          "control_cells": 11,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "KNS42",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 137
+        },
+        {
+          "cell_line": "KNS60",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "KNS81",
+          "time": "24",
+          "control_cells": 54,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "KYSE270",
+          "time": "24",
+          "control_cells": 75,
+          "treatment_cells": 121
+        },
+        {
+          "cell_line": "LI7",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "LK2",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 117
+        },
+        {
+          "cell_line": "LMSU",
+          "time": "24",
+          "control_cells": 100,
+          "treatment_cells": 163
+        },
+        {
+          "cell_line": "LN229",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 121
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "24",
+          "control_cells": 207,
+          "treatment_cells": 112
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "24",
+          "control_cells": 116,
+          "treatment_cells": 147
+        },
+        {
+          "cell_line": "LUDLU1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "MALME3M",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 39
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "24",
+          "control_cells": 125,
+          "treatment_cells": 122
+        },
+        {
+          "cell_line": "MDAMB468",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 116
+        },
+        {
+          "cell_line": "MIAPACA2",
+          "time": "24",
+          "control_cells": 112,
+          "treatment_cells": 129
+        },
+        {
+          "cell_line": "MSTO211H",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 127
+        },
+        {
+          "cell_line": "NCIH1048",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 94
+        },
+        {
+          "cell_line": "NCIH1299",
+          "time": "24",
+          "control_cells": 119,
+          "treatment_cells": 208
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 115
+        },
+        {
+          "cell_line": "NCIH1573",
+          "time": "24",
+          "control_cells": 29,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "NCIH1581",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 198
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "24",
+          "control_cells": 99,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "NCIH1693",
+          "time": "24",
+          "control_cells": 80,
+          "treatment_cells": 173
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "NCIH1915",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 106
+        },
+        {
+          "cell_line": "NCIH2126",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "NCIH23",
+          "time": "24",
+          "control_cells": 70,
+          "treatment_cells": 115
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "24",
+          "control_cells": 143,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "NCIH2444",
+          "time": "24",
+          "control_cells": 46,
+          "treatment_cells": 90
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "NCIH522",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "NCIH838",
+          "time": "24",
+          "control_cells": 117,
+          "treatment_cells": 218
+        },
+        {
+          "cell_line": "NCIH841",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 180
+        },
+        {
+          "cell_line": "NUGC3",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 150
+        },
+        {
+          "cell_line": "OAW42",
+          "time": "24",
+          "control_cells": 148,
+          "treatment_cells": 311
+        },
+        {
+          "cell_line": "OSRC2",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "PANC0403",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 101
+        },
+        {
+          "cell_line": "PATU8988S",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "PC3",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 127
+        },
+        {
+          "cell_line": "QGP1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 40
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "24",
+          "control_cells": 247,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "RH30",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 142
+        },
+        {
+          "cell_line": "SKMEL24",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 90
+        },
+        {
+          "cell_line": "SKUT1",
+          "time": "24",
+          "control_cells": 68,
+          "treatment_cells": 120
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 94
+        },
+        {
+          "cell_line": "SNU1041",
+          "time": "24",
+          "control_cells": 52,
+          "treatment_cells": 72
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 53
+        },
+        {
+          "cell_line": "SNU1214",
+          "time": "24",
+          "control_cells": 21,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "SNU245",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "SNU61",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 37
+        },
+        {
+          "cell_line": "SNU685",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 86
+        },
+        {
+          "cell_line": "SW48",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "SW480",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "SW579",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "SW900",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "TE11",
+          "time": "24",
+          "control_cells": 84,
+          "treatment_cells": 118
+        },
+        {
+          "cell_line": "TE6",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 83
+        },
+        {
+          "cell_line": "TEN",
+          "time": "24",
+          "control_cells": 230,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "TUHR4TKB",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "UACC257",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 115
+        }
+      ],
+      "top_increased": [
+        {
+          "gene": "BCL2",
+          "mean_matched_difference": -0.036283406672243924,
+          "positive_pair_fraction": 0.23711340206185566
+        },
+        {
+          "gene": "BRAF",
+          "mean_matched_difference": -0.14005711938315132,
+          "positive_pair_fraction": 0.13402061855670103
+        },
+        {
+          "gene": "SPRY2",
+          "mean_matched_difference": -0.15461573546134044,
+          "positive_pair_fraction": 0.35051546391752575
+        },
+        {
+          "gene": "ATF3",
+          "mean_matched_difference": -0.15978600720412006,
+          "positive_pair_fraction": 0.16494845360824742
+        },
+        {
+          "gene": "EGR1",
+          "mean_matched_difference": -0.18313670403729201,
+          "positive_pair_fraction": 0.29896907216494845
+        },
+        {
+          "gene": "MTOR",
+          "mean_matched_difference": -0.28631795766930557,
+          "positive_pair_fraction": 0.030927835051546393
+        },
+        {
+          "gene": "FOS",
+          "mean_matched_difference": -0.47675553320258185,
+          "positive_pair_fraction": 0.15463917525773196
+        },
+        {
+          "gene": "MDM2",
+          "mean_matched_difference": -0.48153957389693924,
+          "positive_pair_fraction": 0.07216494845360824
+        }
+      ],
+      "top_decreased": [
+        {
+          "gene": "GPX4",
+          "mean_matched_difference": -12.65356341402505,
+          "positive_pair_fraction": 0.14432989690721648
+        },
+        {
+          "gene": "BAX",
+          "mean_matched_difference": -3.5524947733809533,
+          "positive_pair_fraction": 0.061855670103092786
+        },
+        {
+          "gene": "MKI67",
+          "mean_matched_difference": -2.9862900549198166,
+          "positive_pair_fraction": 0.030927835051546393
+        },
+        {
+          "gene": "TOP2A",
+          "mean_matched_difference": -2.7254600765495485,
+          "positive_pair_fraction": 0.030927835051546393
+        },
+        {
+          "gene": "FOSL1",
+          "mean_matched_difference": -2.6178079002129135,
+          "positive_pair_fraction": 0.12371134020618557
+        },
+        {
+          "gene": "BCL2L1",
+          "mean_matched_difference": -1.767654253464842,
+          "positive_pair_fraction": 0.061855670103092786
+        },
+        {
+          "gene": "JUN",
+          "mean_matched_difference": -1.5812727381175073,
+          "positive_pair_fraction": 0.1134020618556701
+        },
+        {
+          "gene": "MCL1",
+          "mean_matched_difference": -1.4250626223052263,
+          "positive_pair_fraction": 0.12371134020618557
+        }
+      ],
+      "effect_sha256": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+      "effect_sum": -37.08370145353087,
+      "interpretation": "Unweighted mean of cell-line/time-specific treated-minus-control mean raw-count expression; descriptive, not a fitted response model"
+    },
+    "Navitoclax": {
+      "treatment": "Navitoclax",
+      "control": "control",
+      "matching_columns": [
+        "cell_line",
+        "time"
+      ],
+      "matched_pairs": [
+        {
+          "cell_line": "22RV1",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "42MGBA",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 132
+        },
+        {
+          "cell_line": "769P",
+          "time": "24",
+          "control_cells": 110,
+          "treatment_cells": 118
+        },
+        {
+          "cell_line": "786O",
+          "time": "24",
+          "control_cells": 189,
+          "treatment_cells": 209
+        },
+        {
+          "cell_line": "8505C",
+          "time": "24",
+          "control_cells": 158,
+          "treatment_cells": 107
+        },
+        {
+          "cell_line": "A2780",
+          "time": "24",
+          "control_cells": 182,
+          "treatment_cells": 237
+        },
+        {
+          "cell_line": "A375",
+          "time": "24",
+          "control_cells": 102,
+          "treatment_cells": 122
+        },
+        {
+          "cell_line": "ACCMESO1",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 81
+        },
+        {
+          "cell_line": "AGS",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "BEN",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 39
+        },
+        {
+          "cell_line": "CAL120",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 6
+        },
+        {
+          "cell_line": "CAL62",
+          "time": "24",
+          "control_cells": 204,
+          "treatment_cells": 320
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "24",
+          "control_cells": 167,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "CJM",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "COLO668",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 23
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "24",
+          "control_cells": 267,
+          "treatment_cells": 104
+        },
+        {
+          "cell_line": "COV434",
+          "time": "24",
+          "control_cells": 129,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "DMS273",
+          "time": "24",
+          "control_cells": 124,
+          "treatment_cells": 248
+        },
+        {
+          "cell_line": "EFM192A",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "G401",
+          "time": "24",
+          "control_cells": 78,
+          "treatment_cells": 146
+        },
+        {
+          "cell_line": "GCIY",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 135
+        },
+        {
+          "cell_line": "GP2D",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 141
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "24",
+          "control_cells": 83,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "HCC1195",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "HCC1419",
+          "time": "24",
+          "control_cells": 41,
+          "treatment_cells": 64
+        },
+        {
+          "cell_line": "HEC1B",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "HEP3B217",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 29
+        },
+        {
+          "cell_line": "HS766T",
+          "time": "24",
+          "control_cells": 27,
+          "treatment_cells": 19
+        },
+        {
+          "cell_line": "HS852T",
+          "time": "24",
+          "control_cells": 32,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "HUCCT1",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "IGR1",
+          "time": "24",
+          "control_cells": 106,
+          "treatment_cells": 142
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "24",
+          "control_cells": 188,
+          "treatment_cells": 202
+        },
+        {
+          "cell_line": "ISTMES1",
+          "time": "24",
+          "control_cells": 39,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "J82",
+          "time": "24",
+          "control_cells": 98,
+          "treatment_cells": 180
+        },
+        {
+          "cell_line": "JHH5",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "JHOM1",
+          "time": "24",
+          "control_cells": 11,
+          "treatment_cells": 20
+        },
+        {
+          "cell_line": "KNS42",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "KNS60",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "KNS81",
+          "time": "24",
+          "control_cells": 54,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "KYSE270",
+          "time": "24",
+          "control_cells": 75,
+          "treatment_cells": 108
+        },
+        {
+          "cell_line": "LI7",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 54
+        },
+        {
+          "cell_line": "LK2",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 107
+        },
+        {
+          "cell_line": "LMSU",
+          "time": "24",
+          "control_cells": 100,
+          "treatment_cells": 153
+        },
+        {
+          "cell_line": "LN229",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "24",
+          "control_cells": 207,
+          "treatment_cells": 91
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "24",
+          "control_cells": 116,
+          "treatment_cells": 110
+        },
+        {
+          "cell_line": "LUDLU1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 43
+        },
+        {
+          "cell_line": "MALME3M",
+          "time": "24",
+          "control_cells": 40,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "24",
+          "control_cells": 125,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "MDAMB468",
+          "time": "24",
+          "control_cells": 74,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "MIAPACA2",
+          "time": "24",
+          "control_cells": 112,
+          "treatment_cells": 131
+        },
+        {
+          "cell_line": "MSTO211H",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "NCIH1048",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "NCIH1299",
+          "time": "24",
+          "control_cells": 119,
+          "treatment_cells": 204
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "NCIH1573",
+          "time": "24",
+          "control_cells": 29,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "NCIH1581",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 174
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "24",
+          "control_cells": 99,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "NCIH1693",
+          "time": "24",
+          "control_cells": 80,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 57
+        },
+        {
+          "cell_line": "NCIH1915",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 78
+        },
+        {
+          "cell_line": "NCIH2126",
+          "time": "24",
+          "control_cells": 49,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "NCIH23",
+          "time": "24",
+          "control_cells": 70,
+          "treatment_cells": 110
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "24",
+          "control_cells": 143,
+          "treatment_cells": 29
+        },
+        {
+          "cell_line": "NCIH2444",
+          "time": "24",
+          "control_cells": 46,
+          "treatment_cells": 16
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "NCIH522",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "NCIH838",
+          "time": "24",
+          "control_cells": 117,
+          "treatment_cells": 210
+        },
+        {
+          "cell_line": "NCIH841",
+          "time": "24",
+          "control_cells": 101,
+          "treatment_cells": 177
+        },
+        {
+          "cell_line": "NUGC3",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "OAW42",
+          "time": "24",
+          "control_cells": 148,
+          "treatment_cells": 206
+        },
+        {
+          "cell_line": "OSRC2",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 87
+        },
+        {
+          "cell_line": "PANC0403",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "PATU8988S",
+          "time": "24",
+          "control_cells": 57,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "PC3",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 104
+        },
+        {
+          "cell_line": "QGP1",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 41
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "24",
+          "control_cells": 247,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "RH30",
+          "time": "24",
+          "control_cells": 60,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "SKMEL24",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "SKUT1",
+          "time": "24",
+          "control_cells": 68,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "SNU1041",
+          "time": "24",
+          "control_cells": 52,
+          "treatment_cells": 74
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "SNU1214",
+          "time": "24",
+          "control_cells": 21,
+          "treatment_cells": 10
+        },
+        {
+          "cell_line": "SNU245",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 5
+        },
+        {
+          "cell_line": "SNU61",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 30
+        },
+        {
+          "cell_line": "SNU685",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "SW48",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 7
+        },
+        {
+          "cell_line": "SW480",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 9
+        },
+        {
+          "cell_line": "SW579",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "SW900",
+          "time": "24",
+          "control_cells": 37,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "TE11",
+          "time": "24",
+          "control_cells": 84,
+          "treatment_cells": 134
+        },
+        {
+          "cell_line": "TE6",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "TEN",
+          "time": "24",
+          "control_cells": 230,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "TUHR4TKB",
+          "time": "24",
+          "control_cells": 35,
+          "treatment_cells": 19
+        },
+        {
+          "cell_line": "UACC257",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 90
+        }
+      ],
+      "top_increased": [
+        {
+          "gene": "BCL2",
+          "mean_matched_difference": -0.02632789307647716,
+          "positive_pair_fraction": 0.27835051546391754
+        },
+        {
+          "gene": "BRAF",
+          "mean_matched_difference": -0.13153215400895527,
+          "positive_pair_fraction": 0.12371134020618557
+        },
+        {
+          "gene": "SPRY2",
+          "mean_matched_difference": -0.13164032625771965,
+          "positive_pair_fraction": 0.31958762886597936
+        },
+        {
+          "gene": "ATF3",
+          "mean_matched_difference": -0.13175730542913328,
+          "positive_pair_fraction": 0.24742268041237114
+        },
+        {
+          "gene": "MTOR",
+          "mean_matched_difference": -0.2370967188523265,
+          "positive_pair_fraction": 0.10309278350515463
+        },
+        {
+          "gene": "BRD4",
+          "mean_matched_difference": -0.4225565835277326,
+          "positive_pair_fraction": 0.24742268041237114
+        },
+        {
+          "gene": "EGR1",
+          "mean_matched_difference": -0.4275530044821737,
+          "positive_pair_fraction": 0.16494845360824742
+        },
+        {
+          "gene": "MDM2",
+          "mean_matched_difference": -0.45362821172050827,
+          "positive_pair_fraction": 0.12371134020618557
+        }
+      ],
+      "top_decreased": [
+        {
+          "gene": "GPX4",
+          "mean_matched_difference": -10.911986255832208,
+          "positive_pair_fraction": 0.13402061855670103
+        },
+        {
+          "gene": "BAX",
+          "mean_matched_difference": -2.9281216012297313,
+          "positive_pair_fraction": 0.09278350515463918
+        },
+        {
+          "gene": "TOP2A",
+          "mean_matched_difference": -2.202627869688445,
+          "positive_pair_fraction": 0.07216494845360824
+        },
+        {
+          "gene": "MKI67",
+          "mean_matched_difference": -2.140258191385129,
+          "positive_pair_fraction": 0.061855670103092786
+        },
+        {
+          "gene": "FOSL1",
+          "mean_matched_difference": -1.3810137195479502,
+          "positive_pair_fraction": 0.2268041237113402
+        },
+        {
+          "gene": "MCL1",
+          "mean_matched_difference": -1.3438511508402704,
+          "positive_pair_fraction": 0.10309278350515463
+        },
+        {
+          "gene": "BCL2L1",
+          "mean_matched_difference": -1.2663675565347987,
+          "positive_pair_fraction": 0.12371134020618557
+        },
+        {
+          "gene": "PMAIP1",
+          "mean_matched_difference": -1.1455132368298728,
+          "positive_pair_fraction": 0.21649484536082475
+        }
+      ],
+      "effect_sha256": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+      "effect_sum": -30.328534757690882,
+      "interpretation": "Unweighted mean of cell-line/time-specific treated-minus-control mean raw-count expression; descriptive, not a fitted response model"
+    },
+    "AZD5591": {
+      "treatment": "AZD5591",
+      "control": "control",
+      "matching_columns": [
+        "cell_line",
+        "time"
+      ],
+      "matched_pairs": [
+        {
+          "cell_line": "253JBV",
+          "time": "24",
+          "control_cells": 112,
+          "treatment_cells": 138
+        },
+        {
+          "cell_line": "5637",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "639V",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "786O",
+          "time": "24",
+          "control_cells": 189,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "8505C",
+          "time": "24",
+          "control_cells": 158,
+          "treatment_cells": 83
+        },
+        {
+          "cell_line": "A549",
+          "time": "24",
+          "control_cells": 94,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "BICR31",
+          "time": "24",
+          "control_cells": 275,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "BICR6",
+          "time": "24",
+          "control_cells": 113,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "BT474",
+          "time": "24",
+          "control_cells": 55,
+          "treatment_cells": 32
+        },
+        {
+          "cell_line": "BT549",
+          "time": "24",
+          "control_cells": 109,
+          "treatment_cells": 17
+        },
+        {
+          "cell_line": "BXPC3",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 22
+        },
+        {
+          "cell_line": "CAL29",
+          "time": "24",
+          "control_cells": 63,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "24",
+          "control_cells": 167,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "CCFSTTG1",
+          "time": "24",
+          "control_cells": 120,
+          "treatment_cells": 64
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "24",
+          "control_cells": 267,
+          "treatment_cells": 160
+        },
+        {
+          "cell_line": "COLO829",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "CORL23",
+          "time": "24",
+          "control_cells": 95,
+          "treatment_cells": 103
+        },
+        {
+          "cell_line": "COV434",
+          "time": "24",
+          "control_cells": 129,
+          "treatment_cells": 12
+        },
+        {
+          "cell_line": "CW2",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 19
+        },
+        {
+          "cell_line": "DKMG",
+          "time": "24",
+          "control_cells": 140,
+          "treatment_cells": 61
+        },
+        {
+          "cell_line": "FTC238",
+          "time": "24",
+          "control_cells": 65,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "GAMG",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "GB1",
+          "time": "24",
+          "control_cells": 76,
+          "treatment_cells": 78
+        },
+        {
+          "cell_line": "GI1",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 28
+        },
+        {
+          "cell_line": "H4",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 13
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "24",
+          "control_cells": 83,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "HCC1806",
+          "time": "24",
+          "control_cells": 63,
+          "treatment_cells": 61
+        },
+        {
+          "cell_line": "HCC827",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 41
+        },
+        {
+          "cell_line": "HCT116",
+          "time": "24",
+          "control_cells": 118,
+          "treatment_cells": 180
+        },
+        {
+          "cell_line": "HCT15",
+          "time": "24",
+          "control_cells": 86,
+          "treatment_cells": 128
+        },
+        {
+          "cell_line": "HEC1A",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "HPAC",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 40
+        },
+        {
+          "cell_line": "HS294T",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 90
+        },
+        {
+          "cell_line": "HT29",
+          "time": "24",
+          "control_cells": 65,
+          "treatment_cells": 85
+        },
+        {
+          "cell_line": "IALM",
+          "time": "24",
+          "control_cells": 130,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "24",
+          "control_cells": 188,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "KP2",
+          "time": "24",
+          "control_cells": 24,
+          "treatment_cells": 39
+        },
+        {
+          "cell_line": "KU1919",
+          "time": "24",
+          "control_cells": 87,
+          "treatment_cells": 100
+        },
+        {
+          "cell_line": "KYSE510",
+          "time": "24",
+          "control_cells": 145,
+          "treatment_cells": 127
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "24",
+          "control_cells": 207,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "24",
+          "control_cells": 116,
+          "treatment_cells": 30
+        },
+        {
+          "cell_line": "LOXIMVI",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "LS1034",
+          "time": "24",
+          "control_cells": 84,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "LU99",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 94
+        },
+        {
+          "cell_line": "MCAS",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 58
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "24",
+          "control_cells": 125,
+          "treatment_cells": 85
+        },
+        {
+          "cell_line": "MESSA",
+          "time": "24",
+          "control_cells": 41,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "NCIH1339",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 13
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 71
+        },
+        {
+          "cell_line": "NCIH1437",
+          "time": "24",
+          "control_cells": 46,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "24",
+          "control_cells": 99,
+          "treatment_cells": 104
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "NCIH1975",
+          "time": "24",
+          "control_cells": 51,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "NCIH2009",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "NCIH226",
+          "time": "24",
+          "control_cells": 191,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "24",
+          "control_cells": 143,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "NCIN87",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 51
+        },
+        {
+          "cell_line": "NIHOVCAR3",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "NMCG1",
+          "time": "24",
+          "control_cells": 50,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "ONS76",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 99
+        },
+        {
+          "cell_line": "OVISE",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "PATU8988T",
+          "time": "24",
+          "control_cells": 85,
+          "treatment_cells": 119
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "24",
+          "control_cells": 247,
+          "treatment_cells": 96
+        },
+        {
+          "cell_line": "RCM1",
+          "time": "24",
+          "control_cells": 110,
+          "treatment_cells": 39
+        },
+        {
+          "cell_line": "RERFLCAD1",
+          "time": "24",
+          "control_cells": 131,
+          "treatment_cells": 66
+        },
+        {
+          "cell_line": "RERFLCAD2",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "RMUGS",
+          "time": "24",
+          "control_cells": 27,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "S117",
+          "time": "24",
+          "control_cells": 21,
+          "treatment_cells": 28
+        },
+        {
+          "cell_line": "SH10TC",
+          "time": "24",
+          "control_cells": 169,
+          "treatment_cells": 57
+        },
+        {
+          "cell_line": "SKMEL2",
+          "time": "24",
+          "control_cells": 184,
+          "treatment_cells": 4
+        },
+        {
+          "cell_line": "SKMEL3",
+          "time": "24",
+          "control_cells": 165,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "SKNFI",
+          "time": "24",
+          "control_cells": 31,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "SKNSH",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 93
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "SNU1079",
+          "time": "24",
+          "control_cells": 108,
+          "treatment_cells": 24
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 53
+        },
+        {
+          "cell_line": "SNU761",
+          "time": "24",
+          "control_cells": 54,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "SNU8",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 26
+        },
+        {
+          "cell_line": "SNU840",
+          "time": "24",
+          "control_cells": 107,
+          "treatment_cells": 109
+        },
+        {
+          "cell_line": "SNUC2A",
+          "time": "24",
+          "control_cells": 29,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "SQ1",
+          "time": "24",
+          "control_cells": 136,
+          "treatment_cells": 41
+        },
+        {
+          "cell_line": "SUIT2",
+          "time": "24",
+          "control_cells": 131,
+          "treatment_cells": 131
+        },
+        {
+          "cell_line": "SW48",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "SW948",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 31
+        },
+        {
+          "cell_line": "T3M4",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 31
+        },
+        {
+          "cell_line": "TCCPAN2",
+          "time": "24",
+          "control_cells": 72,
+          "treatment_cells": 161
+        },
+        {
+          "cell_line": "TE8",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 14
+        },
+        {
+          "cell_line": "TEN",
+          "time": "24",
+          "control_cells": 230,
+          "treatment_cells": 114
+        },
+        {
+          "cell_line": "UMUC1",
+          "time": "24",
+          "control_cells": 117,
+          "treatment_cells": 43
+        },
+        {
+          "cell_line": "WM1799",
+          "time": "24",
+          "control_cells": 50,
+          "treatment_cells": 98
+        },
+        {
+          "cell_line": "WM2664",
+          "time": "24",
+          "control_cells": 24,
+          "treatment_cells": 23
+        }
+      ],
+      "top_increased": [
+        {
+          "gene": "BCL2",
+          "mean_matched_difference": -0.012208719821945496,
+          "positive_pair_fraction": 0.3010752688172043
+        },
+        {
+          "gene": "BRAF",
+          "mean_matched_difference": -0.05262694477496836,
+          "positive_pair_fraction": 0.27956989247311825
+        },
+        {
+          "gene": "ATF3",
+          "mean_matched_difference": -0.08052983349867854,
+          "positive_pair_fraction": 0.26881720430107525
+        },
+        {
+          "gene": "SPRY2",
+          "mean_matched_difference": -0.11243008368606604,
+          "positive_pair_fraction": 0.24731182795698925
+        },
+        {
+          "gene": "MTOR",
+          "mean_matched_difference": -0.1333900250172175,
+          "positive_pair_fraction": 0.17204301075268819
+        },
+        {
+          "gene": "FOS",
+          "mean_matched_difference": -0.14629573057549572,
+          "positive_pair_fraction": 0.25806451612903225
+        },
+        {
+          "gene": "EGR1",
+          "mean_matched_difference": -0.1556520357870405,
+          "positive_pair_fraction": 0.27956989247311825
+        },
+        {
+          "gene": "ETV4",
+          "mean_matched_difference": -0.23745858032800934,
+          "positive_pair_fraction": 0.26881720430107525
+        }
+      ],
+      "top_decreased": [
+        {
+          "gene": "GPX4",
+          "mean_matched_difference": -7.235041221253905,
+          "positive_pair_fraction": 0.16129032258064516
+        },
+        {
+          "gene": "BAX",
+          "mean_matched_difference": -1.282824981170282,
+          "positive_pair_fraction": 0.021505376344086023
+        },
+        {
+          "gene": "MKI67",
+          "mean_matched_difference": -1.0591706901006899,
+          "positive_pair_fraction": 0.11827956989247312
+        },
+        {
+          "gene": "FOSL1",
+          "mean_matched_difference": -0.9222326381253478,
+          "positive_pair_fraction": 0.21505376344086022
+        },
+        {
+          "gene": "BCL2L1",
+          "mean_matched_difference": -0.8077701603516657,
+          "positive_pair_fraction": 0.24731182795698925
+        },
+        {
+          "gene": "TOP2A",
+          "mean_matched_difference": -0.6734822758859362,
+          "positive_pair_fraction": 0.27956989247311825
+        },
+        {
+          "gene": "BRD4",
+          "mean_matched_difference": -0.6485048089929856,
+          "positive_pair_fraction": 0.15053763440860216
+        },
+        {
+          "gene": "PMAIP1",
+          "mean_matched_difference": -0.5605032024539632,
+          "positive_pair_fraction": 0.23655913978494625
+        }
+      ],
+      "effect_sha256": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+      "effect_sum": -16.65270515972407,
+      "interpretation": "Unweighted mean of cell-line/time-specific treated-minus-control mean raw-count expression; descriptive, not a fitted response model"
+    },
+    "JQ1": {
+      "treatment": "JQ1",
+      "control": "control",
+      "matching_columns": [
+        "cell_line",
+        "time"
+      ],
+      "matched_pairs": [
+        {
+          "cell_line": "253JBV",
+          "time": "24",
+          "control_cells": 112,
+          "treatment_cells": 89
+        },
+        {
+          "cell_line": "5637",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "639V",
+          "time": "24",
+          "control_cells": 67,
+          "treatment_cells": 53
+        },
+        {
+          "cell_line": "786O",
+          "time": "24",
+          "control_cells": 189,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "8505C",
+          "time": "24",
+          "control_cells": 158,
+          "treatment_cells": 68
+        },
+        {
+          "cell_line": "A549",
+          "time": "24",
+          "control_cells": 94,
+          "treatment_cells": 102
+        },
+        {
+          "cell_line": "BICR31",
+          "time": "24",
+          "control_cells": 275,
+          "treatment_cells": 77
+        },
+        {
+          "cell_line": "BICR6",
+          "time": "24",
+          "control_cells": 113,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "BT474",
+          "time": "24",
+          "control_cells": 55,
+          "treatment_cells": 26
+        },
+        {
+          "cell_line": "BT549",
+          "time": "24",
+          "control_cells": 109,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "BXPC3",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 21
+        },
+        {
+          "cell_line": "CAL29",
+          "time": "24",
+          "control_cells": 63,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "CAOV3",
+          "time": "24",
+          "control_cells": 167,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "CCFSTTG1",
+          "time": "24",
+          "control_cells": 120,
+          "treatment_cells": 64
+        },
+        {
+          "cell_line": "COLO680N",
+          "time": "24",
+          "control_cells": 267,
+          "treatment_cells": 97
+        },
+        {
+          "cell_line": "COLO829",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 62
+        },
+        {
+          "cell_line": "CORL23",
+          "time": "24",
+          "control_cells": 95,
+          "treatment_cells": 58
+        },
+        {
+          "cell_line": "COV434",
+          "time": "24",
+          "control_cells": 129,
+          "treatment_cells": 22
+        },
+        {
+          "cell_line": "CW2",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 16
+        },
+        {
+          "cell_line": "DKMG",
+          "time": "24",
+          "control_cells": 140,
+          "treatment_cells": 35
+        },
+        {
+          "cell_line": "FTC238",
+          "time": "24",
+          "control_cells": 65,
+          "treatment_cells": 44
+        },
+        {
+          "cell_line": "GAMG",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 61
+        },
+        {
+          "cell_line": "GB1",
+          "time": "24",
+          "control_cells": 76,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "GI1",
+          "time": "24",
+          "control_cells": 58,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "H4",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 18
+        },
+        {
+          "cell_line": "HCC1143",
+          "time": "24",
+          "control_cells": 83,
+          "treatment_cells": 47
+        },
+        {
+          "cell_line": "HCC1806",
+          "time": "24",
+          "control_cells": 63,
+          "treatment_cells": 32
+        },
+        {
+          "cell_line": "HCC827",
+          "time": "24",
+          "control_cells": 34,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "HCT116",
+          "time": "24",
+          "control_cells": 118,
+          "treatment_cells": 97
+        },
+        {
+          "cell_line": "HCT15",
+          "time": "24",
+          "control_cells": 86,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "HEC1A",
+          "time": "24",
+          "control_cells": 43,
+          "treatment_cells": 75
+        },
+        {
+          "cell_line": "HPAC",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "HS294T",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 53
+        },
+        {
+          "cell_line": "HT29",
+          "time": "24",
+          "control_cells": 65,
+          "treatment_cells": 59
+        },
+        {
+          "cell_line": "IALM",
+          "time": "24",
+          "control_cells": 130,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "IGROV1",
+          "time": "24",
+          "control_cells": 188,
+          "treatment_cells": 56
+        },
+        {
+          "cell_line": "KP2",
+          "time": "24",
+          "control_cells": 24,
+          "treatment_cells": 36
+        },
+        {
+          "cell_line": "KU1919",
+          "time": "24",
+          "control_cells": 87,
+          "treatment_cells": 37
+        },
+        {
+          "cell_line": "KYSE510",
+          "time": "24",
+          "control_cells": 145,
+          "treatment_cells": 105
+        },
+        {
+          "cell_line": "LNCAPCLONEFGC",
+          "time": "24",
+          "control_cells": 207,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "LOVO",
+          "time": "24",
+          "control_cells": 116,
+          "treatment_cells": 29
+        },
+        {
+          "cell_line": "LOXIMVI",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 32
+        },
+        {
+          "cell_line": "LS1034",
+          "time": "24",
+          "control_cells": 84,
+          "treatment_cells": 28
+        },
+        {
+          "cell_line": "LU99",
+          "time": "24",
+          "control_cells": 82,
+          "treatment_cells": 37
+        },
+        {
+          "cell_line": "MCAS",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "MDAMB435S",
+          "time": "24",
+          "control_cells": 125,
+          "treatment_cells": 67
+        },
+        {
+          "cell_line": "MESSA",
+          "time": "24",
+          "control_cells": 41,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "NCIH1339",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 39
+        },
+        {
+          "cell_line": "NCIH1355",
+          "time": "24",
+          "control_cells": 105,
+          "treatment_cells": 59
+        },
+        {
+          "cell_line": "NCIH1437",
+          "time": "24",
+          "control_cells": 46,
+          "treatment_cells": 58
+        },
+        {
+          "cell_line": "NCIH1650",
+          "time": "24",
+          "control_cells": 99,
+          "treatment_cells": 64
+        },
+        {
+          "cell_line": "NCIH1793",
+          "time": "24",
+          "control_cells": 114,
+          "treatment_cells": 38
+        },
+        {
+          "cell_line": "NCIH1975",
+          "time": "24",
+          "control_cells": 51,
+          "treatment_cells": 27
+        },
+        {
+          "cell_line": "NCIH2009",
+          "time": "24",
+          "control_cells": 38,
+          "treatment_cells": 70
+        },
+        {
+          "cell_line": "NCIH226",
+          "time": "24",
+          "control_cells": 191,
+          "treatment_cells": 40
+        },
+        {
+          "cell_line": "NCIH2347",
+          "time": "24",
+          "control_cells": 143,
+          "treatment_cells": 20
+        },
+        {
+          "cell_line": "NCIH322",
+          "time": "24",
+          "control_cells": 64,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "NCIN87",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 17
+        },
+        {
+          "cell_line": "NIHOVCAR3",
+          "time": "24",
+          "control_cells": 25,
+          "treatment_cells": 30
+        },
+        {
+          "cell_line": "NMCG1",
+          "time": "24",
+          "control_cells": 50,
+          "treatment_cells": 45
+        },
+        {
+          "cell_line": "ONS76",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 80
+        },
+        {
+          "cell_line": "OVISE",
+          "time": "24",
+          "control_cells": 42,
+          "treatment_cells": 55
+        },
+        {
+          "cell_line": "PATU8988T",
+          "time": "24",
+          "control_cells": 85,
+          "treatment_cells": 73
+        },
+        {
+          "cell_line": "RCC10RGB",
+          "time": "24",
+          "control_cells": 247,
+          "treatment_cells": 84
+        },
+        {
+          "cell_line": "RCM1",
+          "time": "24",
+          "control_cells": 110,
+          "treatment_cells": 23
+        },
+        {
+          "cell_line": "RERFLCAD1",
+          "time": "24",
+          "control_cells": 131,
+          "treatment_cells": 37
+        },
+        {
+          "cell_line": "RERFLCAD2",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 14
+        },
+        {
+          "cell_line": "RMUGS",
+          "time": "24",
+          "control_cells": 27,
+          "treatment_cells": 37
+        },
+        {
+          "cell_line": "S117",
+          "time": "24",
+          "control_cells": 21,
+          "treatment_cells": 23
+        },
+        {
+          "cell_line": "SH10TC",
+          "time": "24",
+          "control_cells": 169,
+          "treatment_cells": 82
+        },
+        {
+          "cell_line": "SKMEL2",
+          "time": "24",
+          "control_cells": 184,
+          "treatment_cells": 63
+        },
+        {
+          "cell_line": "SKMEL3",
+          "time": "24",
+          "control_cells": 165,
+          "treatment_cells": 42
+        },
+        {
+          "cell_line": "SKNFI",
+          "time": "24",
+          "control_cells": 31,
+          "treatment_cells": 50
+        },
+        {
+          "cell_line": "SKNSH",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 69
+        },
+        {
+          "cell_line": "SNB75",
+          "time": "24",
+          "control_cells": 97,
+          "treatment_cells": 49
+        },
+        {
+          "cell_line": "SNU1079",
+          "time": "24",
+          "control_cells": 108,
+          "treatment_cells": 8
+        },
+        {
+          "cell_line": "SNU1105",
+          "time": "24",
+          "control_cells": 77,
+          "treatment_cells": 60
+        },
+        {
+          "cell_line": "SNU410",
+          "time": "24",
+          "control_cells": 36,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "SNU761",
+          "time": "24",
+          "control_cells": 54,
+          "treatment_cells": 48
+        },
+        {
+          "cell_line": "SNU8",
+          "time": "24",
+          "control_cells": 23,
+          "treatment_cells": 34
+        },
+        {
+          "cell_line": "SNU840",
+          "time": "24",
+          "control_cells": 107,
+          "treatment_cells": 76
+        },
+        {
+          "cell_line": "SNUC2A",
+          "time": "24",
+          "control_cells": 29,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "SQ1",
+          "time": "24",
+          "control_cells": 136,
+          "treatment_cells": 28
+        },
+        {
+          "cell_line": "SUIT2",
+          "time": "24",
+          "control_cells": 131,
+          "treatment_cells": 130
+        },
+        {
+          "cell_line": "SW48",
+          "time": "24",
+          "control_cells": 45,
+          "treatment_cells": 41
+        },
+        {
+          "cell_line": "SW948",
+          "time": "24",
+          "control_cells": 14,
+          "treatment_cells": 25
+        },
+        {
+          "cell_line": "T3M4",
+          "time": "24",
+          "control_cells": 18,
+          "treatment_cells": 19
+        },
+        {
+          "cell_line": "TCCPAN2",
+          "time": "24",
+          "control_cells": 72,
+          "treatment_cells": 116
+        },
+        {
+          "cell_line": "TE8",
+          "time": "24",
+          "control_cells": 26,
+          "treatment_cells": 24
+        },
+        {
+          "cell_line": "TEN",
+          "time": "24",
+          "control_cells": 230,
+          "treatment_cells": 106
+        },
+        {
+          "cell_line": "UMUC1",
+          "time": "24",
+          "control_cells": 117,
+          "treatment_cells": 52
+        },
+        {
+          "cell_line": "WM1799",
+          "time": "24",
+          "control_cells": 50,
+          "treatment_cells": 65
+        },
+        {
+          "cell_line": "WM2664",
+          "time": "24",
+          "control_cells": 24,
+          "treatment_cells": 23
+        }
+      ],
+      "top_increased": [
+        {
+          "gene": "GPX4",
+          "mean_matched_difference": 0.9584901301840181,
+          "positive_pair_fraction": 0.7096774193548387
+        },
+        {
+          "gene": "FOS",
+          "mean_matched_difference": 0.6916594367279377,
+          "positive_pair_fraction": 0.8064516129032258
+        },
+        {
+          "gene": "JUN",
+          "mean_matched_difference": 0.42679522183815377,
+          "positive_pair_fraction": 0.5483870967741935
+        },
+        {
+          "gene": "EGR1",
+          "mean_matched_difference": 0.3723422221037244,
+          "positive_pair_fraction": 0.6344086021505376
+        },
+        {
+          "gene": "CDKN1A",
+          "mean_matched_difference": 0.34880217909866373,
+          "positive_pair_fraction": 0.6989247311827957
+        },
+        {
+          "gene": "DUSP6",
+          "mean_matched_difference": 0.3350998005129798,
+          "positive_pair_fraction": 0.5268817204301075
+        },
+        {
+          "gene": "MCL1",
+          "mean_matched_difference": 0.2935927246962328,
+          "positive_pair_fraction": 0.5591397849462365
+        },
+        {
+          "gene": "ATF3",
+          "mean_matched_difference": 0.07596974238378296,
+          "positive_pair_fraction": 0.6021505376344086
+        }
+      ],
+      "top_decreased": [
+        {
+          "gene": "TOP2A",
+          "mean_matched_difference": -1.7466026544168032,
+          "positive_pair_fraction": 0.17204301075268819
+        },
+        {
+          "gene": "MKI67",
+          "mean_matched_difference": -1.6450119658885738,
+          "positive_pair_fraction": 0.07526881720430108
+        },
+        {
+          "gene": "BAX",
+          "mean_matched_difference": -1.48277986544965,
+          "positive_pair_fraction": 0.07526881720430108
+        },
+        {
+          "gene": "FOSL1",
+          "mean_matched_difference": -1.4410689346430674,
+          "positive_pair_fraction": 0.06451612903225806
+        },
+        {
+          "gene": "BCL2L1",
+          "mean_matched_difference": -0.8930805539229127,
+          "positive_pair_fraction": 0.06451612903225806
+        },
+        {
+          "gene": "ETV4",
+          "mean_matched_difference": -0.3876643131903515,
+          "positive_pair_fraction": 0.03225806451612903
+        },
+        {
+          "gene": "PMAIP1",
+          "mean_matched_difference": -0.3553295281917639,
+          "positive_pair_fraction": 0.3870967741935484
+        },
+        {
+          "gene": "BRD4",
+          "mean_matched_difference": -0.13789490902908141,
+          "positive_pair_fraction": 0.45161290322580644
+        }
+      ],
+      "effect_sha256": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975",
+      "effect_sum": -4.800636995753262,
+      "interpretation": "Unweighted mean of cell-line/time-specific treated-minus-control mean raw-count expression; descriptive, not a fitted response model"
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "cohort_membership_equal": true,
+    "aggregate_values_exact": true,
+    "response_rankings_equal": true
+  },
+  "runs": [
+    {
+      "repeat": 1,
+      "method": "independent",
+      "access_seconds": 7.015086983330548,
+      "downstream_seconds": 0.03590741287916899,
+      "total_seconds": 7.050994396209717,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "matrix_bytes_read": 9086108,
+        "requested_rows": 97629,
+        "unique_rows": 97629
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 1,
+      "method": "joint",
+      "access_seconds": 3.7828354481607676,
+      "downstream_seconds": 0.03613898437470198,
+      "total_seconds": 3.8189744325354695,
+      "report": {
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "matrix_bytes_read": 6392800,
+        "requested_rows": 97629,
+        "unique_rows": 70914
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 2,
+      "method": "independent",
+      "access_seconds": 5.675697489641607,
+      "downstream_seconds": 0.03566716145724058,
+      "total_seconds": 5.711364651098847,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "matrix_bytes_read": 9086108,
+        "requested_rows": 97629,
+        "unique_rows": 97629
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 2,
+      "method": "joint",
+      "access_seconds": 3.72729414049536,
+      "downstream_seconds": 0.035952433943748474,
+      "total_seconds": 3.7632465744391084,
+      "report": {
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "matrix_bytes_read": 6392800,
+        "requested_rows": 97629,
+        "unique_rows": 70914
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 3,
+      "method": "joint",
+      "access_seconds": 3.72357714176178,
+      "downstream_seconds": 0.035649051889777184,
+      "total_seconds": 3.759226193651557,
+      "report": {
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "matrix_bytes_read": 6392800,
+        "requested_rows": 97629,
+        "unique_rows": 70914
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 3,
+      "method": "independent",
+      "access_seconds": 5.716414655558765,
+      "downstream_seconds": 0.03544839099049568,
+      "total_seconds": 5.751863046549261,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "matrix_bytes_read": 9086108,
+        "requested_rows": 97629,
+        "unique_rows": 97629
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 4,
+      "method": "independent",
+      "access_seconds": 5.793497265316546,
+      "downstream_seconds": 0.03540425002574921,
+      "total_seconds": 5.828901515342295,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "matrix_bytes_read": 9086108,
+        "requested_rows": 97629,
+        "unique_rows": 97629
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 4,
+      "method": "joint",
+      "access_seconds": 3.735670200549066,
+      "downstream_seconds": 0.035858822986483574,
+      "total_seconds": 3.7715290235355496,
+      "report": {
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "matrix_bytes_read": 6392800,
+        "requested_rows": 97629,
+        "unique_rows": 70914
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 5,
+      "method": "independent",
+      "access_seconds": 5.69925160240382,
+      "downstream_seconds": 0.035420109517872334,
+      "total_seconds": 5.734671711921692,
+      "report": {
+        "source_scan_count": 5,
+        "matrix_batch_reads": 26,
+        "matrix_bytes_read": 9086108,
+        "requested_rows": 97629,
+        "unique_rows": 97629
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    },
+    {
+      "repeat": 5,
+      "method": "joint",
+      "access_seconds": 3.7012719763442874,
+      "downstream_seconds": 0.03539370000362396,
+      "total_seconds": 3.7366656763479114,
+      "report": {
+        "source_scan_count": 1,
+        "matrix_batch_reads": 18,
+        "matrix_bytes_read": 6392800,
+        "requested_rows": 97629,
+        "unique_rows": 70914
+      },
+      "response_fingerprints": {
+        "BRD3379": "8e9e8c121bbe31b7cc2fc0d0c39153115f4bf84b7c2f03ad9f9034cad6e9ac2f",
+        "Dabrafenib": "a8aaebf9b5abff3cd494984a4bc239868d5035d4ebde62e3b7926ad288d4a60a",
+        "Navitoclax": "bb9423b615bf7a6c3f226b72a6a31d86c3c60b0d0ed45e7af2903bb7c6aedac7",
+        "AZD5591": "b6e3d30c066a8e7b140539aee72b287c954c0e753ec83fd66c1247aeff0d7699",
+        "JQ1": "3d613c34a76fed9ba5a0675e29d9ab7036edc155b62004f4b3f105b07e4c4975"
+      }
+    }
+  ],
+  "notes": [
+    "Controls are matched independently for every treatment by cell_line and time.",
+    "The channel field is not treated as a universal batch key.",
+    "Response values are descriptive matched summaries, not a model correcting all experimental confounders.",
+    "matrix_bytes_read is decoded backend output rather than physical storage I/O."
+  ]
+}

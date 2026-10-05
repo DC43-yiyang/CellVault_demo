@@ -1,0 +1,75 @@
+{
+  "validation": "predefined overlapping spatial scopes",
+  "dataset": {
+    "title": "Squidpy MIBI-TOF example from Hartmann et al.",
+    "publication_doi": "10.1101/2020.01.17.909796",
+    "url": "https://exampledata.scverse.org/squidpy/mibitof.h5ad",
+    "sha256": "3f125c51695d78ed1c36d5485dc390ab400154d021f0c7715b89f8ee83978690",
+    "file_bytes": 20272897,
+    "shape": [
+      3309,
+      36
+    ]
+  },
+  "scope_design": {
+    "field_of_view_column": "library_id",
+    "specimen_column": "donor",
+    "scope_counts": {
+      "donor_specimen": 2,
+      "field_of_view": 3
+    },
+    "membership_edges": 6618,
+    "unique_cells": 3309,
+    "memberships_per_cell": 2,
+    "random_geometry": false
+  },
+  "preparation_seconds": 15.882173798978329,
+  "wall_seconds": 0.15280201844871044,
+  "report": {
+    "run_id": "2605a7170c6a444190a02e8e0970c49e",
+    "task_count": 1,
+    "source_scan_count": 1,
+    "matrix_batch_reads": 7,
+    "requested_rows": 3309,
+    "unique_rows": 3309,
+    "matrix_bytes_read": 966256,
+    "reuse_ratio": 1.0,
+    "elapsed_seconds": 0.1291876034811139,
+    "result_bytes": {
+      "predefined_spatial_scopes": 42618
+    },
+    "total_result_bytes": 42618,
+    "task_rows": {
+      "predefined_spatial_scopes": 3309
+    },
+    "task_memberships": {
+      "predefined_spatial_scopes": 6618
+    },
+    "overlap_rows": 0,
+    "redundant_rows": 0,
+    "memory_budget_bytes": null,
+    "peak_buffer_bytes": 0,
+    "execution_waves": 0,
+    "scan_plan": [],
+    "degradation_reasons": []
+  },
+  "result": {
+    "groups": 40,
+    "features": 36
+  },
+  "checks": {
+    "status": "passed",
+    "group_keys_match": true,
+    "n_cells_exact": true,
+    "count_nonzero_exact": true,
+    "sum_mean_rtol": 1e-06,
+    "sum_mean_atol": 1e-08,
+    "each_cell_read_once": true,
+    "each_cell_contributes_to_two_scopes": true
+  },
+  "notes": [
+    "library_id identifies author-provided fields of view.",
+    "donor identifies the containing specimen scope.",
+    "Each cell contributes once to its FOV and once to its donor scope while its matrix row is read once."
+  ]
+}

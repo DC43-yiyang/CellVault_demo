@@ -1,0 +1,145 @@
+{
+  "benchmark": "optimized CellVault multi-lineage fan-out",
+  "recorded_at": "2026-09-23",
+  "dataset": {
+    "title": "A single-cell and spatially resolved atlas of human breast cancers",
+    "doi": "10.1038/s41588-021-00911-1",
+    "geo_accession": "GSE176078",
+    "cellxgene_dataset_id": "9fddb063-056d-4202-8b8a-4b0ee531d3ce",
+    "cellxgene_dataset_version_id": "22a27631-aecf-463b-86c6-a8334a2f2cf2",
+    "download_url": "https://datasets.cellxgene.cziscience.com/22a27631-aecf-463b-86c6-a8334a2f2cf2.h5ad",
+    "sha256": "ef9e792e3e25a811af7778e38913fe0758fb887284899b47bdd54c8af0e91281",
+    "file_bytes": 843892052,
+    "n_obs": 100064,
+    "n_vars": 28468
+  },
+  "selection": {
+    "column": "celltype_major",
+    "lineages": {
+      "T/NK": {"values": ["T-cells"], "n_obs": 35214},
+      "B": {"values": ["B-cells", "Plasmablasts"], "n_obs": 6730},
+      "Stromal": {"values": ["CAFs", "Endothelial", "PVL"], "n_obs": 19601},
+      "Epithelial": {
+        "values": ["Cancer Epithelial", "Normal Epithelial"],
+        "n_obs": 28844
+      },
+      "Myeloid": {"values": ["Myeloid"], "n_obs": 9675}
+    }
+  },
+  "configuration": {
+    "repeats": 5,
+    "threads": 1,
+    "seed": 20260923,
+    "method_order_randomized": true,
+    "filesystem_cache_cleared": false,
+    "payload_slots": ["X", "obs", "var"],
+    "downstream_analysis_run": false
+  },
+  "optimized_store": {
+    "path": "benchmark_outputs/wu2021_breast_cancer/wu2021_optimized.cvdb",
+    "ingestion_seconds": 31.99,
+    "ingestion_peak_rss_mb": 502.0,
+    "file_bytes": 680376671,
+    "disk_usage_mib": 651,
+    "includes_raw_and_layers": true,
+    "csr_indices_dtype": "int32",
+    "csr_indptr_dtype": "int32"
+  },
+  "results": {
+    "cellvault-sql": {
+      "fanout_seconds": {
+        "median": 4.959748943336308,
+        "q1": 4.775973042473197,
+        "q3": 5.042108224704862,
+        "iqr": 0.26613518223166466,
+        "min": 4.513013808988035,
+        "max": 5.077441465109587
+      },
+      "select_seconds": {
+        "median": 0.8256807317957282,
+        "iqr": 0.008308997377753258
+      },
+      "materialize_seconds": {
+        "median": 4.141929406672716,
+        "iqr": 0.25666877720505
+      },
+      "including_open_seconds": {
+        "median": 4.979395817965269,
+        "iqr": 0.27054892387241125
+      },
+      "process_wall_seconds": {
+        "median": 7.209637015126646,
+        "iqr": 0.2521289838477969
+      },
+      "peak_rss_mb": {
+        "median": 1006.65234375,
+        "iqr": 20.38671875
+      },
+      "intermediate_bytes": 0
+    },
+    "cellvault-batch": {
+      "fanout_seconds": {
+        "median": 1.797350692562759,
+        "q1": 1.7906301403418183,
+        "q3": 1.8102268520742655,
+        "iqr": 0.019596711732447147,
+        "min": 1.787796906195581,
+        "max": 1.8294381853193045
+      },
+      "select_seconds": {
+        "median": 0.7353425407782197,
+        "iqr": 0.0037789978086948395
+      },
+      "materialize_seconds": {
+        "median": 1.0643740827217698,
+        "iqr": 0.017168820835649967
+      },
+      "including_open_seconds": {
+        "median": 1.8161119427531958,
+        "iqr": 0.02002632338553667
+      },
+      "process_wall_seconds": {
+        "median": 4.052376269362867,
+        "iqr": 0.043132406659424305
+      },
+      "peak_rss_mb": {
+        "median": 2195.7578125,
+        "iqr": 25.6328125
+      },
+      "intermediate_bytes": 0
+    }
+  },
+  "derived": {
+    "cellvault_sql_vs_batch_fanout_speedup": 2.759477582120845,
+    "cellvault_sql_vs_batch_including_open_speedup": 2.741789038849988,
+    "historical_cellvault_vs_batch_fanout_speedup": 5.08462688251298,
+    "historical_saved_anndata_vs_batch_fanout_speedup": 53.68646162453401,
+    "historical_saved_anndata_vs_batch_including_open_speedup": 77.02446250576945
+  },
+  "environment": {
+    "platform": "Linux-5.14.0-687.20.1.el9_8.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.6",
+    "logical_cpus": 256,
+    "packages": {
+      "cellvault": "0.1.0",
+      "anndata": "0.13.4",
+      "scanpy": "1.12.4",
+      "duckdb": "1.5.5",
+      "zarr": "3.4.0",
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1"
+    }
+  },
+  "validation": {
+    "all_lineages_cover_all_cells": true,
+    "ordered_cell_ids_match_between_methods": true,
+    "matrix_sha256_matches_between_methods": true
+  },
+  "limitations": [
+    "These are warm-cache measurements on a shared research filesystem; the operating-system page cache was not cleared.",
+    "Both methods materialized X, obs, and var. The optimized store also preserves raw and layers, but those slots were excluded from this timing payload.",
+    "Batch fan-out retains all lineage matrices concurrently and therefore trades higher peak RSS for lower runtime.",
+    "The historical 9.139-second CellVault result used the pre-optimization store and implementation; it is included only as a directional before/after reference."
+  ]
+}

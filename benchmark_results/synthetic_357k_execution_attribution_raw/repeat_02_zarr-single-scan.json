@@ -1,0 +1,5038 @@
+{
+  "method": "zarr-single-scan",
+  "source_shape": [
+    357000,
+    2000
+  ],
+  "source": "X",
+  "matrix_dtype": "float32",
+  "integral_input": false,
+  "phase_seconds": {
+    "import": 0.8841512072831392,
+    "open": 0.017799995839595795,
+    "grouping": 0.6870829500257969,
+    "matrix_read": 0.2734325807541609,
+    "dispatch_aggregation": 1.1324826795607805,
+    "finalize": 0.002838284708559513,
+    "framework_overhead": 0.0,
+    "scan": 1.405990513972938,
+    "validation": 0.022788729518651962,
+    "close": 0.03033100627362728
+  },
+  "aggregation_seconds": 2.0959117487072945,
+  "data_workflow_seconds": 2.1137117445468903,
+  "total_seconds": 3.053197106346488,
+  "peak_rss_mb": 467.2890625,
+  "access": {
+    "requested_rows": 1071000,
+    "unique_rows": 357000,
+    "row_reuse_factor": 3.0,
+    "row_reuse_fraction": 0.6666666666666667,
+    "source_scans": 1,
+    "logical_matrix_batch_reads": 11,
+    "matrix_bytes_returned": 287028044
+  },
+  "intermediate_artifact_bytes": 0,
+  "final_artifact_bytes": 21123520,
+  "tasks": {
+    "sample_cell_type": {
+      "name": "sample_cell_type",
+      "groupby": [
+        "sample",
+        "cell_type"
+      ],
+      "n_groups": 80,
+      "n_vars": 2000,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ]
+      ],
+      "group_keys_sha256": "3d2245d090e3a97d362336fb173d348dde1c0656510ba821766d2b5f9b754ae4",
+      "n_cells": [
+        5203,
+        5340,
+        907,
+        5355,
+        5410,
+        5361,
+        5210,
+        896,
+        5334,
+        5446,
+        5364,
+        5354,
+        863,
+        5440,
+        5380,
+        5341,
+        5437,
+        882,
+        5390,
+        5345,
+        5354,
+        5305,
+        863,
+        5421,
+        5408,
+        5374,
+        5360,
+        813,
+        5375,
+        5492,
+        5456,
+        5339,
+        835,
+        5355,
+        5388,
+        5388,
+        5293,
+        903,
+        5391,
+        5374,
+        5446,
+        5420,
+        855,
+        5151,
+        5414,
+        5451,
+        5508,
+        872,
+        5193,
+        5248,
+        5428,
+        5296,
+        884,
+        5411,
+        5292,
+        5404,
+        5453,
+        915,
+        5332,
+        5359,
+        5338,
+        5329,
+        874,
+        5299,
+        5304,
+        5316,
+        5384,
+        876,
+        5438,
+        5305,
+        5415,
+        5209,
+        894,
+        5310,
+        5276,
+        5341,
+        5374,
+        868,
+        5386,
+        5387
+      ],
+      "n_cells_sha256": "2fc4d36ce351fce38d9bf329dbae64f3addefb6da5cbe8b654d8b450c56d9c7d",
+      "var_names_sha256": "a2419d08ff26965c67e5cecd32c3309392930f347347e7962012158b6786370e",
+      "metrics": {
+        "sum": {
+          "shape": [
+            80,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 160000,
+          "sum": 107103456.0,
+          "sha256": "e6c7aa44e3c39b3371dbf761ed0904adc6e0a2f34506e4e783c716d7e7478013",
+          "array_key": "task_000_sum"
+        },
+        "mean": {
+          "shape": [
+            80,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 160000,
+          "sum": 23998.87188876554,
+          "sha256": "911a113c9bc47234615b1b8cdbebecd1014e3ab9f40dab460c1cecb2099e8374",
+          "array_key": "task_000_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            80,
+            2000
+          ],
+          "dtype": "int64",
+          "nnz": 160000,
+          "sum": 35700000.0,
+          "sha256": "2e7bb41a693749022cc19da9b1ec2ece3b462f45b264b856f6449779ff19bd8b",
+          "array_key": "task_000_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 3840640
+    },
+    "donor_cell_type": {
+      "name": "donor_cell_type",
+      "groupby": [
+        "donor",
+        "cell_type"
+      ],
+      "n_groups": 40,
+      "n_vars": 2000,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "donor_1"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_1"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_1"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_1"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_1"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_2"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_2"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_2"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_2"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_2"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_3"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_3"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_3"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_3"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_3"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_4"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_4"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_4"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_4"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_4"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_5"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_5"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_5"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_5"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_5"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_6"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_6"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_6"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_6"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_6"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_7"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_7"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_7"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_7"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_7"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_8"
+          },
+          {
+            "type": "string",
+            "value": "B cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_8"
+          },
+          {
+            "type": "string",
+            "value": "NK cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_8"
+          },
+          {
+            "type": "string",
+            "value": "T cell"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_8"
+          },
+          {
+            "type": "string",
+            "value": "myeloid"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "donor_8"
+          },
+          {
+            "type": "string",
+            "value": "stromal"
+          }
+        ]
+      ],
+      "group_keys_sha256": "111baa048d57199b7bdbfc62d21ce4e28ca73b362aadbf841f468ee5095d04ce",
+      "n_cells": [
+        10825,
+        10719,
+        1746,
+        10666,
+        10723,
+        10808,
+        10889,
+        1713,
+        10649,
+        10853,
+        10787,
+        10708,
+        1714,
+        10771,
+        10879,
+        10737,
+        10553,
+        1747,
+        10710,
+        10595,
+        10699,
+        10803,
+        1813,
+        10688,
+        10891,
+        10695,
+        10714,
+        1803,
+        10690,
+        10638,
+        10692,
+        10728,
+        1744,
+        10487,
+        10592,
+        10737,
+        10497,
+        1720,
+        10920,
+        10657
+      ],
+      "n_cells_sha256": "db7f86bff32c56eecd58bcfe2ed121df172b2f2644f84aa3ae19fa627b95b773",
+      "var_names_sha256": "a2419d08ff26965c67e5cecd32c3309392930f347347e7962012158b6786370e",
+      "metrics": {
+        "sum": {
+          "shape": [
+            40,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 80000,
+          "sum": 107103456.0,
+          "sha256": "82c451db268ecbbcbc4c8908ce1cca895628a9cde2a588d44df88612a597a192",
+          "array_key": "task_001_sum"
+        },
+        "mean": {
+          "shape": [
+            40,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 80000,
+          "sum": 11999.453879522325,
+          "sha256": "b18eb25c3b7c125240c213afa5ac7bd012cbc96c24ed7ddef14eb82cc7da1d9d",
+          "array_key": "task_001_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            40,
+            2000
+          ],
+          "dtype": "int64",
+          "nnz": 80000,
+          "sum": 35700000.0,
+          "sha256": "7b49c9c48eca3bf6c4bd139021f04bb5d68b578126aaf857c0a0f40cceb699cb",
+          "array_key": "task_001_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 1920320
+    },
+    "sample_cluster": {
+      "name": "sample_cluster",
+      "groupby": [
+        "sample",
+        "leiden"
+      ],
+      "n_groups": 320,
+      "n_vars": 2000,
+      "group_keys": [
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_1"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_10"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_11"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_12"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_13"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_14"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_15"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_16"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_2"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_3"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_4"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_5"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_6"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_7"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_8"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "0"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "10"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "11"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "12"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "13"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "14"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "15"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "16"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "17"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "18"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "19"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "2"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "3"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "4"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "5"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "6"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "7"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "8"
+          }
+        ],
+        [
+          {
+            "type": "string",
+            "value": "sample_9"
+          },
+          {
+            "type": "string",
+            "value": "9"
+          }
+        ]
+      ],
+      "group_keys_sha256": "ef11b4ea95ac82d29c0709f480d1e0173cce4f433d39b6b013fdfa72da70d9c4",
+      "n_cells": [
+        1072,
+        1166,
+        1117,
+        1150,
+        1074,
+        1080,
+        1093,
+        1136,
+        1196,
+        1096,
+        1113,
+        1146,
+        907,
+        1128,
+        1109,
+        1095,
+        1115,
+        1117,
+        1168,
+        1137,
+        1112,
+        1150,
+        1110,
+        1102,
+        1113,
+        1067,
+        1089,
+        1096,
+        1084,
+        1128,
+        1089,
+        1163,
+        896,
+        1134,
+        1158,
+        1157,
+        1171,
+        1177,
+        1109,
+        1142,
+        1136,
+        1048,
+        1159,
+        1075,
+        1178,
+        1170,
+        1180,
+        1130,
+        1178,
+        1136,
+        1155,
+        1106,
+        863,
+        1152,
+        1120,
+        1127,
+        1099,
+        1129,
+        1125,
+        1135,
+        1120,
+        1133,
+        1128,
+        1147,
+        1153,
+        1148,
+        1100,
+        1163,
+        1135,
+        1134,
+        1090,
+        1168,
+        882,
+        1118,
+        1118,
+        1195,
+        1134,
+        1132,
+        1093,
+        1104,
+        1102,
+        1083,
+        1146,
+        1139,
+        1152,
+        1178,
+        1107,
+        1189,
+        1118,
+        1113,
+        1159,
+        1129,
+        863,
+        1123,
+        1170,
+        1109,
+        1129,
+        1040,
+        1118,
+        1184,
+        1140,
+        1120,
+        1141,
+        1150,
+        1104,
+        1191,
+        1132,
+        1151,
+        1101,
+        1108,
+        1144,
+        1182,
+        813,
+        1032,
+        1173,
+        1175,
+        1131,
+        1205,
+        1116,
+        1105,
+        1114,
+        1132,
+        1073,
+        1104,
+        1117,
+        1180,
+        1109,
+        1076,
+        1162,
+        1139,
+        1148,
+        1202,
+        835,
+        1152,
+        1141,
+        1138,
+        1193,
+        1130,
+        1147,
+        1081,
+        1175,
+        1116,
+        1080,
+        1159,
+        1114,
+        1107,
+        1170,
+        1115,
+        1091,
+        1122,
+        1149,
+        1080,
+        903,
+        1085,
+        1119,
+        1160,
+        1142,
+        1123,
+        1160,
+        1179,
+        1151,
+        1059,
+        1124,
+        1127,
+        1095,
+        1191,
+        1134,
+        1148,
+        1073,
+        1122,
+        1124,
+        1117,
+        855,
+        1124,
+        1084,
+        1142,
+        1115,
+        1118,
+        1200,
+        1183,
+        1127,
+        1172,
+        1104,
+        1054,
+        1161,
+        1091,
+        1145,
+        1153,
+        1133,
+        1173,
+        1142,
+        1117,
+        872,
+        1117,
+        1154,
+        1143,
+        1066,
+        1128,
+        1094,
+        1126,
+        1099,
+        1145,
+        1184,
+        1146,
+        1166,
+        1110,
+        1058,
+        1135,
+        1176,
+        1157,
+        1152,
+        1102,
+        884,
+        1140,
+        1190,
+        1042,
+        1118,
+        1068,
+        1146,
+        1093,
+        1157,
+        1172,
+        1123,
+        1071,
+        1178,
+        1105,
+        1080,
+        1129,
+        1092,
+        1131,
+        1147,
+        1120,
+        915,
+        1140,
+        1157,
+        1166,
+        1126,
+        1110,
+        1112,
+        1232,
+        1128,
+        1119,
+        1150,
+        1110,
+        1091,
+        1148,
+        1140,
+        1112,
+        1085,
+        1101,
+        1043,
+        1105,
+        874,
+        1143,
+        1141,
+        1133,
+        1170,
+        1131,
+        1104,
+        1116,
+        1145,
+        1134,
+        1172,
+        1152,
+        1107,
+        1071,
+        1188,
+        1164,
+        1139,
+        1119,
+        1123,
+        1132,
+        876,
+        1149,
+        1060,
+        1077,
+        1115,
+        1126,
+        1131,
+        1139,
+        1069,
+        1084,
+        1102,
+        1150,
+        1114,
+        1049,
+        1104,
+        1108,
+        1062,
+        1174,
+        1131,
+        1109,
+        894,
+        1145,
+        1109,
+        1184,
+        1080,
+        1156,
+        1172,
+        1108,
+        1138,
+        1154,
+        1155,
+        1136,
+        1105,
+        1159,
+        1144,
+        1091,
+        1123,
+        1138,
+        1116,
+        1125,
+        868,
+        1070,
+        1141,
+        1154,
+        1078,
+        1217,
+        1111,
+        1133
+      ],
+      "n_cells_sha256": "79c809ef293956605f93355dfc9eab274335a04feaa96dd473a45a6de7c160a6",
+      "var_names_sha256": "a2419d08ff26965c67e5cecd32c3309392930f347347e7962012158b6786370e",
+      "metrics": {
+        "sum": {
+          "shape": [
+            320,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 640000,
+          "sum": 107103456.0,
+          "sha256": "6d439811d27efb0608e45468f74e90acedf1d5c7b5c1b354c68da32267d997ed",
+          "array_key": "task_002_sum"
+        },
+        "mean": {
+          "shape": [
+            320,
+            2000
+          ],
+          "dtype": "float64",
+          "nnz": 640000,
+          "sum": 96002.57335179849,
+          "sha256": "15b41ecf1e6f9f6a9c67560432effbc65022dc4a2f2fe6bf4e22714f7fb87243",
+          "array_key": "task_002_mean"
+        },
+        "count_nonzero": {
+          "shape": [
+            320,
+            2000
+          ],
+          "dtype": "int64",
+          "nnz": 640000,
+          "sum": 35700000.0,
+          "sha256": "58a4f5017216971dc7be7fe5c95cbeaffd5b3fecf150b0c7c43f2c23f9e005bf",
+          "array_key": "task_002_count_nonzero"
+        }
+      },
+      "final_artifact_bytes": 15362560
+    }
+  },
+  "validation_array_path": "/rsrch8/home/bcb/yniu2/yiyangNiu_working/CellVault_demo/benchmark_results/synthetic_357k_execution_attribution_raw/repeat_02_zarr-single-scan.npz",
+  "process_wall_seconds": 3.312426920980215,
+  "repeat": 2
+}
