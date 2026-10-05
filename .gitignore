@@ -20,5 +20,11 @@ env/
 .DS_Store
 .mplconfig/
 benchmark_outputs/
+benchmark_data/
 data/cache_busters/
 data/integrated.h5ad
+
+# Local agent config, history and credentials
+.claude/
+.codex/
+.envrc
