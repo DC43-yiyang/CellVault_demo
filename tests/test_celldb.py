@@ -11,7 +11,6 @@ from scipy import sparse
 
 from cellvault.celldb import CellDB, _convert_categoricals
 
-
 # ── _convert_categoricals ──────────────────────────────────────────
 
 
@@ -51,11 +50,15 @@ class TestCellDBCreation:
         assert cdb.n_vars == small_adata.n_vars
         cdb.close()
 
-    def test_from_anndata_overwrites(self, tmp_path, small_adata):
+    def test_from_anndata_requires_explicit_overwrite(self, tmp_path, small_adata):
         path = str(tmp_path / "overwrite.cvdb")
         cdb1 = CellDB.from_anndata(small_adata, path)
         cdb1.close()
-        cdb2 = CellDB.from_anndata(small_adata, path)
+
+        with pytest.raises(FileExistsError, match="overwrite=True"):
+            CellDB.from_anndata(small_adata, path)
+
+        cdb2 = CellDB.from_anndata(small_adata, path, overwrite=True)
         assert cdb2.n_obs == small_adata.n_obs
         cdb2.close()
 

@@ -5,8 +5,8 @@ import pandas as pd
 import pytest
 from scipy import sparse
 
+import cellvault.backend as backend_module
 from cellvault.backend import DuckDBZarrBackend, _serialize_uns
-
 
 # ── obs (DuckDB) ────────────────────────────────────────────────────
 
@@ -49,6 +49,38 @@ class TestObsOperations:
         assert result.loc["b", "score"] == 99.0
         assert result.loc["a", "score"] == 1.0
 
+    def test_update_obs_rejects_missing_and_duplicate_ids(self, backend):
+        df = pd.DataFrame({"_index": ["a", "b", "c"], "score": [1.0, 2.0, 3.0]})
+        backend.write_obs(df)
+        with pytest.raises(KeyError, match="missing or non-unique"):
+            backend.update_obs("score", ["missing"], [4.0])
+        with pytest.raises(ValueError, match="duplicate"):
+            backend.update_obs("score", ["a", "a"], [4.0, 5.0])
+
+    def test_update_obs_where(self, backend):
+        df = pd.DataFrame(
+            {
+                "_index": ["a", "b", "c", "d"],
+                "group": ["T", "B", "T", "NK"],
+                "review": ["", "", "", ""],
+            }
+        )
+        backend.write_obs(df)
+
+        updated = backend.update_obs_where("review", "yes", '"group" = ?', ["T"])
+
+        result = backend.read_obs()
+        assert updated == 2
+        assert result.loc[["a", "c"], "review"].tolist() == ["yes", "yes"]
+        assert result.loc[["b", "d"], "review"].tolist() == ["", ""]
+
+    def test_update_obs_where_can_change_predicate_column(self, backend):
+        df = pd.DataFrame({"_index": ["a", "b", "c"], "group": ["T", "B", "T"]})
+        backend.write_obs(df)
+        updated = backend.update_obs_where("group", "T refined", '"group" = ?', ["T"])
+        assert updated == 2
+        assert backend.read_obs()["group"].tolist() == ["T refined", "B", "T refined"]
+
     def test_count_obs(self, backend):
         df = pd.DataFrame({"_index": ["a", "b", "c"], "x": [1, 2, 3]})
         backend.write_obs(df)
@@ -56,6 +88,11 @@ class TestObsOperations:
 
     def test_count_obs_empty(self, backend):
         assert backend.count_obs() == 0
+
+    def test_write_obs_rejects_existing_aligned_shape_mismatch(self, backend):
+        backend.write_obsm("X_pca", np.zeros((2, 3)))
+        with pytest.raises(ValueError, match="obsm"):
+            backend.write_obs(pd.DataFrame({"_index": ["a", "b", "c"]}))
 
 
 # ── add_obs_column type inference ───────────────────────────────────
@@ -123,6 +160,14 @@ class TestVarOperations:
     def test_count_vars_empty(self, backend):
         assert backend.count_vars() == 0
 
+    def test_count_vars_supports_quote_in_path(self, tmp_path):
+        quoted_backend = DuckDBZarrBackend(str(tmp_path / "quote's.cvdb"))
+        try:
+            quoted_backend.write_var(pd.DataFrame(index=["g0", "g1"]))
+            assert quoted_backend.count_vars() == 2
+        finally:
+            quoted_backend.close()
+
 
 # ── X (Zarr) ───────────────────────────────────────────────────
 
@@ -159,6 +204,91 @@ class TestXOperations:
         result = backend.read_X()
         np.testing.assert_array_equal(result, X2)
 
+    @pytest.mark.parametrize("kind", ["dense", "sparse"])
+    def test_subset_rows_columns_preserve_order_and_duplicates(self, backend, kind):
+        dense = np.arange(42).reshape(7, 6)
+        matrix = sparse.csr_matrix(dense) if kind == "sparse" else dense
+        backend.write_X(matrix)
+
+        result = backend.read_X([5, 1, 5, 0], [4, 1])
+        result = result.toarray() if sparse.issparse(result) else result
+
+        np.testing.assert_array_equal(result, dense[np.ix_([5, 1, 5, 0], [4, 1])])
+
+    @pytest.mark.parametrize("kind", ["dense", "sparse"])
+    def test_subset_empty_rows(self, backend, kind):
+        dense = np.arange(12).reshape(3, 4)
+        matrix = sparse.csr_matrix(dense) if kind == "sparse" else dense
+        backend.write_X(matrix)
+        assert backend.read_X([], [1, 3]).shape == (0, 2)
+
+    def test_sparse_contiguous_rows_bypass_range_gather(self, backend, monkeypatch):
+        dense = np.asarray(
+            [
+                [1, 0, 2],
+                [0, 0, 0],
+                [0, 3, 0],
+                [0, 0, 0],
+                [4, 0, 5],
+                [0, 6, 0],
+            ]
+        )
+        backend.write_X(sparse.csr_matrix(dense))
+        monkeypatch.setattr(
+            backend_module,
+            "_read_array_ranges",
+            lambda *args, **kwargs: pytest.fail("used sparse range gather"),
+        )
+
+        result = backend.read_X([1, 2, 3, 4])
+
+        np.testing.assert_array_equal(result.toarray(), dense[1:5])
+
+    def test_sparse_gather_preserves_duplicate_and_noncontiguous_rows(
+        self, backend, monkeypatch
+    ):
+        dense = np.asarray(
+            [
+                [1, 0, 2],
+                [0, 0, 0],
+                [0, 3, 0],
+                [0, 0, 0],
+                [4, 0, 5],
+                [0, 6, 0],
+            ]
+        )
+        backend.write_X(sparse.csr_matrix(dense))
+        range_reads = 0
+        original_read = backend_module._read_array_ranges
+
+        def counted_read(*args, **kwargs):
+            nonlocal range_reads
+            range_reads += 1
+            return original_read(*args, **kwargs)
+
+        monkeypatch.setattr(backend_module, "_read_array_ranges", counted_read)
+
+        duplicate_rows = backend.read_X([4, 1, 4, 0])
+        noncontiguous_rows = backend.read_X([0, 2, 5])
+
+        assert range_reads == 4
+        np.testing.assert_array_equal(
+            duplicate_rows.toarray(),
+            dense[[4, 1, 4, 0]],
+        )
+        np.testing.assert_array_equal(
+            noncontiguous_rows.toarray(),
+            dense[[0, 2, 5]],
+        )
+
+    def test_write_X_validates_obs_and_var_shape(self, backend):
+        backend.write_obs(pd.DataFrame({"_index": ["a", "b"]}))
+        backend.write_var(pd.DataFrame(index=["g0", "g1", "g2"]))
+        with pytest.raises(ValueError, match="obs has 2 rows"):
+            backend.write_X(np.zeros((3, 3)))
+        with pytest.raises(ValueError, match="var has 3 rows"):
+            backend.write_X(np.zeros((2, 4)))
+
 
 # ── obsm (Zarr per key) ────────────────────────────────────────────
 
@@ -188,6 +318,15 @@ class TestObsmOperations:
         result = backend.read_obsm("X_pca")
         np.testing.assert_array_equal(result, d2)
 
+    def test_invalid_storage_key_rejected(self, backend):
+        with pytest.raises(ValueError, match="invalid storage key"):
+            backend.write_obsm("../outside", np.zeros((2, 2)))
+
+    def test_write_obsm_validates_obs_shape(self, backend):
+        backend.write_obs(pd.DataFrame({"_index": ["a", "b", "c"]}))
+        with pytest.raises(ValueError, match="obs has 3 rows"):
+            backend.write_obsm("X_pca", np.zeros((2, 2)))
+
 
 # ── obsp (Zarr per key, sparse) ────────────────────────────────────
 
@@ -213,6 +352,13 @@ class TestObspOperations:
 
     def test_read_obsp_nonexistent(self, backend):
         assert backend.read_obsp("nonexistent") is None
+
+    def test_write_obsp_validates_square_and_obs_shape(self, backend):
+        with pytest.raises(ValueError, match="square"):
+            backend.write_obsp("connectivities", np.zeros((2, 3)))
+        backend.write_obs(pd.DataFrame({"_index": ["a", "b", "c"]}))
+        with pytest.raises(ValueError, match="obs has 3 rows"):
+            backend.write_obsp("connectivities", np.zeros((2, 2)))
 
 
 # ── uns (JSON) ──────────────────────────────────────────────────────
@@ -271,6 +417,12 @@ class TestSerializeUns:
 
 
 class TestBackendLifecycle:
+    def test_duckdb_connection_uses_one_worker(self, backend):
+        threads = backend._conn.execute("SELECT current_setting('threads')").fetchone()[
+            0
+        ]
+        assert threads == 1
+
     def test_close_and_reopen(self, tmp_path):
         path = str(tmp_path / "lifecycle.cvdb")
         b = DuckDBZarrBackend(path)

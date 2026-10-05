@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Reproducibility-oriented data system for single-cell analysis"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "anndata>=0.10",
     "duckdb>=1.0",
@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-scanpy = ["scanpy>=1.9"]
+scanpy = ["scanpy[leiden]>=1.10"]
 dev = ["pytest>=7.0", "pytest-cov"]
 
 [tool.hatch.build.targets.wheel]

@@ -7,16 +7,30 @@ Before (4-step pipeline at 1M cells): 4x full materialization = ~32GB I/O
 After: each step loads only its required slots = ~70-90% I/O reduction
 """
 
-import scanpy as sc
 import numpy as np
-from typing import Optional
+import scanpy as sc
 
+from .celldb import CellDB, CellView
 from .registry import NameRegistry
-from .validator import PipelineStateValidator, CellVaultStateError
-from .celldb import CellDB
+from .validator import PipelineStateValidator
+
+AnalysisTarget = CellDB | CellView
 
 
-def pca(cdb: CellDB, n_comps: int = 50, integration: Optional[str] = None, **kwargs):
+def _provenance_params(target: AnalysisTarget, params: dict) -> dict:
+    if isinstance(target, CellView):
+        return {
+            **params,
+            "view": target.name,
+            "where": target.where,
+            "n_obs": target.n_obs,
+        }
+    return params
+
+
+def pca(
+    cdb: AnalysisTarget, n_comps: int = 50, integration: str | None = None, **kwargs
+):
     """Run PCA with canonical naming and state validation.
 
     Loads: X, obs, var (skips obsm, obsp, uns)
@@ -25,7 +39,14 @@ def pca(cdb: CellDB, n_comps: int = 50, integration: Optional[str] = None, **kwa
     PipelineStateValidator.validate("pca", state)
 
     # Only load X + obs + var — skip all embeddings, graphs, and uns
-    adata = cdb.to_anndata(slots={"X", "obs", "var"})
+    layer = kwargs.get("layer")
+    slots = {"X", "obs", "var"}
+    if layer is not None:
+        slots.add("layers")
+    adata = cdb.to_anndata(
+        slots=slots,
+        layer_keys=[layer] if layer is not None else None,
+    )
     sc.tl.pca(adata, n_comps=n_comps, **kwargs)
 
     key = NameRegistry.get("pca", integration)
@@ -33,15 +54,30 @@ def pca(cdb: CellDB, n_comps: int = 50, integration: Optional[str] = None, **kwa
 
     # Store PCA variance info in uns
     uns = cdb.uns
-    uns[f"{key}_variance_ratio"] = adata.uns.get("pca", {}).get("variance_ratio", np.array([])).tolist()
+    uns[f"{key}_variance_ratio"] = (
+        adata.uns.get("pca", {}).get("variance_ratio", np.array([])).tolist()
+    )
     cdb.uns = uns
 
-    cdb.provenance.log("pca", "obsm", key=key, params={"n_comps": n_comps, "integration": integration})
+    cdb.provenance.log(
+        "pca",
+        "obsm",
+        key=key,
+        params=_provenance_params(
+            cdb,
+            {"n_comps": n_comps, "integration": integration},
+        ),
+    )
     return key
 
 
-def neighbors(cdb: CellDB, n_neighbors: int = 15, integration: Optional[str] = None,
-              use_rep: Optional[str] = None, **kwargs):
+def neighbors(
+    cdb: AnalysisTarget,
+    n_neighbors: int = 15,
+    integration: str | None = None,
+    use_rep: str | None = None,
+    **kwargs,
+):
     """Run neighbors with canonical naming and state validation.
 
     Loads: obs + one obsm key (PCA embedding) + uns
@@ -74,16 +110,26 @@ def neighbors(cdb: CellDB, n_neighbors: int = 15, integration: Optional[str] = N
 
     # Store neighbor params in uns (include 'method' for Scanpy compat)
     uns = cdb.uns
-    uns["neighbors"] = {"connectivities_key": connectivities_key, "distances_key": distances_key,
-                        "params": {"n_neighbors": n_neighbors, "use_rep": use_rep, "method": "umap"}}
+    uns["neighbors"] = {
+        "connectivities_key": connectivities_key,
+        "distances_key": distances_key,
+        "params": {"n_neighbors": n_neighbors, "use_rep": use_rep, "method": "umap"},
+    }
     cdb.uns = uns
 
-    cdb.provenance.log("neighbors", "obsp", key=conn_key,
-                       params={"n_neighbors": n_neighbors, "use_rep": use_rep})
+    cdb.provenance.log(
+        "neighbors",
+        "obsp",
+        key=conn_key,
+        params=_provenance_params(
+            cdb,
+            {"n_neighbors": n_neighbors, "use_rep": use_rep},
+        ),
+    )
     return conn_key
 
 
-def umap(cdb: CellDB, integration: Optional[str] = None, **kwargs):
+def umap(cdb: AnalysisTarget, integration: str | None = None, **kwargs):
     """Run UMAP with canonical naming and state validation.
 
     Loads: obs + var + obsp (connectivities/distances) + uns + use_rep obsm key
@@ -114,11 +160,24 @@ def umap(cdb: CellDB, integration: Optional[str] = None, **kwargs):
     key = NameRegistry.get("umap", integration)
     cdb.obsm[key] = adata.obsm["X_umap"]
 
-    cdb.provenance.log("umap", "obsm", key=key, params={"integration": integration})
+    cdb.provenance.log(
+        "umap",
+        "obsm",
+        key=key,
+        params=_provenance_params(cdb, {"integration": integration}),
+    )
     return key
 
 
-def leiden(cdb: CellDB, resolution: float = 1.0, integration: Optional[str] = None, **kwargs):
+def leiden(
+    cdb: AnalysisTarget,
+    resolution: float = 1.0,
+    integration: str | None = None,
+    *,
+    write_back: bool | None = None,
+    output_column: str | None = None,
+    **kwargs,
+):
     """Run Leiden clustering with canonical naming and state validation.
 
     Loads: obs + obsp (connectivities/distances) + uns (neighbor params)
@@ -154,18 +213,30 @@ def leiden(cdb: CellDB, resolution: float = 1.0, integration: Optional[str] = No
             continue
 
     key = NameRegistry.get("leiden", integration)
+    target_column = output_column or key
+    if write_back is None:
+        write_back = isinstance(cdb, CellDB)
 
-    # Use add_obs_column for single-column write instead of full obs rewrite.
-    # This avoids: read full obs → add column → DROP + CREATE entire table.
     values = adata.obs["leiden"].values
-    if key in cdb._backend.obs_columns:
-        # Column exists: update in-place
-        obs = cdb.obs
-        obs[key] = values
-        cdb.obs = obs
+    if isinstance(cdb, CellView):
+        cdb._obs[target_column] = values
+        if write_back:
+            cdb.update_obs(target_column, values, create=True)
     else:
-        # New column: efficient ALTER TABLE + UPDATE
-        cdb._backend.add_obs_column(key, values)
+        if target_column in cdb._backend.obs_columns:
+            obs = cdb.obs
+            obs[target_column] = values
+            cdb.obs = obs
+        else:
+            cdb._backend.add_obs_column(target_column, values)
 
-    cdb.provenance.log("leiden", "obs", key=key, params={"resolution": resolution})
-    return key
+    cdb.provenance.log(
+        "leiden",
+        "obs",
+        key=target_column,
+        params=_provenance_params(
+            cdb,
+            {"resolution": resolution, "write_back": write_back},
+        ),
+    )
+    return target_column
